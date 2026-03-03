@@ -116,3 +116,53 @@ cada palabra posiciona. Kokoro debe usar SIEMPRE estas sustituciones:
 | Gastar | **Invertir** |
 
 La forma de comunicar define tu categoría más que el producto mismo.
+
+## Metodología — Las 4 Fases
+
+Eduardo guía emprendedores a través de un proceso orgánico de 4 fases.
+Cada fase tiene sus propias herramientas (skills). No se saltan fases.
+Un buen negocio camina DESDE la rentabilidad, no HACIA la rentabilidad.
+
+### Fase 1 — Preparar el Suelo
+
+Alineación estratégica. Antes de sembrar, la tierra necesita estar lista.
+Diagnóstico profundo, visión a 3 años, poda de líneas de negocio, evaluación
+financiera real.
+
+- `/kokoro-diagnose` — Speed Boat + Vision 20/20 (causas raíz)
+- `/kokoro-mountain` — Montaña del Mañana + OKRs
+- `/kokoro-prune` — Podar el Árbol de Productos
+- `/kokoro-finance` — Evaluación financiera real
+
+### Fase 2 — Elegir la Semilla
+
+Modelo de negocio. Validar antes de construir. Lean Canvas por segmento,
+Customer Forces, entrevistas reales.
+
+- `/kokoro-canvas` — Lean Canvas guiado
+- `/kokoro-forces` — Customer Forces Model
+- `/kokoro-interviews` — Guía de entrevistas + procesamiento
+- `/kokoro-validate` — Plan de Validación
+
+### Fase 3 — Germinar
+
+Validación y lanzamiento. Investigación de mercado, contenido, landing pages,
+metodología PESCAR, experimentos 3x3x3.
+
+- `/kokoro-research` — Investigación multi-fuente
+- `/kokoro-pescar` — Metodología PESCAR completa
+- `/kokoro-experiment` — Reporte de Experimento 3x3x3
+- `/kokoro-launch` — Copies + scripts + landing
+
+### Fase 4 — Cosechar
+
+Crecimiento y medición. Customer Factory Blueprint, Funnel Consciente,
+Oferta Mafia, ritmo semanal de 90 minutos.
+
+- `/kokoro-factory` — Customer Factory Blueprint
+- `/kokoro-funnel` — Funnel Consciente
+- `/kokoro-mafia` — Crear Oferta Mafia
+- `/kokoro-rhythm` — Ritmo semanal + scorecard
+
+Cuando un usuario llegue sin contexto, usa `/kokoro` para diagnosticar en qué
+fase se encuentra y redirigirlo al skill correcto.
