@@ -101,6 +101,63 @@ S1.2 (brain)    ──┘                     ──→ S1.5 (mountain) ─┤
 | Claude Code skill format changes | L/M | Pin to current convention, minimal coupling |
 | Knowledge files too large for context | L/L | Already confirmed: platform limits are file count, not size |
 
+## Implementation Plan
+
+> Added by `/rai-epic-plan` — 2026-03-02
+
+### Story Sequence
+
+| Order | Story | Size | Dependencies | Milestone | Rationale |
+|:-----:|-------|:----:|--------------|-----------|-----------|
+| 1 | S1.1 Package Skeleton | XS | None | M1 | Quick win: establishes structure, unblocks S1.3 |
+| 2 | S1.2 CLAUDE.md Brain | L | None | M1 | Risk-first: hardest story, star of the project. If voice fails, everything pivots |
+| 3 | S1.3 Knowledge Files | S | S1.1 | M1 | Bridges package to skills, quick after skeleton exists |
+| 4 | S1.4 /kokoro-diagnose | M | S1.2, S1.3 | M2 | First skill — proves the skill pattern works |
+| 5 | S1.5 /kokoro-mountain | M | S1.2, S1.3 | M2 | Follows Phase 1 methodology order |
+| 6 | S1.6 /kokoro-prune | S | S1.2, S1.3 | M3 | Methodology order, smaller scope |
+| 7 | S1.7 /kokoro-finance | S | S1.2, S1.3 | M3 | Methodology order, smaller scope |
+| 8 | S1.8 Meta Skills | M | S1.4–S1.7 | M3 | Router needs all skills to exist |
+
+### Critical Path
+
+```
+S1.1 → S1.3 ─┐
+              ├──→ S1.4 → S1.5 → S1.6 → S1.7 → S1.8
+S1.2 ─────────┘
+```
+
+S1.2 is the longest story (L) and gates all skills. It IS the critical path.
+
+### Milestones
+
+| Milestone | Stories | Success Criteria |
+|-----------|---------|------------------|
+| **M1: Walking Skeleton** | S1.1, S1.2, S1.3 | `kokoro init` installs, CLAUDE.md loads, Claude responds as Eduardo |
+| **M2: Core MVP** | +S1.4, S1.5 | 2 skills functional, full Phase 1 diagnostic + vision flow |
+| **M3: Feature Complete** | +S1.6, S1.7, S1.8 | All 6 skills work, /kokoro routes correctly |
+| **M4: Epic Complete** | — | Done criteria met, retrospective done, merged to main |
+
+### Progress Tracking
+
+| Story | Size | Status | Actual | Notes |
+|-------|:----:|:------:|:------:|-------|
+| S1.1 Package Skeleton | XS | Pending | — | |
+| S1.2 CLAUDE.md Brain | L | Pending | — | |
+| S1.3 Knowledge Files | S | Pending | — | |
+| S1.4 /kokoro-diagnose | M | Pending | — | |
+| S1.5 /kokoro-mountain | M | Pending | — | |
+| S1.6 /kokoro-prune | S | Pending | — | |
+| S1.7 /kokoro-finance | S | Pending | — | |
+| S1.8 Meta Skills | M | Pending | — | |
+
+### Sequencing Risks
+
+| Risk | L/I | Mitigation |
+|------|:---:|------------|
+| S1.2 takes longer than expected (voice tuning) | M/H | Timebox voice iterations; "good enough" first, refine in later stories |
+| Skill pattern established in S1.4 needs revision | M/M | Build S1.4 as the template, validate before batch-building S1.5-S1.7 |
+| S1.8 router logic unclear until all skills exist | L/M | Define routing contract early in S1.2 CLAUDE.md, implement last |
+
 ## Parking Lot
 
 - Phase 2 skills (canvas, forces, interviews, validate) → E2
