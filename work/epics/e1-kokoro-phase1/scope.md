@@ -14,7 +14,7 @@ Deliver an installable Kokoro package that clones Eduardo Muñoz Luna's voice an
 
 | ID | Story | Size | Status | Description |
 |----|-------|:----:|:------:|-------------|
-| S1.1 | Package Skeleton | XS | Pending | pyproject.toml, src layout, `kokoro init` CLI |
+| S1.1 | Package Skeleton | XS | Done | pyproject.toml, src layout, `kokoro init` CLI |
 | S1.2 | CLAUDE.md Brain | L | Pending | Eduardo's voice clone, methodology, anti-patterns |
 | S1.3 | Knowledge Files | S | Pending | Methodology references as package data |
 | S1.4 | /kokoro-diagnose | M | Pending | Speed Boat + Vision 20/20 guided session |
@@ -55,7 +55,7 @@ Deliver an installable Kokoro package that clones Eduardo Muñoz Luna's voice an
 
 **Epic complete:**
 - [ ] All stories complete (S1.1–S1.8)
-- [ ] `pip install git+https://github.com/lunitomx/kokoro.git` succeeds
+- [ ] `pip install git+https://github.com/lunitomx/nitido.git` succeeds
 - [ ] `kokoro init` creates .claude/ with all extension files
 - [ ] Claude Code loads CLAUDE.md and responds in Eduardo's voice
 - [ ] All 6 skills discoverable and executable
