@@ -96,6 +96,48 @@ class TestInitExistingClaude:
         assert (commands_dir / "my-skill.md").read_text() == "user skill"
 
 
+class TestKnowledgeFiles:
+    """Scenario: Knowledge file installation and update behavior."""
+
+    def test_installs_kokoro_knowledge_files(self, tmp_target: Path) -> None:
+        tmp_target.mkdir()
+        init(target=tmp_target)
+        knowledge_dir = tmp_target / ".claude" / "knowledge"
+        kokoro_files = [
+            f for f in knowledge_dir.iterdir()
+            if f.name.startswith("kokoro-")
+        ]
+        assert len(kokoro_files) >= 5
+
+    def test_preserves_user_knowledge_files(self, tmp_target: Path) -> None:
+        tmp_target.mkdir()
+        knowledge_dir = tmp_target / ".claude" / "knowledge"
+        knowledge_dir.mkdir(parents=True)
+        (knowledge_dir / "my-notes.md").write_text("user notes")
+
+        init(target=tmp_target)
+
+        assert (knowledge_dir / "my-notes.md").read_text() == "user notes"
+
+    def test_overwrites_kokoro_files_on_rerun(self, tmp_target: Path) -> None:
+        tmp_target.mkdir()
+        knowledge_dir = tmp_target / ".claude" / "knowledge"
+        knowledge_dir.mkdir(parents=True)
+        (knowledge_dir / "kokoro-metodologia.md").write_text("old version")
+
+        init(target=tmp_target)
+
+        content = (knowledge_dir / "kokoro-metodologia.md").read_text()
+        assert content != "old version"
+        assert len(content) > 100
+
+    def test_does_not_copy_gitkeep(self, tmp_target: Path) -> None:
+        tmp_target.mkdir()
+        init(target=tmp_target)
+        knowledge_dir = tmp_target / ".claude" / "knowledge"
+        assert not (knowledge_dir / ".gitkeep").exists()
+
+
 class TestInitDefaultTarget:
     """Scenario: kokoro init with no target uses cwd."""
 
