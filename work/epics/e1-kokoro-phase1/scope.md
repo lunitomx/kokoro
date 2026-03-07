@@ -17,7 +17,7 @@ Deliver an installable Kokoro package that clones Eduardo Muñoz Luna's voice an
 | S1.1 | Package Skeleton | XS | Done | pyproject.toml, src layout, `kokoro init` CLI |
 | S1.2 | CLAUDE.md Brain | L | Done | Eduardo's voice clone, methodology, anti-patterns |
 | S1.3 | Knowledge Files | S | Done | Methodology references as package data |
-| S1.4 | /kokoro-diagnose | M | Pending | Speed Boat + Vision 20/20 guided session |
+| S1.4 | /kokoro-diagnose | M | Done | Speed Boat + Vision 20/20 guided session |
 | S1.5 | /kokoro-mountain | M | Pending | Montaña del Mañana + OKRs |
 | S1.6 | /kokoro-prune | S | Pending | Prune the Product Tree guided session |
 | S1.7 | /kokoro-finance | S | Pending | Financial assessment guided session |
@@ -144,7 +144,7 @@ S1.2 is the longest story (L) and gates all skills. It IS the critical path.
 | S1.1 Package Skeleton | XS | Done | XS | SES-002 |
 | S1.2 CLAUDE.md Brain | L | Done | M | SES-002/003, 2x velocity |
 | S1.3 Knowledge Files | S | Done | 20 min | 1.75x velocity |
-| S1.4 /kokoro-diagnose | M | Pending | — | |
+| S1.4 /kokoro-diagnose | M | Done | S | |
 | S1.5 /kokoro-mountain | M | Pending | — | |
 | S1.6 /kokoro-prune | S | Pending | — | |
 | S1.7 /kokoro-finance | S | Pending | — | |
