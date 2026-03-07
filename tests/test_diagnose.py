@@ -14,7 +14,8 @@ class TestSkillFileExists:
     """AC1: Skill file exists at the correct path."""
 
     def test_skill_file_exists(self) -> None:
-        assert SKILL_PATH.is_file(), "kokoro-diagnose.md must exist in extension/.claude/commands/"
+        msg = "kokoro-diagnose.md must exist in extension/.claude/commands/"
+        assert SKILL_PATH.is_file(), msg
 
 
 class TestSpeedBoatContent:
@@ -35,7 +36,8 @@ class TestSpeedBoatContent:
 
     def test_mentions_rocks(self, content: str) -> None:
         # rocks = risks in the Speed Boat metaphor
-        assert "roca" in content.lower() or "riesgo" in content.lower() or "rock" in content.lower()
+        lower = content.lower()
+        assert "roca" in lower or "riesgo" in lower or "rock" in lower
 
 
 class TestVision2020Content:
@@ -55,7 +57,9 @@ class TestVision2020Content:
         assert "borrosa" in content.lower() or "blurry" in content.lower()
 
     def test_mentions_blind_spots(self, content: str) -> None:
-        assert "punto" in content.lower() and "ciego" in content.lower() or "blind" in content.lower()
+        lower = content.lower()
+        has_punto_ciego = "punto" in lower and "ciego" in lower
+        assert has_punto_ciego or "blind" in lower
 
 
 class TestDiagnosticSummary:
@@ -69,7 +73,8 @@ class TestDiagnosticSummary:
         assert "resumen" in content.lower() or "summary" in content.lower()
 
     def test_has_action_plan(self, content: str) -> None:
-        assert "accion" in content.lower() or "action" in content.lower() or "plan" in content.lower()
+        lower = content.lower()
+        assert "accion" in lower or "action" in lower or "plan" in lower
 
 
 class TestEduardoVoice:
@@ -81,12 +86,16 @@ class TestEduardoVoice:
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
-        assert "invitación" in content.lower() or "invitacion" in content.lower() or "permiso" in content.lower()
+        lower = content.lower()
+        assert "invitación" in lower or "invitacion" in lower or "permiso" in lower
 
     def test_uses_eduardo_vocabulary(self, content: str) -> None:
         """Eduardo never says 'problema', says 'oportunidad' or 'reto'."""
         # Check for at least one Eduardo vocabulary term
-        eduardo_terms = ["inversión", "inversion", "creación", "creacion", "invitado", "montaña", "montana"]
+        eduardo_terms = [
+            "inversión", "inversion", "creación", "creacion",
+            "invitado", "montaña", "montana",
+        ]
         found = any(term in content.lower() for term in eduardo_terms)
         assert found, "Skill should use Eduardo's vocabulary"
 
