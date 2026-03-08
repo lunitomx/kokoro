@@ -1,0 +1,62 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-07T23:00:00Z'
+story: 'S1.7'
+epic: 'E1'
+content:
+  summary: 'Create kokoro-finance.md skill that guides entrepreneurs through financial assessment using Eduardo''s voice and methodology.'
+  complexity: simple
+  acceptance_criteria:
+    - id: AC1
+      description: 'kokoro-finance.md exists in extension/.claude/commands/'
+      verifiable: true
+    - id: AC2
+      description: 'Skill guides financial inventory per product/service (revenue, costs, margin, clients)'
+      verifiable: true
+    - id: AC3
+      description: 'Skill covers acquisition analysis (CPA, channels, conversion rates)'
+      verifiable: true
+    - id: AC4
+      description: 'Skill references key metrics (CPA, ROI, conversion rate, LTV)'
+      verifiable: true
+    - id: AC5
+      description: 'Skill includes sector-specific budget benchmarks'
+      verifiable: true
+    - id: AC6
+      description: 'Skill produces 90-day validation plan'
+      verifiable: true
+    - id: AC7
+      description: 'kokoro init copies skill to .claude/commands/'
+      verifiable: true
+    - id: AC8
+      description: 'All tests pass, pyright + ruff clean'
+      verifiable: true
+  integration_points:
+    - module: 'extension.claude.commands'
+      change_type: new
+      files: ['extension/.claude/commands/kokoro-finance.md']
+    - module: 'tests'
+      change_type: modification
+      files: ['tests/test_finance.py']
+  decisions:
+    - id: D1
+      choice: 'Single markdown file following S1.4/S1.5/S1.6 proven pattern'
+      rationale: 'PAT-L-001 skill file pattern validated in S1.4, S1.5, S1.6'
+      alternatives_considered: ['multi-file skill']
+    - id: D2
+      choice: 'No CLI changes needed'
+      rationale: '_copy_dir_no_overwrite already handles commands/'
+      alternatives_considered: []
+    - id: D3
+      choice: 'Knowledge reference via context loading'
+      rationale: 'Claude Code loads .claude/knowledge/ automatically'
+      alternatives_considered: ['inline methodology']
+    - id: D4
+      choice: '4 exercises matching knowledge file structure'
+      rationale: 'Mirrors kokoro-phase1-finanzas.md sections directly'
+      alternatives_considered: ['custom exercise structure']
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e1-kokoro-phase1/scope.md'
+metadata: {}
