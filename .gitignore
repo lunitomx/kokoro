@@ -34,3 +34,6 @@ htmlcov/
 
 # RaiSE local state
 .raise/
+
+# RaiSE personal directory (per-developer, not shared)
+.raise/rai/personal/
