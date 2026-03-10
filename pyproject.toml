@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kokoro"
+version = "0.1.0"
+description = "AI marketing strategist — Eduardo Muñoz Luna's methodology as a Claude Code extension"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Eduardo Muñoz Luna" },
+    { name = "Ahuehuete Digital" },
+]
+
+[project.scripts]
+kokoro = "kokoro.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kokoro"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+
+[tool.hatch.build]
+include = [
+    "src/kokoro/**",
+    "extension/**",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9",
+    "pyright>=1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+src = ["src"]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+pythonVersion = "3.10"
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
