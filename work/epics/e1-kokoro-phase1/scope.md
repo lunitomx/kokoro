@@ -21,7 +21,7 @@ Deliver an installable Kokoro package that clones Eduardo Muñoz Luna's voice an
 | S1.5 | /kokoro-mountain | M | Done | Montaña del Mañana + OKRs |
 | S1.6 | /kokoro-prune | S | Done | Prune the Product Tree guided session |
 | S1.7 | /kokoro-finance | S | Done | Financial assessment guided session |
-| S1.8 | Meta Skills | M | Pending | /kokoro router + /kokoro-session management |
+| S1.8 | Meta Skills | M | Done | /kokoro router + /kokoro-session management |
 
 **Total:** 8 stories
 
@@ -148,7 +148,7 @@ S1.2 is the longest story (L) and gates all skills. It IS the critical path.
 | S1.5 /kokoro-mountain | M | Done | S | PAT-L-001, 2x velocity |
 | S1.6 /kokoro-prune | S | Done | S | PAT-L-001 |
 | S1.7 /kokoro-finance | S | Done | S | PAT-L-001, QR fix |
-| S1.8 Meta Skills | M | Pending | — | |
+| S1.8 Meta Skills | M | Done | M | QR prefix fix |
 
 ### Sequencing Risks
 
