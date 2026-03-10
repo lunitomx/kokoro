@@ -76,7 +76,7 @@ def _copy_dir_no_overwrite(src: Path, dst: Path) -> None:
         target = dst / item.name
         if item.is_dir():
             _copy_dir_no_overwrite(item, target)
-        elif not target.exists() or item.name.startswith("kokoro-"):
+        elif not target.exists() or item.name.startswith("kokoro"):
             shutil.copy2(item, target)
 
 
