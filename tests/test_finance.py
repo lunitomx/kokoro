@@ -89,7 +89,7 @@ class TestBudgetContent:
 
     def test_mentions_sector_benchmarks(self, content: str) -> None:
         lower = content.lower()
-        assert "sector" in lower or "%" in lower
+        assert "sector" in lower
 
 
 class TestValidationPlanContent:
