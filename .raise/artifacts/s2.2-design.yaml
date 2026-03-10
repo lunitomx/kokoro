@@ -1,0 +1,71 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-10T12:00:00Z'
+story: 'S2.2'
+epic: 'E2'
+content:
+  summary: 'Create /kokoro-canvas skill file that guides entrepreneurs through a Lean Canvas session in Eduardo''s segment-first order (9 blocks, solution LAST) with interactive guidance and summary template.'
+  complexity: moderate
+  acceptance_criteria:
+    - id: AC1
+      description: 'Skill file exists at extension/.claude/commands/kokoro-canvas.md'
+      verifiable: true
+    - id: AC2
+      description: 'Contains all 9 Lean Canvas blocks with guiding questions'
+      verifiable: true
+    - id: AC3
+      description: 'Enforces segment-first order (solution is last block)'
+      verifiable: true
+    - id: AC4
+      description: 'Eduardo''s voice present (vocabulary table words, Proyector strategy, anti-patterns)'
+      verifiable: true
+    - id: AC5
+      description: 'References knowledge file kokoro-phase2-canvas.md'
+      verifiable: true
+    - id: AC6
+      description: 'Includes summary template covering all 9 blocks'
+      verifiable: true
+    - id: AC7
+      description: 'kokoro init copies the skill file to .claude/commands/'
+      verifiable: true
+    - id: AC8
+      description: 'Each block has at least 2 guiding questions'
+      verifiable: true
+    - id: AC9
+      description: 'Anti-pattern warnings for common mistakes per block'
+      verifiable: true
+    - id: AC10
+      description: 'Must not start with solution block'
+      verifiable: true
+    - id: AC11
+      description: 'Must not use generic marketing language (hacks, growth, monetizar)'
+      verifiable: true
+  integration_points:
+    - module: 'extension.claude.commands'
+      change_type: new
+      files: ['extension/.claude/commands/kokoro-canvas.md']
+    - module: 'tests'
+      change_type: new
+      files: ['tests/test_canvas.py']
+  decisions:
+    - id: D1
+      choice: 'Fill order follows Eduardo methodology: Segmento, Problema, Propuesta Unica de Valor, Ventaja Injusta, Canales, Flujo de Ingresos, Estructura de Costos, Metricas Clave, Solucion (LAST)'
+      rationale: 'Eduardo explicitly warns against solution-first thinking. Source material shows segment-first as the critical anti-pattern correction.'
+      alternatives_considered: ['standard left-to-right canvas order', 'Ash Maurya original order']
+    - id: D2
+      choice: 'Skill guides interactively (asks questions, waits for answers) rather than dumping all 9 blocks at once'
+      rationale: 'Eduardo''s coaching style is 70% listening, 30% talking. Proyector strategy requires invitation before each step.'
+      alternatives_considered: ['full canvas dump with fill-in-the-blank']
+    - id: D3
+      choice: 'Summary template uses markdown table format for easy copy-paste'
+      rationale: 'Consistent with kokoro-finance.md summary template pattern. Tables are easy to read and export.'
+      alternatives_considered: ['free-form text template', 'structured YAML output']
+    - id: D4
+      choice: 'Single markdown skill file following PAT-L-001'
+      rationale: 'Proven pattern from S1.4-S1.7. No CLI changes needed — _copy_dir_no_overwrite handles commands/.'
+      alternatives_considered: ['multi-file skill']
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e2-kokoro-phase2/scope.md'
+metadata: {}
