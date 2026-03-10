@@ -31,7 +31,13 @@ class TestSessionStartContent:
 
     def test_mentions_four_phases(self, content: str) -> None:
         lower = content.lower()
-        assert "4 fases" in lower or "cuatro fases" in lower or "4 estaciones" in lower or "cuatro estaciones" in lower
+        has_phases = (
+            "4 fases" in lower
+            or "cuatro fases" in lower
+            or "4 estaciones" in lower
+            or "cuatro estaciones" in lower
+        )
+        assert has_phases
 
     def test_guides_to_diagnose(self, content: str) -> None:
         assert "/kokoro-diagnose" in content

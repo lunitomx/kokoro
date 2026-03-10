@@ -87,7 +87,13 @@ class TestRouterRecommendation:
 
     def test_explains_why(self, content: str) -> None:
         lower = content.lower()
-        assert "porque" in lower or "por qué" in lower or "razón" in lower or "razon" in lower
+        has_why = (
+            "porque" in lower
+            or "por qué" in lower
+            or "razón" in lower
+            or "razon" in lower
+        )
+        assert has_why
 
 
 class TestEduardoVoice:
