@@ -75,11 +75,12 @@ class TestCanvasContent:
         assert "ventaja injusta" in content.lower()
 
     def test_has_nine_blocks(self, content: str) -> None:
-        assert "9" in content or "nueve" in content.lower()
+        lower = content.lower()
+        assert "9 bloques" in lower or "nueve bloques" in lower
 
     def test_has_segment_first_order(self, content: str) -> None:
         lower = content.lower()
-        assert "nunca" in lower and "solucion" in lower
+        assert "nunca iniciar por la solucion" in lower or "nunca empezar por la solucion" in lower
 
 
 class TestForcesContent:
@@ -101,8 +102,7 @@ class TestForcesContent:
         assert "friccion" in content.lower()
 
     def test_has_oferta_mafia(self, content: str) -> None:
-        lower = content.lower()
-        assert "mafia" in lower and "oferta" in lower
+        assert "oferta mafia" in content.lower()
 
 
 class TestInterviewsContent:
