@@ -64,10 +64,10 @@ def _merge_claude_md(existing: str, kokoro_content: str) -> str:
 def _copy_dir_no_overwrite(src: Path, dst: Path) -> None:
     """Copy directory contents, preserving user files.
 
-    Files prefixed with ``kokoro-`` are owned by Kokoro and will be
-    overwritten on every run so that updates propagate.  All other
-    existing files are left untouched.  ``.gitkeep`` placeholders are
-    never copied.
+    Files starting with ``kokoro`` (e.g. ``kokoro.md``, ``kokoro-*.md``)
+    are owned by Kokoro and will be overwritten on every run so that
+    updates propagate.  All other existing files are left untouched.
+    ``.gitkeep`` placeholders are never copied.
     """
     dst.mkdir(parents=True, exist_ok=True)
     for item in src.iterdir():
@@ -76,7 +76,7 @@ def _copy_dir_no_overwrite(src: Path, dst: Path) -> None:
         target = dst / item.name
         if item.is_dir():
             _copy_dir_no_overwrite(item, target)
-        elif not target.exists() or item.name.startswith("kokoro"):
+        elif not target.exists() or item.name.startswith(("kokoro-", "kokoro.")):
             shutil.copy2(item, target)
 
 
