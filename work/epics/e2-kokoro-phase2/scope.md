@@ -90,3 +90,54 @@ S2.1 (knowledge) ──→ S2.2 (canvas)    ─┐
 | Phase 2 content less structured than Phase 1 | M/M | Source material (02_Modulo_Semilla) is rich and detailed |
 | Interview skill too prescriptive | L/M | Guide the process, don't execute it — Eduardo coaches, doesn't interview |
 | Meta skills coupling increases | L/L | PAT-L-004 established pattern, PAT-L-005 for precise string matching |
+
+## Implementation Plan
+
+> Added by `/rai-epic-plan` — 2026-03-09
+
+### Story Sequence
+
+| Order | Story | Size | Dependencies | Milestone | Rationale |
+|:-----:|-------|:----:|--------------|-----------|-----------:|
+| 1 | S2.1 Knowledge Files Phase 2 | S | None | M1 | Quick win: creates methodology references, unblocks all skills. Also introduces conftest.py |
+| 2 | S2.2 /kokoro-canvas | M | S2.1 | M2 | Risk-first: Lean Canvas is the richest skill (9 blocks), proves Phase 2 pattern works |
+| 3 | S2.3 /kokoro-forces | S | S2.1 | M2 | Methodology order: forces complement canvas, simpler structure |
+| 4 | S2.4 /kokoro-interviews | M | S2.1 | M2 | Methodology order: interviews validate canvas/forces hypotheses |
+| 5 | S2.5 /kokoro-validate | S | S2.1 | M3 | Methodology order: validation plan synthesizes all Phase 2 work |
+| 6 | S2.6 Meta Skills Update | S | S2.2-S2.5 | M3 | Router needs all Phase 2 skills to exist |
+
+### Critical Path
+
+```
+S2.1 → S2.2 → S2.3 → S2.4 → S2.5 → S2.6
+```
+
+S2.2-S2.5 are theoretically parallel but executed sequentially (single developer). S2.2 is risk-first: if Lean Canvas pattern works, S2.3-S2.5 follow predictably (PAT-L-002).
+
+### Milestones
+
+| Milestone | Stories | Success Criteria |
+|-----------|---------|------------------|
+| **M1: Knowledge Base** | S2.1 | Knowledge files installed, conftest.py shared fixtures, tests passing |
+| **M2: Core Skills** | +S2.2, S2.3, S2.4 | 3 skills functional — Lean Canvas + Forces + Interviews flow |
+| **M3: Feature Complete** | +S2.5, S2.6 | All 4 Phase 2 skills work, /kokoro routes Phase 2 correctly |
+| **M4: Epic Complete** | — | Done criteria met, retrospective done, merged to main |
+
+### Progress Tracking
+
+| Story | Size | Status | Actual | Notes |
+|-------|:----:|:------:|:------:|-------|
+| S2.1 Knowledge Files Phase 2 | S | Pending | | |
+| S2.2 /kokoro-canvas | M | Pending | | |
+| S2.3 /kokoro-forces | S | Pending | | |
+| S2.4 /kokoro-interviews | M | Pending | | |
+| S2.5 /kokoro-validate | S | Pending | | |
+| S2.6 Meta Skills Update | S | Pending | | |
+
+### Sequencing Risks
+
+| Risk | L/I | Mitigation |
+|------|:---:|------------|
+| S2.2 Lean Canvas harder than E1 skills (9 blocks vs simple flow) | M/M | Rich source material (02_Modulo_Semilla), PAT-L-001 proven pattern |
+| S2.4 Interview skill scope creep (too many question types) | L/M | Eduardo coaches the process, doesn't execute interviews — keep skill focused on guide + template |
+| E1 velocity calibration may not hold for Phase 2 content | L/L | Source material is equally detailed; pattern maturity offsets content complexity |
