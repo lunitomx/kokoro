@@ -1,0 +1,73 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-09T12:00:00Z'
+story: 'S2.1'
+epic: 'E2'
+content:
+  summary: 'Create 4 Phase 2 knowledge files sourced from Eduardo methodology (Lean Canvas, Customer Forces, interviews, validation) plus shared test fixtures in conftest.py.'
+  complexity: simple
+  acceptance_criteria:
+    - id: AC1
+      description: '4 knowledge files exist at extension/.claude/knowledge/kokoro-phase2-{canvas,forces,interviews,validation}.md'
+      verifiable: true
+    - id: AC2
+      description: 'Each knowledge file has kokoro-managed header comment and follows PAT-L-008 structure (title, proposito, methodology sections, conexion)'
+      verifiable: true
+    - id: AC3
+      description: 'Content sourced from 02_Modulo_Semilla_ModeloExperiencia.md — not placeholder text'
+      verifiable: true
+    - id: AC4
+      description: 'tests/conftest.py provides shared fixtures (extension_path, knowledge_path, commands_path) used by at least one test file'
+      verifiable: true
+    - id: AC5
+      description: 'All tests pass, pyright strict, ruff clean'
+      verifiable: true
+    - id: AC6
+      description: 'Knowledge files use Eduardo vocabulary (inversion, creacion, invitado) and reference anti-patterns'
+      verifiable: true
+    - id: AC7
+      description: 'conftest.py fixtures replace duplicated path fixtures in existing test files'
+      verifiable: true
+    - id: AC8
+      description: 'Knowledge files contain only methodology reference — no skill interaction logic'
+      verifiable: true
+  integration_points:
+    - module: 'extension.claude.knowledge'
+      change_type: new
+      files:
+        - 'extension/.claude/knowledge/kokoro-phase2-canvas.md'
+        - 'extension/.claude/knowledge/kokoro-phase2-forces.md'
+        - 'extension/.claude/knowledge/kokoro-phase2-interviews.md'
+        - 'extension/.claude/knowledge/kokoro-phase2-validation.md'
+    - module: 'tests'
+      change_type: new
+      files: ['tests/conftest.py']
+    - module: 'tests'
+      change_type: modification
+      files: ['tests/test_knowledge.py']
+  decisions:
+    - id: D1
+      choice: 'Follow PAT-L-008 structure identical to E1 knowledge files'
+      rationale: 'Proven pattern from kokoro-phase1-diagnostico.md, kokoro-phase1-vision.md etc. Consistency across phases.'
+      alternatives_considered: ['custom structure per file']
+    - id: D2
+      choice: 'One knowledge file per skill (canvas, forces, interviews, validation)'
+      rationale: 'Maps 1:1 to upcoming S2.2-S2.5 skills. Each skill loads its own knowledge reference.'
+      alternatives_considered: ['single monolithic phase2 file', 'split by topic granularity']
+    - id: D3
+      choice: 'conftest.py with path fixtures only — no complex helpers'
+      rationale: 'Simple First. Path fixtures are the clearest duplication across test files. Content helpers can be added later if needed.'
+      alternatives_considered: ['content validation utilities in conftest', 'test utility module']
+    - id: D4
+      choice: 'Canvas file covers 9-block methodology with correct fill order (segment first, never start with solution)'
+      rationale: 'Eduardo emphasizes segment-first order as critical anti-pattern to solution-first thinking. Source material explicit.'
+      alternatives_considered: ['standard left-to-right order']
+    - id: D5
+      choice: 'Forces file covers 4 forces (trigger, push, inertia, friction/pull) plus Mafia Offer connection'
+      rationale: 'Source material treats Customer Forces and Mafia Offer as connected concepts. Forces discovery feeds offer construction.'
+      alternatives_considered: ['forces only without offer connection']
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e2-kokoro-phase2/scope.md'
+metadata: {}
