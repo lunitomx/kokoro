@@ -60,10 +60,9 @@ class TestCanvasStructure:
             "## Bloque 4", "## Bloque 5", "## Bloque 6",
             "## Bloque 7", "## Bloque 8", "## Bloque 9",
         ]
-        positions: list[int] = []
         for heading in order:
             assert heading in content, f"Missing: {heading}"
-            positions.append(content.index(heading))
+        positions = [content.index(h) for h in order]
         assert positions == sorted(positions), "Blocks must be in order 1-9"
 
 
