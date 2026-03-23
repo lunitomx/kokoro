@@ -86,8 +86,8 @@ class TestForcesContent:
         found = sum(
             1 for t in eduardo_terms if t in lower
         )
-        assert found >= 2, (
-            "Skill must use Eduardo's vocabulary"
+        assert found >= 3, (
+            "Skill must use all Eduardo vocabulary"
         )
 
     def test_references_knowledge_file(
@@ -168,8 +168,11 @@ class TestForcesSummary:
         assert "resumen" in lower
         resumen_idx = lower.index("resumen")
         after_resumen = content[resumen_idx:]
-        assert "|" in after_resumen, (
-            "Summary must include a table template"
+        table_lines = [
+            ln for ln in after_resumen.splitlines() if "|" in ln
+        ]
+        assert len(table_lines) >= 4, (
+            "Summary table must have at least 4 rows"
         )
 
 
