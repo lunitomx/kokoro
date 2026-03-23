@@ -195,7 +195,7 @@ hora, en que situacion, en que contexto? Ahi es donde debes estar."
 "Hare una oferta que no podras rechazar."
 
 Una verdadera Oferta Mafia usa las 4 fuerzas como ingredientes. No es un
-descuento — es una narrativa irresistible que habla del viaje del heroe,
+condiciones especiales — es una narrativa irresistible que habla del viaje del heroe,
 no de ti.
 
 ### Estructura de la Oferta Mafia (5 pasos)

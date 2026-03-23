@@ -46,8 +46,8 @@ tu cuenta."
 "De cada peso que entra por esta creacion, ¿cuanto queda despues de pagar
 TODO? No olvides incluir tu tiempo como costo."
 
-"¿Cuantos invitados activos tiene esta linea? Y recuerda: un cliente real es
-alguien que te compra 2 veces. Lo demas son ventas, no clientes."
+"¿Cuantos invitados activos tiene esta linea? Y recuerda: un invitado real es
+alguien que te compra 2 veces. Lo demas son ventas, no invitados."
 
 ### Ejercicio 2: Analisis de Adquisicion
 
@@ -81,8 +81,8 @@ Calcula con el emprendedor las metricas que determinan la salud financiera:
 | Tasa de conversion | Leads que compran / Leads totales | 1-3% estandar, >5% ideal |
 | LTV (Valor de vida) | Ingreso promedio x # compras futuras | > 3x CPA |
 
-Recuerda: **un cliente es alguien que te compra 2 veces o mas**. Lo demas
-son ventas, no clientes. Disenar experiencia postventa para convertir ventas
+Recuerda: **un invitado es alguien que te compra 2 veces o mas**. Lo demas
+son ventas, no invitados. Disenar experiencia postventa para convertir ventas
 en invitados recurrentes.
 
 ### Ejercicio 4: Presupuesto por Sector
