@@ -14,7 +14,7 @@ Extend Kokoro with Phase 2 skills that guide entrepreneurs through business mode
 | ID | Story | Size | Status | Description |
 |----|-------|:----:|:------:|-------------|
 | S2.1 | Knowledge Files Phase 2 | S | Done | Methodology references for Lean Canvas, Customer Forces, interviews, validation |
-| S2.2 | /kokoro-canvas | M | Pending | Lean Canvas guided session — segment-first, problem-driven |
+| S2.2 | /kokoro-canvas | M | Done | Lean Canvas guided session — segment-first, problem-driven |
 | S2.3 | /kokoro-forces | S | Pending | Customer Forces Model guided session |
 | S2.4 | /kokoro-interviews | M | Pending | Validation interview guide + processing methodology |
 | S2.5 | /kokoro-validate | S | Pending | Validation plan and experiment design |
@@ -128,7 +128,7 @@ S2.2-S2.5 are theoretically parallel but executed sequentially (single developer
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
 | S2.1 Knowledge Files Phase 2 | S | Done | S | PAT-L-008, conftest.py, QR fix |
-| S2.2 /kokoro-canvas | M | Pending | | |
+| S2.2 /kokoro-canvas | M | Done | M | 13 tests, PAT-L-007, 1.13x velocity |
 | S2.3 /kokoro-forces | S | Pending | | |
 | S2.4 /kokoro-interviews | M | Pending | | |
 | S2.5 /kokoro-validate | S | Pending | | |
