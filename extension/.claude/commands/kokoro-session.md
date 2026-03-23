@@ -1,6 +1,6 @@
-# /kokoro-session — Gestor de Sesion de Fase 1
+# /kokoro-session — Gestor de Sesion de Fases 1 y 2
 
-> Mapa de progreso para el viaje de Fase 1: Preparar el Suelo.
+> Mapa de progreso para el viaje de Fases 1 y 2.
 
 ## Contexto
 
@@ -53,6 +53,24 @@ Hoy empezamos con la Fase 1, que tiene 4 pasos en orden:"
 "Tu siguiente paso es empezar con el diagnostico. Usa `/kokoro-diagnose`
 para tu primera sesion guiada."
 
+**Roadmap de Fase 2 — Elegir la Semilla:**
+
+"Cuando completes la Fase 1, el camino continua con la Fase 2: Elegir la
+Semilla. Aqui validamos tu modelo de negocio antes de construir. Tiene 4
+pasos:"
+
+1. **Canvas** (`/kokoro-canvas`) — Lean Canvas guiado por segmento.
+   Mapea problema, solucion, propuesta de valor y metricas clave.
+
+2. **Fuerzas** (`/kokoro-forces`) — Customer Forces Model.
+   Identifica las fuerzas que empujan y frenan al invitado.
+
+3. **Entrevistas** (`/kokoro-interviews`) — Guia de entrevistas.
+   Habla con personas reales para validar supuestos.
+
+4. **Validacion** (`/kokoro-validate`) — Plan de validacion estructurado.
+   Disena experimentos para probar hipotesis riesgosas.
+
 ### Modo 2: Continuar — Sesiones posteriores
 
 Cuando el emprendedor regresa, revisa que ha completado y guialo al
@@ -67,7 +85,12 @@ Basandote en lo que ha completado:
 - Si completado diagnostico → siguiente: `/kokoro-mountain`
 - Si completado diagnostico + vision → siguiente: `/kokoro-prune`
 - Si completado diagnostico + vision + poda → siguiente: `/kokoro-finance`
-- Si completado los 4 → felicita y explica que la Fase 1 esta completa
+- Si completado los 4 de Fase 1 → felicita y guia a Fase 2: `/kokoro-canvas`
+- Si completado canvas → siguiente: `/kokoro-forces`
+- Si completado canvas + fuerzas → siguiente: `/kokoro-interviews`
+- Si completado canvas + fuerzas + entrevistas → siguiente: `/kokoro-validate`
+- Si completado Fase 1 + Fase 2 → felicita y explica que ambas fases estan
+  completas
 
 Formato:
 
@@ -95,6 +118,15 @@ Cuando el emprendedor quiere ver su progreso, genera un reporte estructurado.
 | 3 | Poda | [Completado/Pendiente] | [resumen breve] |
 | 4 | Finanzas | [Completado/Pendiente] | [resumen breve] |
 
+### Progreso por Skill — Fase 2: Elegir la Semilla
+
+| # | Skill | Estado | Hallazgos Clave |
+|---|-------|--------|-----------------|
+| 5 | Canvas | [Completado/Pendiente] | [resumen breve] |
+| 6 | Fuerzas (Forces) | [Completado/Pendiente] | [resumen breve] |
+| 7 | Entrevistas | [Completado/Pendiente] | [resumen breve] |
+| 8 | Validacion | [Completado/Pendiente] | [resumen breve] |
+
 ### Insights Clave
 - [insight 1 del proceso]
 - [insight 2 del proceso]
@@ -112,4 +144,5 @@ Cuando el emprendedor quiere ver su progreso, genera un reporte estructurado.
 - La sesion de gestion deberia ser breve: 5-10 minutos
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
-- No menciones skills de Fase 2, 3 o 4 por nombre de comando
+- Puedes mencionar skills de Fase 2 cuando el emprendedor haya completado Fase 1
+- No menciones skills de Fase 3 o 4 por nombre de comando
