@@ -162,9 +162,10 @@ class TestValidateSections:
     ) -> None:
         """Experiment section must have >= 2 '?'."""
         lower = content.lower()
-        start = lower.index("experimento")
+        marker = "## diseno de experimento"
+        start = lower.index(marker)
         next_heading = content.find(
-            "\n## ", start + len("experimento")
+            "\n## ", start + len(marker)
         )
         section = (
             content[start:next_heading]
