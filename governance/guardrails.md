@@ -9,25 +9,25 @@ version: "1.0.0"
 
 ## Context
 
-- **Files analyzed:** 10
-- **Overall confidence:** medium
-- **Generated:** 2026-03-09
+- **Files analyzed:** 15
+- **Overall confidence:** high
+- **Generated:** 2026-03-18
 
 ### Code Style
 
 | ID | Level | Guardrail | Verification | Derived from |
 |----|-------|-----------|--------------|--------------|
-| should-style-001 | SHOULD | Use 4-space indentation | Manual review | Convention |
-| must-style-001 | MUST | Use double quotes for strings | ruff check . | Convention |
-| must-style-002 | MUST | Maximum line length: 79 characters | ruff check . | Convention |
+| must-style-001 | MUST | Use 4-space indentation | ruff check . | Convention |
+| must-style-002 | MUST | Use double quotes for strings | ruff check . | Convention |
+| must-style-003 | MUST | Maximum line length: 79 characters | ruff check . | Convention |
 
 ### Naming
 
 | ID | Level | Guardrail | Verification | Derived from |
 |----|-------|-----------|--------------|--------------|
-| should-naming-001 | SHOULD | Function names: snake_case | Manual review | Convention |
-| must-naming-001 | MUST | Class names: PascalCase | Manual review | Convention |
-| must-naming-002 | MUST | Constant names: UPPER_SNAKE_CASE | Manual review | Convention |
+| must-naming-001 | MUST | Function names: snake_case | Manual review | Convention |
+| must-naming-002 | MUST | Class names: PascalCase | Manual review | Convention |
+| must-naming-003 | MUST | Constant names: UPPER_SNAKE_CASE | Manual review | Convention |
 
 ### Structure
 
