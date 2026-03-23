@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import pytest
+from vocabulary_check import find_prohibited_words
 
 from kokoro.cli import init
 
@@ -101,6 +102,14 @@ class TestEduardoVoice:
         ]
         found = any(term in content.lower() for term in eduardo_terms)
         assert found, "Skill should use Eduardo's vocabulary"
+
+    def test_no_prohibited_vocabulary(
+        self, content: str
+    ) -> None:
+        violations = find_prohibited_words(content)
+        assert violations == [], (
+            f"Prohibited words found: {violations}"
+        )
 
 
 class TestCLICopySkill:
