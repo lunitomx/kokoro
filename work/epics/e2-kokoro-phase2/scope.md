@@ -17,7 +17,7 @@ Extend Kokoro with Phase 2 skills that guide entrepreneurs through business mode
 | S2.2 | /kokoro-canvas | M | Done | Lean Canvas guided session — segment-first, problem-driven |
 | S2.3 | /kokoro-forces | S | Done | Customer Forces Model guided session |
 | S2.4 | /kokoro-interviews | M | Done | Validation interview guide + processing methodology |
-| S2.5 | /kokoro-validate | S | Pending | Validation plan and experiment design |
+| S2.5 | /kokoro-validate | S | Done | Validation plan and experiment design |
 | S2.6 | Meta Skills Update | S | Pending | Update /kokoro router + /kokoro-session for Phase 2 awareness |
 
 **Total:** 6 stories
@@ -131,7 +131,7 @@ S2.2-S2.5 are theoretically parallel but executed sequentially (single developer
 | S2.2 /kokoro-canvas | M | Done | M | 13 tests, PAT-L-007, 1.13x velocity |
 | S2.3 /kokoro-forces | S | Done | S | 16 tests, PAT-L-008, 1.22x velocity |
 | S2.4 /kokoro-interviews | M | Done | M | 17 tests, PAT-L-009, 1.19x velocity |
-| S2.5 /kokoro-validate | S | Pending | | |
+| S2.5 /kokoro-validate | S | Done | S | 15 tests, 1.38x velocity |
 | S2.6 Meta Skills Update | S | Pending | | |
 
 ### Sequencing Risks
