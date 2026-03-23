@@ -80,7 +80,9 @@ class TestCanvasContent:
 
     def test_has_segment_first_order(self, content: str) -> None:
         lower = content.lower()
-        assert "nunca iniciar por la solucion" in lower or "nunca empezar por la solucion" in lower
+        has_iniciar = "nunca iniciar por la solucion" in lower
+        has_empezar = "nunca empezar por la solucion" in lower
+        assert has_iniciar or has_empezar
 
 
 class TestForcesContent:
