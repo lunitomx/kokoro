@@ -126,3 +126,27 @@ class TestCLICopySkill:
 
         content = (commands_dir / "kokoro-session.md").read_text()
         assert content != "old version"
+
+
+class TestPhase2SessionContent:
+    """Session manager tracks Phase 2 progress."""
+
+    @pytest.fixture
+    def content(self) -> str:
+        return SKILL_PATH.read_text(encoding="utf-8")
+
+    def test_mentions_phase2_skills(self, content: str) -> None:
+        assert "/kokoro-canvas" in content
+        assert "/kokoro-forces" in content
+
+    def test_mentions_phase2_roadmap(self, content: str) -> None:
+        lower = content.lower()
+        has_fase_2 = "fase 2" in lower
+        has_elegir = "elegir la semilla" in lower
+        assert has_fase_2 or has_elegir
+
+    def test_phase2_progress_tracking(self, content: str) -> None:
+        """Session tracks Phase 2 skill completion."""
+        lower = content.lower()
+        assert "canvas" in lower
+        assert "forces" in lower or "fuerzas" in lower

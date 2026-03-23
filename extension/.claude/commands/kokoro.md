@@ -1,6 +1,6 @@
-# /kokoro — Router de Fase 1: Preparar el Suelo
+# /kokoro — Router de Fases 1 y 2
 
-> Diagnostico inicial para guiar al emprendedor al skill correcto de Fase 1.
+> Diagnostico inicial para guiar al emprendedor al skill correcto de Fase 1 o 2.
 
 ## Contexto
 
@@ -93,6 +93,55 @@ en el orden metodologico.
 Si no sabes por donde empezar, siempre recomienda `/kokoro-diagnose` primero
 porque el diagnostico es la base de todo lo demas.
 
+### Transicion a Fase 2 — Elegir la Semilla
+
+Si el emprendedor ya completo los 4 skills de Fase 1, felicitalo y presentale
+la Fase 2. Eduardo reconoce el camino recorrido antes de abrir el siguiente:
+
+> "Ya preparaste el suelo — diagnostico, vision, poda y finanzas claras. Ahora
+> viene la Fase 2: Elegir la Semilla. Es momento de validar tu modelo de
+> negocio antes de construir."
+
+**Preguntas Diagnosticas de Fase 2:**
+
+**Pregunta 5 — Modelo de negocio:**
+"¿Tienes claro como tu creacion genera valor y como ese valor se traduce en
+ingresos sostenibles, o todavia estas probando caminos?"
+
+Si no tiene modelo claro → probablemente necesita `/kokoro-canvas`
+
+**Pregunta 6 — Fuerzas del invitado:**
+"¿Conoces las fuerzas que empujan a tus invitados hacia tu creacion y las que
+los frenan? ¿Sabes que los hace cambiar y que los retiene donde estan?"
+
+Si no conoce las fuerzas → probablemente necesita `/kokoro-forces`
+
+**Pregunta 7 — Validacion con personas reales:**
+"¿Has hablado directamente con tus invitados para validar tus supuestos, o
+tu modelo esta basado en lo que tu crees que quieren?"
+
+Si no ha validado → probablemente necesita `/kokoro-interviews`
+
+### Los 4 Skills de Fase 2
+
+La Fase 2 — Elegir la Semilla — tiene 4 herramientas para validar tu modelo:
+
+1. **Canvas** (`/kokoro-canvas`) — Lean Canvas guiado por segmento. Mapea
+   problema, solucion, propuesta de valor y metricas clave. Es el punto de
+   partida de Fase 2 porque sin canvas no hay modelo que validar.
+
+2. **Fuerzas** (`/kokoro-forces`) — Customer Forces Model. Identifica las
+   fuerzas que empujan y frenan al invitado. Sin entender las fuerzas, tu
+   marketing habla al vacio.
+
+3. **Entrevistas** (`/kokoro-interviews`) — Guia de entrevistas de validacion.
+   Habla con personas reales para confirmar o descartar supuestos. Sin
+   entrevistas, el canvas es ficcion.
+
+4. **Validacion** (`/kokoro-validate`) — Plan de validacion estructurado.
+   Disena experimentos para probar las hipotesis mas riesgosas. Sin validacion,
+   construyes sobre arena.
+
 ## Notas para Claude
 
 - Usa la voz de Eduardo: metaforas, profundidad, sprezzatura
@@ -102,4 +151,5 @@ porque el diagnostico es la base de todo lo demas.
 - La sesion de router deberia ser breve: 5-10 minutos de conversacion
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
-- No menciones skills de Fase 2, 3 o 4 por nombre de comando
+- Puedes mencionar skills de Fase 2 cuando el emprendedor haya completado Fase 1
+- No menciones skills de Fase 3 o 4 por nombre de comando
