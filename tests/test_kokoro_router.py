@@ -147,3 +147,30 @@ class TestCLICopySkill:
 
         content = (commands_dir / "kokoro.md").read_text()
         assert content != "old version"
+
+
+class TestPhase2Awareness:
+    """Router is aware of all 4 Phase 2 skills."""
+
+    @pytest.fixture
+    def content(self) -> str:
+        return SKILL_PATH.read_text(encoding="utf-8")
+
+    def test_mentions_canvas(self, content: str) -> None:
+        assert "/kokoro-canvas" in content
+
+    def test_mentions_forces(self, content: str) -> None:
+        assert "/kokoro-forces" in content
+
+    def test_mentions_interviews(self, content: str) -> None:
+        assert "/kokoro-interviews" in content
+
+    def test_mentions_validate(self, content: str) -> None:
+        assert "/kokoro-validate" in content
+
+    def test_phase_transition(self, content: str) -> None:
+        """Router detects Phase 1 complete and routes to Phase 2."""
+        lower = content.lower()
+        has_fase_2 = "fase 2" in lower
+        has_elegir = "elegir la semilla" in lower
+        assert has_fase_2 or has_elegir
