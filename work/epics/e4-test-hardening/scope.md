@@ -1,6 +1,6 @@
 # Epic E4: Test & Quality Hardening — Scope
 
-> **Status:** DESIGNED
+> **Status:** PLANNED
 > **Created:** 2026-03-22
 > **Problem Brief:** `dev/problem-briefs/e4-test-hardening.md`
 
@@ -91,7 +91,36 @@ lines that contain anti-pattern markers (e.g., "nunca digas", "no uses") to
 avoid false positives when skills legitimately quote prohibited words in
 warnings.
 
-## Progress Tracking
+## Implementation Plan
+
+> Added by `/rai-epic-plan` — 2026-03-23
+
+### Story Sequence
+
+| Order | Story | Size | Dependencies | Rationale |
+|:-----:|-------|:----:|-------------|-----------|
+| 1 | S4.1 Conftest Consolidation | S | None | Dependency-driven: fixture changes must be stable before other stories touch test files |
+| 2 | S4.2 Anti-Vocabulary Gate | S | S4.1 | Quick win: new test per file, catches voice violations immediately |
+| 3 | S4.3 Assertion Hardening | S | S4.1 | Risk-first: backporting to E1 may surface content gaps in skill files |
+| 4 | S4.4 Output Testing Spike | S | None (soft: S4.1-S4.3) | Spike last: benefits from all hardening being complete for comparison |
+
+### Critical Path
+
+```
+S4.1 → S4.2 → S4.3 → S4.4
+```
+
+Strictly sequential — all stories touch the same 10 test files.
+
+### Milestones
+
+| Milestone | Stories | Success Criteria |
+|-----------|---------|------------------|
+| **M1: Foundation** | S4.1 | Zero EXTENSION_DIR in test files, all 263 tests pass via conftest fixtures |
+| **M2: Voice Protection** | +S4.2, S4.3 | Anti-vocabulary + hardened assertions on all 10 skill test files, E1 content gaps fixed |
+| **M3: Epic Complete** | +S4.4 | Output testing PoC documented, retrospective done |
+
+### Progress Tracking
 
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
@@ -99,3 +128,11 @@ warnings.
 | S4.2 Anti-Vocabulary Gate | S | Pending | | |
 | S4.3 Assertion Hardening | S | Pending | | |
 | S4.4 Output Testing Spike | S | Pending | | |
+
+### Sequencing Risks
+
+| Risk | L/I | Mitigation |
+|------|:---:|------------|
+| Conftest migration breaks test discovery | L/M | Migrate one file at a time, run suite after each |
+| S4.3 backport reveals many E1 content gaps | M/L | Fix in-story — content fixes are a feature, scope is flexible |
+| S4.4 spike inconclusive | L/L | Timebox to 1 hour, document learnings regardless of outcome |
