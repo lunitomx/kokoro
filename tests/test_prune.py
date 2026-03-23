@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro-prune.md"
-
 
 class TestSkillFileExists:
     """AC1: Skill file exists at the correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro-prune.md"
         msg = "kokoro-prune.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestProductTreeContent:
     """AC2: Skill guides through Product Tree exercise."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-prune.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_arbol(self, content: str) -> None:
         lower = content.lower()
@@ -40,8 +40,10 @@ class TestEvaluationMatrixContent:
     """AC3: Skill includes 4-criteria evaluation matrix."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-prune.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_ingresos(self, content: str) -> None:
         assert "ingresos" in content.lower()
@@ -61,8 +63,10 @@ class TestClassificationContent:
     """AC4: Skill classifies branches into 4 categories."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-prune.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_crecer(self, content: str) -> None:
         assert "crecer" in content.lower()
@@ -81,8 +85,10 @@ class TestPruningSummary:
     """AC5: Skill produces structured pruning summary."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-prune.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_has_summary_section(self, content: str) -> None:
         assert "resumen" in content.lower()
@@ -96,8 +102,10 @@ class TestEduardoVoice:
     """Skill uses Eduardo's voice patterns."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-prune.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
@@ -124,12 +132,14 @@ class TestCLICopySkill:
         copied = target / ".claude" / "commands" / "kokoro-prune.md"
         assert copied.is_file(), "kokoro init must copy kokoro-prune.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro-prune.md"
-        source = SKILL_PATH
+        source = commands_path / "kokoro-prune.md"
         assert copied.read_text() == source.read_text()
 
     def test_overwrites_kokoro_skill_on_rerun(self, tmp_path: Path) -> None:

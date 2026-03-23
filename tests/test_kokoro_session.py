@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro-session.md"
-
 
 class TestSkillFileExists:
     """Skill file exists at the correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro-session.md"
         msg = "kokoro-session.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestSessionStartContent:
     """Session start mode initializes the Phase 1 journey."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-session.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_roadmap(self, content: str) -> None:
         lower = content.lower()
@@ -47,8 +47,10 @@ class TestSessionContinueContent:
     """Session continue mode reviews completed skills and identifies next."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-session.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_completed(self, content: str) -> None:
         assert "completado" in content.lower()
@@ -61,8 +63,10 @@ class TestSessionReviewContent:
     """Session review mode provides structured progress report."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-session.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_progreso(self, content: str) -> None:
         assert "progreso" in content.lower()
@@ -79,8 +83,10 @@ class TestEduardoVoice:
     """Skill uses Eduardo's voice patterns."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-session.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
@@ -107,12 +113,14 @@ class TestCLICopySkill:
         copied = target / ".claude" / "commands" / "kokoro-session.md"
         assert copied.is_file(), "kokoro init must copy kokoro-session.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro-session.md"
-        source = SKILL_PATH
+        source = commands_path / "kokoro-session.md"
         assert copied.read_text() == source.read_text()
 
     def test_overwrites_kokoro_skill_on_rerun(self, tmp_path: Path) -> None:
@@ -132,8 +140,10 @@ class TestPhase2SessionContent:
     """Session manager tracks Phase 2 progress."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-session.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_phase2_skills(self, content: str) -> None:
         assert "/kokoro-canvas" in content

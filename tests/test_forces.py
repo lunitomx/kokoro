@@ -6,29 +6,29 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = (
-    EXTENSION_DIR / ".claude" / "commands" / "kokoro-forces.md"
-)
-
 
 class TestForcesSkillExists:
     """AC1: Skill file exists at correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(
+        self, commands_path: Path,
+    ) -> None:
+        skill = commands_path / "kokoro-forces.md"
         msg = (
             "kokoro-forces.md must exist in"
             " extension/.claude/commands/"
         )
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestForcesStructure:
     """AC2: Contains all 4 Customer Forces."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-forces.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_four_forces(self, content: str) -> None:
         forces = [
@@ -77,8 +77,10 @@ class TestForcesContent:
     """AC4: Eduardo's voice present."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-forces.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_eduardo_voice(self, content: str) -> None:
         lower = content.lower()
@@ -117,8 +119,10 @@ class TestForcesSections:
     """AC5: Each force has guiding questions + key sections."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-forces.md"
+        ).read_text(encoding="utf-8")
 
     def test_each_force_has_guiding_questions(
         self, content: str
@@ -160,8 +164,10 @@ class TestForcesSummary:
     """AC6: Summary template covers all forces."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-forces.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_summary_template(self, content: str) -> None:
         lower = content.lower()
@@ -196,7 +202,7 @@ class TestForcesCLI:
         )
 
     def test_copied_skill_matches_source(
-        self, tmp_path: Path
+        self, tmp_path: Path, commands_path: Path,
     ) -> None:
         target = tmp_path / "project"
         target.mkdir()
@@ -207,4 +213,5 @@ class TestForcesCLI:
             / "commands"
             / "kokoro-forces.md"
         )
-        assert copied.read_text() == SKILL_PATH.read_text()
+        source = commands_path / "kokoro-forces.md"
+        assert copied.read_text() == source.read_text()

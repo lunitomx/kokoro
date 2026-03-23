@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro-finance.md"
-
 
 class TestSkillFileExists:
     """AC1: Skill file exists at the correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro-finance.md"
         msg = "kokoro-finance.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestFinancialInventoryContent:
     """AC2: Skill guides through financial inventory per product."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_inversion(self, content: str) -> None:
         lower = content.lower()
@@ -44,8 +44,10 @@ class TestAcquisitionContent:
     """AC3: Skill covers acquisition analysis."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_cpa(self, content: str) -> None:
         assert "cpa" in content.lower()
@@ -62,8 +64,10 @@ class TestKeyMetricsContent:
     """AC4: Skill includes key financial metrics."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_roi(self, content: str) -> None:
         assert "roi" in content.lower()
@@ -81,8 +85,10 @@ class TestBudgetContent:
     """AC5: Skill includes budget benchmarks."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_presupuesto(self, content: str) -> None:
         assert "presupuesto" in content.lower()
@@ -96,8 +102,10 @@ class TestValidationPlanContent:
     """AC5b: Skill includes 90-day validation plan."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_90_dias(self, content: str) -> None:
         lower = content.lower()
@@ -112,8 +120,10 @@ class TestEduardoVoice:
     """Skill uses Eduardo's voice patterns."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-finance.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
@@ -140,12 +150,14 @@ class TestCLICopySkill:
         copied = target / ".claude" / "commands" / "kokoro-finance.md"
         assert copied.is_file(), "kokoro init must copy kokoro-finance.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro-finance.md"
-        source = SKILL_PATH
+        source = commands_path / "kokoro-finance.md"
         assert copied.read_text() == source.read_text()
 
     def test_overwrites_kokoro_skill_on_rerun(self, tmp_path: Path) -> None:

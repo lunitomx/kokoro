@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro-canvas.md"
-
 
 class TestCanvasSkillExists:
     """AC1: Skill file exists at correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro-canvas.md"
         msg = "kokoro-canvas.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestCanvasStructure:
     """AC2: Contains all 9 Lean Canvas blocks."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-canvas.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_has_nine_blocks(self, content: str) -> None:
         blocks = [
@@ -70,8 +70,10 @@ class TestCanvasContent:
     """AC4: Eduardo's voice present."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-canvas.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_has_eduardo_voice(self, content: str) -> None:
         lower = content.lower()
@@ -98,8 +100,10 @@ class TestCanvasBlocks:
     """AC2b: Each block has guiding questions."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-canvas.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_each_block_has_guiding_questions(self, content: str) -> None:
         """Each of 9 blocks must have at least 2 question marks."""
@@ -121,8 +125,10 @@ class TestCanvasSummary:
     """AC6: Summary template covers all 9 blocks."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-canvas.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_has_summary_template(self, content: str) -> None:
         lower = content.lower()
@@ -143,9 +149,12 @@ class TestCanvasCLI:
         copied = target / ".claude" / "commands" / "kokoro-canvas.md"
         assert copied.is_file(), "kokoro init must copy kokoro-canvas.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro-canvas.md"
-        assert copied.read_text() == SKILL_PATH.read_text()
+        source = commands_path / "kokoro-canvas.md"
+        assert copied.read_text() == source.read_text()
