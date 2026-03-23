@@ -6,29 +6,29 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = (
-    EXTENSION_DIR / ".claude" / "commands" / "kokoro-interviews.md"
-)
-
 
 class TestInterviewsSkillExists:
     """AC1: Skill file exists at correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(
+        self, commands_path: Path,
+    ) -> None:
+        skill = commands_path / "kokoro-interviews.md"
         msg = (
             "kokoro-interviews.md must exist in"
             " extension/.claude/commands/"
         )
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestInterviewsStructure:
     """AC2: Contains Problem and Solution Interview sections."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-interviews.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_problem_interview_section(
         self, content: str
@@ -70,8 +70,10 @@ class TestInterviewsContent:
     """AC4: Eduardo's voice present."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-interviews.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_eduardo_voice(self, content: str) -> None:
         lower = content.lower()
@@ -110,8 +112,10 @@ class TestInterviewsSections:
     """AC5: Interview sections have guiding questions and key content."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-interviews.md"
+        ).read_text(encoding="utf-8")
 
     def test_problem_interview_has_guiding_questions(
         self, content: str
@@ -184,8 +188,10 @@ class TestInterviewsSummary:
     """AC6: Summary template covers interview preparation."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-interviews.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_summary_template(self, content: str) -> None:
         lower = content.lower()
@@ -222,7 +228,7 @@ class TestInterviewsCLI:
         )
 
     def test_copied_skill_matches_source(
-        self, tmp_path: Path
+        self, tmp_path: Path, commands_path: Path,
     ) -> None:
         target = tmp_path / "project"
         target.mkdir()
@@ -233,4 +239,5 @@ class TestInterviewsCLI:
             / "commands"
             / "kokoro-interviews.md"
         )
-        assert copied.read_text() == SKILL_PATH.read_text()
+        source = commands_path / "kokoro-interviews.md"
+        assert copied.read_text() == source.read_text()

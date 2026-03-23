@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro.md"
-
 
 class TestSkillFileExists:
     """Skill file exists at the correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro.md"
         msg = "kokoro.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestDiagnosticQuestionsContent:
     """Router asks diagnostic questions to identify where entrepreneur is."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_asks_permission(self, content: str) -> None:
         """Projector strategy: ask permission before guiding."""
@@ -39,8 +39,10 @@ class TestSkillAwareness:
     """Router is aware of all 4 Phase 1 skills."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_diagnose(self, content: str) -> None:
         assert "/kokoro-diagnose" in content
@@ -59,8 +61,10 @@ class TestMethodologyOrder:
     """Router references methodology phases in correct order."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_diagnostico(self, content: str) -> None:
         lower = content.lower()
@@ -82,8 +86,10 @@ class TestRouterRecommendation:
     """Router explains why it recommends a specific skill."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_explains_why(self, content: str) -> None:
         lower = content.lower()
@@ -100,8 +106,10 @@ class TestEduardoVoice:
     """Skill uses Eduardo's voice patterns."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
@@ -128,12 +136,14 @@ class TestCLICopySkill:
         copied = target / ".claude" / "commands" / "kokoro.md"
         assert copied.is_file(), "kokoro init must copy kokoro.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro.md"
-        source = SKILL_PATH
+        source = commands_path / "kokoro.md"
         assert copied.read_text() == source.read_text()
 
     def test_overwrites_kokoro_skill_on_rerun(self, tmp_path: Path) -> None:
@@ -153,8 +163,10 @@ class TestPhase2Awareness:
     """Router is aware of all 4 Phase 2 skills."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_canvas(self, content: str) -> None:
         assert "/kokoro-canvas" in content

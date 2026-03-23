@@ -6,24 +6,24 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = EXTENSION_DIR / ".claude" / "commands" / "kokoro-diagnose.md"
-
 
 class TestSkillFileExists:
     """AC1: Skill file exists at the correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(self, commands_path: Path) -> None:
+        skill = commands_path / "kokoro-diagnose.md"
         msg = "kokoro-diagnose.md must exist in extension/.claude/commands/"
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestSpeedBoatContent:
     """AC2: Skill guides through Speed Boat exercise."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-diagnose.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_speed_boat(self, content: str) -> None:
         assert "Speed Boat" in content
@@ -44,8 +44,10 @@ class TestVision2020Content:
     """AC3: Skill guides through Vision 20/20 exercise."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-diagnose.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_mentions_vision_2020(self, content: str) -> None:
         assert "20/20" in content or "Visión" in content or "Vision" in content
@@ -66,8 +68,10 @@ class TestDiagnosticSummary:
     """AC4: Skill produces structured diagnostic summary."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-diagnose.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_has_summary_section(self, content: str) -> None:
         assert "resumen" in content.lower() or "summary" in content.lower()
@@ -81,8 +85,10 @@ class TestEduardoVoice:
     """Skill uses Eduardo's voice patterns."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (commands_path / "kokoro-diagnose.md").read_text(
+            encoding="utf-8",
+        )
 
     def test_projector_strategy(self, content: str) -> None:
         """Eduardo's Projector strategy: ask before guiding."""
@@ -110,12 +116,14 @@ class TestCLICopySkill:
         copied = target / ".claude" / "commands" / "kokoro-diagnose.md"
         assert copied.is_file(), "kokoro init must copy kokoro-diagnose.md"
 
-    def test_copied_skill_matches_source(self, tmp_path: Path) -> None:
+    def test_copied_skill_matches_source(
+        self, tmp_path: Path, commands_path: Path,
+    ) -> None:
         target = tmp_path / "project"
         target.mkdir()
         init(target=target)
         copied = target / ".claude" / "commands" / "kokoro-diagnose.md"
-        source = SKILL_PATH
+        source = commands_path / "kokoro-diagnose.md"
         assert copied.read_text() == source.read_text()
 
     def test_overwrites_kokoro_skill_on_rerun(self, tmp_path: Path) -> None:

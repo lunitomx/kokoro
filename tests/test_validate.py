@@ -6,29 +6,29 @@ import pytest
 
 from kokoro.cli import init
 
-EXTENSION_DIR = Path(__file__).resolve().parent.parent / "extension"
-SKILL_PATH = (
-    EXTENSION_DIR / ".claude" / "commands" / "kokoro-validate.md"
-)
-
 
 class TestValidateSkillExists:
     """AC1: Skill file exists at correct path."""
 
-    def test_skill_file_exists(self) -> None:
+    def test_skill_file_exists(
+        self, commands_path: Path,
+    ) -> None:
+        skill = commands_path / "kokoro-validate.md"
         msg = (
             "kokoro-validate.md must exist in"
             " extension/.claude/commands/"
         )
-        assert SKILL_PATH.is_file(), msg
+        assert skill.is_file(), msg
 
 
 class TestValidateStructure:
     """AC2: Contains 3x3x3, risks, experiments, canvas."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-validate.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_3x3x3_model(self, content: str) -> None:
         lower = content.lower()
@@ -84,8 +84,10 @@ class TestValidateContent:
     """AC4: Eduardo's voice present."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-validate.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_eduardo_voice(self, content: str) -> None:
         lower = content.lower()
@@ -138,8 +140,10 @@ class TestValidateSections:
     """AC5: Key sections present with guiding questions."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-validate.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_traction_concept(
         self, content: str
@@ -183,8 +187,10 @@ class TestValidateSummary:
     """AC6: Summary template covers validation plan."""
 
     @pytest.fixture
-    def content(self) -> str:
-        return SKILL_PATH.read_text(encoding="utf-8")
+    def content(self, commands_path: Path) -> str:
+        return (
+            commands_path / "kokoro-validate.md"
+        ).read_text(encoding="utf-8")
 
     def test_has_summary_template(
         self, content: str
@@ -223,7 +229,7 @@ class TestValidateCLI:
         )
 
     def test_copied_skill_matches_source(
-        self, tmp_path: Path
+        self, tmp_path: Path, commands_path: Path,
     ) -> None:
         target = tmp_path / "project"
         target.mkdir()
@@ -234,6 +240,5 @@ class TestValidateCLI:
             / "commands"
             / "kokoro-validate.md"
         )
-        assert (
-            copied.read_text() == SKILL_PATH.read_text()
-        )
+        source = commands_path / "kokoro-validate.md"
+        assert copied.read_text() == source.read_text()
