@@ -115,7 +115,9 @@ Al terminar, presenta un resumen estructurado:
 ### Arbol Actual
 | Rama | Ingresos | Rentabilidad | Coherencia | Energia | Decision |
 |------|----------|--------------|------------|---------|----------|
-| [rama 1] | Alto/Medio/Bajo | Alta/.../Neg | Si/Parcial/No | Gen/Neu/Con | Crecer/Mantener/Transformar/Podar |
+| [rama 1] | Alto/Medio/Bajo | Alta/.../Neg | Si/Parcial/No | Gen/Neu/Con | Crecer |
+| [rama 2] | Alto/Medio/Bajo | Alta/.../Neg | Si/Parcial/No | Gen/Neu/Con | Mantener |
+| [rama 3] | Alto/Medio/Bajo | Alta/.../Neg | Si/Parcial/No | Gen/Neu/Con | Podar |
 
 ### Decisiones
 **Podar:**

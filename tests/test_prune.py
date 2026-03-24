@@ -92,7 +92,18 @@ class TestPruningSummary:
         )
 
     def test_has_summary_section(self, content: str) -> None:
-        assert "resumen" in content.lower()
+        lower = content.lower()
+        assert "resumen" in lower
+        resumen_idx = lower.index("resumen")
+        after_resumen = content[resumen_idx:]
+        table_lines = [
+            ln
+            for ln in after_resumen.splitlines()
+            if "|" in ln
+        ]
+        assert len(table_lines) >= 4, (
+            "Summary table must have at least 4 rows"
+        )
 
     def test_has_decision_markers(self, content: str) -> None:
         lower = content.lower()
@@ -115,12 +126,10 @@ class TestEduardoVoice:
 
     def test_uses_eduardo_vocabulary(self, content: str) -> None:
         """Eduardo never says 'problema', says 'oportunidad' or 'reto'."""
-        eduardo_terms = [
-            "inversión", "inversion", "creación", "creacion",
-            "invitado", "montaña", "montana",
-        ]
-        found = any(term in content.lower() for term in eduardo_terms)
-        assert found, "Skill should use Eduardo's vocabulary"
+        lower = content.lower()
+        eduardo_terms = ["invitado", "creacion", "inversion"]
+        found = sum(1 for t in eduardo_terms if t in lower)
+        assert found >= 3, "Skill must use all Eduardo vocabulary"
 
     def test_no_prohibited_vocabulary(
         self, content: str

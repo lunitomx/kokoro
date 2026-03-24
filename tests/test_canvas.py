@@ -80,7 +80,7 @@ class TestCanvasContent:
         lower = content.lower()
         eduardo_terms = ["invitado", "creacion", "inversion"]
         found = sum(1 for t in eduardo_terms if t in lower)
-        assert found >= 2, "Skill must use Eduardo's vocabulary"
+        assert found >= 3, "Skill must use all Eduardo vocabulary"
 
     def test_references_knowledge_file(self, content: str) -> None:
         assert "kokoro-phase2-canvas.md" in content
@@ -90,7 +90,10 @@ class TestCanvasContent:
         has_ballenas = "inciensos de ballenas" in lower
         has_nunca = "nunca iniciar por la solucion" in lower
         has_nunca2 = "nunca empezar por la solucion" in lower
-        assert has_ballenas or has_nunca or has_nunca2
+        found = sum([has_ballenas, has_nunca, has_nunca2])
+        assert found >= 2, (
+            "Skill must have at least 2 anti-pattern warnings"
+        )
 
     def test_has_proyector_strategy(self, content: str) -> None:
         lower = content.lower()

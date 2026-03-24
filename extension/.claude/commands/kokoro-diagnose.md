@@ -121,6 +121,15 @@ Al terminar ambos ejercicios, presenta un resumen estructurado:
 **Puntos ciegos:**
 - [lo que no veía]
 
+### Mapa de Hallazgos
+
+| Dimension | Hallazgo | Prioridad | Accion |
+|-----------|----------|-----------|--------|
+| Viento | [fortaleza clave] | Alta | Potenciar |
+| Ancla | [obstaculo critico] | Alta | Cortar |
+| Roca | [riesgo principal] | Media | Mitigar |
+| Punto ciego | [area invisible] | Alta | Explorar |
+
 ### Plan de Acción (próximas 2 semanas)
 1. [acción prioritaria — ancla más pesada]
 2. [acción de validación — punto borroso más crítico]
@@ -140,3 +149,4 @@ tu Montaña del Mañana — la visión a 3 años de tu negocio.
 - La sesión completa debería tomar 30-45 minutos de conversación
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
+- Usa "creacion" no "producto", "invitado" no "cliente", "inversion" no "precio"
