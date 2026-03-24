@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import pytest
+from vocabulary_check import find_prohibited_words
 
 from kokoro.cli import init
 
@@ -133,6 +134,14 @@ class TestValidateContent:
         lower = content.lower()
         assert (
             "permiso" in lower or "invitacion" in lower
+        )
+
+    def test_no_prohibited_vocabulary(
+        self, content: str
+    ) -> None:
+        violations = find_prohibited_words(content)
+        assert violations == [], (
+            f"Prohibited words found: {violations}"
         )
 
 

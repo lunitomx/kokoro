@@ -241,7 +241,7 @@ validacion:
 | Vision 3 anos | [ancla estrategica] |
 | Meta 3 meses | [metrica especifica] |
 | Sprint 3 semanas | [primer experimento] |
-| Riesgo principal | [tipo: producto/invitado/mercado] |
+| Riesgo principal | [tipo: creacion/invitado/mercado] |
 | Hipotesis a probar | [hipotesis mas riesgosa] |
 | Metrica del experimento | [numero especifico] |
 | Umbral de exito | [criterio definido ANTES] |
