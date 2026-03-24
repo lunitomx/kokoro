@@ -124,9 +124,12 @@ class TestValidateContent:
             "medir intenciones" in lower
             or "intenciones" in lower
         )
-        assert (
-            has_solution_love or has_excel or has_intentions
-        ), "Must have anti-pattern warnings"
+        found = sum(
+            [has_solution_love, has_excel, has_intentions]
+        )
+        assert found >= 2, (
+            "Must have at least 2 anti-pattern warnings"
+        )
 
     def test_has_proyector_strategy(
         self, content: str

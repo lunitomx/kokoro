@@ -120,6 +120,15 @@ Al terminar ambos ejercicios, presenta un resumen estructurado:
 ### Base Actual
 - [estado actual del negocio]
 
+### Mapa de la Montaña
+
+| Nivel | Descripcion | Inversion requerida | Creacion clave |
+|-------|-------------|---------------------|----------------|
+| Cima (3 anos) | [vision] | [recursos] | [creacion principal] |
+| Campamento 1 ano | [hito] | [recursos] | [creacion del ano] |
+| Campamento 6 meses | [hito] | [recursos] | [creacion inmediata] |
+| Base actual | [estado] | [disponible] | [creacion actual] |
+
 ### OKRs del Año
 
 **Objetivo 1:** [declaración inspiradora]
