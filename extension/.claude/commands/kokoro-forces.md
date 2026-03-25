@@ -23,6 +23,13 @@ Lee el archivo de conocimiento `kokoro-phase2-forces.md` para profundizar en
 la metodologia completa del Customer Forces Model, las 4 fuerzas, la Oferta
 Mafia, y los mejores momentos para compartir.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo el
+canvas, usa el segmento, los retos y la PUV como contexto — las fuerzas
+se mapean para ese segmento especifico, no en abstracto.
+
 ## Antes de Empezar — Estrategia del Proyector
 
 Antes de iniciar, pide permiso. Eduardo nunca impone, guia solo cuando hay
@@ -256,6 +263,22 @@ que prueben tus hipotesis.
 - Usa "creacion" no "producto", "invitado" no "cliente", "inversion" no "precio"
 - La sesion completa deberia tomar 30-45 minutos de conversacion
 - No uses emojis excesivos ni tono de "influencer"
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `fuerza`**: Cada una de las 4 fuerzas mapeadas
+  - id: `FUE-001` a `FUE-004`
+  - source_skill: `kokoro-forces`
+  - content: descripcion de la fuerza
+  - metadata: `{"tipo": "trigger|push|inercia|pull_friccion"}`
+
+Crea edges `valida` entre cada fuerza y la PUV (`PUV-001`).
+
+Marca el skill como completado en la fase 2 con un resumen de una linea.
 - Responde en el idioma del usuario manteniendo la esencia
 - Anti-patron: deseos genericos no son trigger events — profundiza siempre
 - Anti-patron: competir en caracteristicas no vence la inercia — educa

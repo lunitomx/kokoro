@@ -21,6 +21,14 @@ Lee el archivo de conocimiento `kokoro-phase2-interviews.md` para profundizar
 en la metodologia completa de entrevistas, sesgos cognitivos, y la conexion
 con el Customer Forces Model.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo el
+canvas y las fuerzas, usa el segmento, los retos y las fuerzas como contexto
+para disenar las preguntas de entrevista — enfocadas en validar los supuestos
+especificos del canvas.
+
 ## Antes de Empezar — Estrategia del Proyector
 
 Antes de iniciar, pide permiso. Eduardo nunca impone, guia solo cuando hay
@@ -253,6 +261,20 @@ experimentos que prueben tus hipotesis con acciones concretas.
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
 - Anti-patron: nunca preguntar sobre intenciones futuras — solo comportamientos
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `hipotesis`**: Cada hipotesis validada o invalidada por las entrevistas
+  - id: `HIP-001`, `HIP-002`, etc.
+  - source_skill: `kokoro-interviews`
+  - content: descripcion de la hipotesis + resultado
+  - metadata: `{"estado": "validada|invalidada|parcial", "entrevistas": N}`
+
+Marca el skill como completado en la fase 2 con un resumen de una linea.
 - Anti-patron: no vender durante la entrevista bajo ninguna circunstancia
 - Si el emprendedor tiene menos de 10 entrevistas de problema, no avanzar a
   entrevista de solucion — guialo a completar las que faltan
