@@ -27,6 +27,7 @@ COACHING_SKILLS: list[str] = [
     "kokoro-validate",
     "kokoro-research",
     "kokoro-pescar",
+    "kokoro-experiment",
 ]
 
 # All valid /kokoro-X command files (existing + planned Phase 3/4)
@@ -67,6 +68,7 @@ EXISTING_COMMANDS: set[str] = {
     "kokoro-session",
     "kokoro-research",
     "kokoro-pescar",
+    "kokoro-experiment",
 }
 
 
