@@ -1,6 +1,6 @@
 # Epic E4: Test & Quality Hardening — Scope
 
-> **Status:** PLANNED
+> **Status:** DONE
 > **Created:** 2026-03-22
 > **Problem Brief:** `dev/problem-briefs/e4-test-hardening.md`
 
