@@ -152,7 +152,7 @@ is safer since all touch skill files. S3.6 waits for everything.
 | S3.3 Phase 1 Skill Integration | M | Done | S | 4 skills, persistence + context |
 | S3.4 Phase 2 Skill Integration | M | Done | S | 4 skills, persistence + context |
 | S3.5 Session + Router Update | S | Done | XS | State-aware routing |
-| S3.6 Init Update + Compat Tests | S | Pending | | |
+| S3.6 Init Update + Compat Tests | S | Done | S | 10 compat tests, init updated |
 
 ### Sequencing Risks
 
