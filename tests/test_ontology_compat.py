@@ -72,7 +72,7 @@ class TestGracefulDegradation:
 
 
 class TestSkillFilesHavePersistencia:
-    """All 8 coaching skills must have a Persistencia section."""
+    """All coaching skills must have a Persistencia section."""
 
     COACHING_SKILLS: list[str] = [
         "kokoro-diagnose",
@@ -83,6 +83,7 @@ class TestSkillFilesHavePersistencia:
         "kokoro-forces",
         "kokoro-interviews",
         "kokoro-validate",
+        "kokoro-research",
     ]
 
     def test_all_skills_have_persistencia(
