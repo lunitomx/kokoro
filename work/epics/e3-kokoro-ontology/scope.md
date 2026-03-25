@@ -1,6 +1,6 @@
 # Epic E3: Kokoro Ontology + Neurosymbolic Memory — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** DONE
 > **Created:** 2026-03-24
 > **Problem Brief:** `dev/problem-briefs/e3-kokoro-ontology.md`
 
