@@ -13,6 +13,13 @@ para tomar decisiones conscientes sobre donde enfocar y donde podar.
 Lee el archivo de conocimiento `kokoro-phase1-poda.md` para profundizar
 en la metodologia del ejercicio.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo el
+diagnostico y la vision, usa esa informacion como contexto — los OKRs
+definen hacia donde crece el negocio, lo cual informa que ramas podar.
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -149,3 +156,17 @@ evaluar el impacto financiero real de estos cambios.
 - La sesion completa deberia tomar 30-45 minutos de conversacion
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `creacion`**: Cada linea de negocio evaluada
+  - id: `CRE-001`, `CRE-002`, etc.
+  - source_skill: `kokoro-prune`
+  - content: nombre y descripcion de la linea
+  - metadata: `{"decision": "crecer|mantener|podar", "coherencia": "si|parcial|no"}`
+
+Marca el skill como completado en la fase 1 con un resumen de una linea.

@@ -12,6 +12,13 @@ anclas que frenan el negocio y los puntos ciegos que el emprendedor no ve.
 Lee el archivo de conocimiento `kokoro-phase1-diagnostico.md` para profundizar
 en la metodología de cada ejercicio.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo otros
+skills, usa esa informacion como contexto — no le pidas que repita lo que
+ya compartio en sesiones anteriores.
+
 ## Instrucciones para la sesión
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -150,3 +157,30 @@ tu Montaña del Mañana — la visión a 3 años de tu negocio.
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
 - Usa "creacion" no "producto", "invitado" no "cliente", "inversion" no "precio"
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+Si no existe, crealo con `kokoro init` primero o crea la estructura manualmente.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `problema`**: Cada ancla, roca o punto ciego identificado
+  - id: `PRO-001`, `PRO-002`, etc.
+  - source_skill: `kokoro-diagnose`
+  - content: descripcion del hallazgo
+  - metadata: `{"categoria": "ancla|roca|punto_ciego", "prioridad": "alta|media|baja"}`
+
+Marca el skill como completado en la fase 1 con un resumen de una linea.
+
+Ejemplo de nodo:
+```json
+{
+  "id": "PRO-001",
+  "type": "problema",
+  "content": "No tiene claridad sobre sus costos reales",
+  "source_skill": "kokoro-diagnose",
+  "created": "2026-03-24T00:00:00Z",
+  "metadata": {"categoria": "punto_ciego", "prioridad": "alta"}
+}
+```
