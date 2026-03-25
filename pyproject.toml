@@ -12,6 +12,9 @@ authors = [
     { name = "Eduardo Muñoz Luna" },
     { name = "Ahuehuete Digital" },
 ]
+dependencies = [
+    "pydantic>=2.0",
+]
 
 [project.scripts]
 kokoro = "kokoro.cli:main"
