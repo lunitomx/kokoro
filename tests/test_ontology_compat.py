@@ -86,6 +86,7 @@ class TestSkillFilesHavePersistencia:
         "kokoro-research",
         "kokoro-pescar",
         "kokoro-experiment",
+        "kokoro-launch",
     ]
 
     def test_all_skills_have_persistencia(
