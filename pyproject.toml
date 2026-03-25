@@ -18,6 +18,7 @@ dependencies = [
 
 [project.scripts]
 kokoro = "kokoro.cli:main"
+kokoro-mcp = "kokoro.mcp_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/kokoro"]
@@ -31,6 +32,9 @@ include = [
 ]
 
 [project.optional-dependencies]
+mcp = [
+    "mcp>=1.0",
+]
 dev = [
     "pytest>=8.0",
     "ruff>=0.9",
