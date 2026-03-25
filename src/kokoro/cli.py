@@ -110,6 +110,10 @@ def init(target: Path | None = None) -> None:
         if src.is_dir():
             _copy_dir_no_overwrite(src, claude_dir / subdir)
 
+    # Create .kokoro/ directory for coaching state persistence
+    kokoro_state_dir = target / ".kokoro"
+    kokoro_state_dir.mkdir(parents=True, exist_ok=True)
+
     print(f"Kokoro installed in {claude_dir}")
 
 
