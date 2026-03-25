@@ -149,7 +149,7 @@ is safer since all touch skill files. S3.6 waits for everything.
 |-------|:----:|:------:|:------:|-------|
 | S3.1 Ontology Schema | M | Done | S | 23 tests, 7 models, pydantic added |
 | S3.2 Persistence Layer | S | Done | S | 19 tests, atomic writes, skill context |
-| S3.3 Phase 1 Skill Integration | M | Pending | | |
+| S3.3 Phase 1 Skill Integration | M | Done | S | 4 skills, persistence + context |
 | S3.4 Phase 2 Skill Integration | M | Pending | | |
 | S3.5 Session + Router Update | S | Pending | | |
 | S3.6 Init Update + Compat Tests | S | Pending | | |
