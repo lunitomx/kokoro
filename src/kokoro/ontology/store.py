@@ -42,6 +42,12 @@ SKILL_CONTEXT: dict[str, list[str]] = {
     "kokoro-forces": ["kokoro-canvas"],
     "kokoro-interviews": ["kokoro-canvas", "kokoro-forces"],
     "kokoro-validate": ["kokoro-canvas", "kokoro-forces", "kokoro-interviews"],
+    "kokoro-research": [
+        "kokoro-canvas", "kokoro-forces", "kokoro-interviews", "kokoro-validate",
+    ],
+    "kokoro-pescar": ["kokoro-research", "kokoro-canvas", "kokoro-forces"],
+    "kokoro-experiment": ["kokoro-validate", "kokoro-pescar"],
+    "kokoro-launch": ["kokoro-pescar", "kokoro-experiment", "kokoro-canvas"],
 }
 
 PHASE_NAMES: dict[int, str] = {
