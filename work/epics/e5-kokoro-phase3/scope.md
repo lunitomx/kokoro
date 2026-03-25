@@ -176,7 +176,7 @@ No new code beyond test files and ontology store updates for Phase 3 mappings.
 
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
-| S5.1 Knowledge Files Phase 3 | S | Pending | | |
+| S5.1 Knowledge Files Phase 3 | S | Done | S | 4 files, 607 lines |
 | S5.2 /kokoro-research | M | Pending | | |
 | S5.3 /kokoro-pescar | M | Pending | | |
 | S5.4 /kokoro-experiment | M | Pending | | |
