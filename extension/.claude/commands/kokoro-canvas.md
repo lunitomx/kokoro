@@ -18,6 +18,13 @@ Lee el archivo de conocimiento `kokoro-phase2-canvas.md` para profundizar en
 la metodologia completa del Lean Canvas, los 9 bloques, la formula de la PUV,
 y el analisis de riesgos.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo la
+Fase 1, usa los hallazgos del diagnostico, vision, poda y finanzas como
+contexto — las lineas de negocio y metricas informan los bloques del canvas.
+
 ## Instrucciones para la sesion
 
 ### Antes de Empezar — Estrategia del Proyector
@@ -282,3 +289,31 @@ canvas con datos reales.
 - Responde en el idioma del usuario manteniendo la esencia
 - Un canvas por segmento — si hay multiples, guia uno a la vez
 - Si el emprendedor quiere empezar por la solucion, redirigelo al Bloque 1
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `segmento`**: El segmento de invitados definido
+  - id: `SEG-001` (uno por canvas)
+  - source_skill: `kokoro-canvas`
+  - content: descripcion del segmento + early adopters
+  - metadata: `{"early_adopters": "descripcion"}`
+
+- **Tipo `problema`**: Cada reto identificado en el Bloque 2
+  - id: `PRO-C01`, `PRO-C02`, etc.
+  - source_skill: `kokoro-canvas`
+  - content: descripcion del reto
+  - metadata: `{"alternativas": "existentes"}`
+
+- **Tipo `puv`**: La Propuesta Unica de Valor
+  - id: `PUV-001`
+  - source_skill: `kokoro-canvas`
+  - content: la PUV completa con formula
+  - metadata: `{"posicionamiento": "somos el X para Y"}`
+
+Crea edges `alimenta` entre segmento y cada reto.
+
+Marca el skill como completado en la fase 2 con un resumen de una linea.

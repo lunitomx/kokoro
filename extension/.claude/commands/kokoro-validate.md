@@ -20,6 +20,13 @@ Lee el archivo de conocimiento `kokoro-phase2-validation.md` para profundizar
 en la metodologia completa del plan de validacion, los 10 principios, el
 modelo 3x3x3, y el Validation Plan Canvas de Leanstack.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo el
+canvas, fuerzas y entrevistas, usa esa informacion para disenar experimentos
+que prueben las hipotesis especificas — no generes hipotesis en el vacio.
+
 ## Antes de Empezar — Estrategia del Proyector
 
 Antes de iniciar, pide permiso. Eduardo nunca impone, guia solo cuando hay
@@ -272,6 +279,22 @@ documentar un sprint 3x3x3 completo.
 - La sesion completa deberia tomar 30-45 minutos de conversacion
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `experimento`**: Cada experimento disenado en el plan de validacion
+  - id: `EXP-001`, `EXP-002`, etc.
+  - source_skill: `kokoro-validate`
+  - content: descripcion del experimento + criterio de exito
+  - metadata: `{"hipotesis": "HIP-001", "metrica": "X", "umbral": "Y"}`
+
+Crea edges `experimenta` entre cada experimento y su hipotesis.
+
+Marca el skill como completado en la fase 2 con un resumen de una linea.
 - Anti-patron: enamorarse de la solucion es el error mas comun — senalalo
 - Anti-patron: proyecciones en Excel no sustituyen evidencia real
 - Anti-patron: medir intenciones no es medir acciones
