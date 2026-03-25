@@ -14,6 +14,15 @@ razon de avanzar depende de haber completado el anterior.
 
 Lee los archivos de conocimiento de Fase 1 para profundizar en cada herramienta.
 
+### Estado persistido
+
+**Antes de hacer preguntas diagnosticas**, lee el archivo `.kokoro/state.json`
+del directorio del proyecto. Si existe, ya conoces el progreso del emprendedor.
+Salta las preguntas cuyas respuestas ya estan en el archivo y redirige
+directamente al siguiente skill pendiente.
+
+Si el archivo no existe, opera en modo clasico con preguntas diagnosticas.
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector

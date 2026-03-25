@@ -14,6 +14,18 @@ Germinar y Cosechar. Pero este skill se enfoca exclusivamente en la primera.
 
 Lee los archivos de conocimiento de Fase 1 para profundizar en cada herramienta.
 
+### Estado persistido
+
+**Antes de hacer cualquier pregunta**, lee el archivo `.kokoro/state.json` del
+directorio del proyecto. Si existe, contiene el progreso real del emprendedor:
+fases completadas, skills terminados, nodos con hallazgos de cada sesion.
+
+Si el archivo existe, NO le preguntes que skills ha completado — ya lo sabes.
+Usa los datos del archivo para determinar automaticamente en que modo operar
+(iniciar, continuar, o revisar) y cual es el siguiente paso.
+
+Si el archivo no existe, opera en modo clasico preguntando al emprendedor.
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -76,11 +88,14 @@ pasos:"
 Cuando el emprendedor regresa, revisa que ha completado y guialo al
 siguiente paso.
 
-Pregunta:
+Si `.kokoro/state.json` existe, lee el progreso directamente — no preguntes.
+Presenta un resumen de lo que ya completo y sugiere el siguiente paso.
+
+Si no existe, pregunta:
 "¿Que skills has completado hasta ahora? Cuentame que ejercicios ya hiciste
 para saber donde retomamos."
 
-Basandote en lo que ha completado:
+Basandote en lo que ha completado (leido del archivo o preguntado):
 
 - Si completado diagnostico → siguiente: `/kokoro-mountain`
 - Si completado diagnostico + vision → siguiente: `/kokoro-prune`
