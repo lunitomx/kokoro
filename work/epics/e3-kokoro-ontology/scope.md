@@ -19,30 +19,31 @@ Foundation for E5/E6 skill additions.
 
 | ID | Story | Size | Status | Description |
 |----|-------|:----:|:------:|-------------|
-| S3.1 | Ontology Schema | M | Pending | Pydantic models for domain nodes + typed edges |
-| S3.2 | Persistence Layer | S | Pending | Local JSON file read/write with schema validation |
-| S3.3 | Canvas Integration | M | Pending | /kokoro-canvas writes structured output to ontology |
-| S3.4 | Forces Integration | S | Pending | /kokoro-forces reads canvas state, writes force map |
-| S3.5 | Session State | M | Pending | /kokoro-session reads ontology for progress tracking |
-| S3.6 | Backward Compatibility | S | Pending | Graceful degradation tests, migration from no-state |
+| S3.1 | Ontology Schema | M | Pending | Pydantic models: 10 node types, 5 edge types, CoachingState |
+| S3.2 | Persistence Layer | S | Pending | JSON read/write/query, atomic writes, load/save |
+| S3.3 | Phase 1 Skill Integration | M | Pending | diagnose, mountain, prune, finance — persist + context |
+| S3.4 | Phase 2 Skill Integration | M | Pending | canvas, forces, interviews, validate — persist + context |
+| S3.5 | Session + Router Update | S | Pending | kokoro-session and kokoro read progress from state.json |
+| S3.6 | Init Update + Compat Tests | S | Pending | kokoro init creates .kokoro/, backward compat verified |
 
 **Total:** 6 stories
 
 ## Scope
 
 **In scope (MUST):**
-- Pydantic domain models: Segmento, Problema, PUV, Fuerza, Hipotesis, Experimento
-- Typed edges: alimenta, valida, experimenta, mide
-- Local JSON persistence (entrepreneur's project directory)
-- Read/write integration for /kokoro-canvas and /kokoro-forces
-- /kokoro-session progress from persisted state
+- Pydantic domain models: Segmento, Problema, PUV, Fuerza, Hipotesis, Experimento,
+  Vision, OKR, Creacion, Metrica (10 node types)
+- Typed edges: alimenta, valida, experimenta, mide, pertenece_a (5 edge types)
+- Local JSON persistence (`.kokoro/state.json` in entrepreneur's project)
+- Read/write integration for ALL 8 coaching skills (not just 2)
+- /kokoro-session and /kokoro router read from state.json for progress
 - Graceful degradation: all 313 tests pass without ontology present
 - Zero prohibited vocabulary in ontology layer
 
 **In scope (SHOULD):**
-- Integration with remaining Phase 1/2 skills
-- Schema versioning for future migrations
-- CLI query interface for ontology state
+- Schema versioning (version field in CoachingState)
+- `kokoro init` creates `.kokoro/` with empty state template
+- CLI query for state (`kokoro state` or similar)
 
 **Out of scope:**
 - Phase 3/4 skill implementation (E5/E6)
@@ -70,17 +71,18 @@ Foundation for E5/E6 skill additions.
 ## Dependencies
 
 ```
-S3.1 (schema) ──→ S3.2 (persistence) ──→ S3.3 (canvas)
-                                          S3.4 (forces, needs S3.3)
-                                          S3.5 (session, needs S3.2)
-S3.6 (compat, independent but runs last)
+S3.1 (schema) ──→ S3.2 (persistence) ──→ S3.3 (Phase 1 skills)
+                                          S3.4 (Phase 2 skills, after S3.3)
+                                          S3.5 (session+router, needs S3.2)
+S3.6 (init+compat, runs last)
 ```
 
-- S3.1 first: models must exist before persistence
-- S3.2 after S3.1: file I/O needs schema
-- S3.3/S3.4 sequential: forces depends on canvas writing first
-- S3.5 after S3.2: session reads from persistence
-- S3.6 last: validates everything works without ontology
+- S3.1 first: models must exist before persistence layer
+- S3.2 after S3.1: file I/O needs schema to serialize/deserialize
+- S3.3 after S3.2: Phase 1 skills need store to persist/read
+- S3.4 after S3.3: Phase 2 skills reference Phase 1 outputs
+- S3.5 after S3.2: session/router read from persistence
+- S3.6 last: validates full backward compat with ontology absent
 
 **External:** None. E1/E2/E4 all done and merged.
 
