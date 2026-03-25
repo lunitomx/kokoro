@@ -84,6 +84,7 @@ class TestSkillFilesHavePersistencia:
         "kokoro-interviews",
         "kokoro-validate",
         "kokoro-research",
+        "kokoro-pescar",
     ]
 
     def test_all_skills_have_persistencia(
