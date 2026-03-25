@@ -144,6 +144,10 @@ Al terminar ambos ejercicios, presenta un resumen estructurado:
 1. [primera acción concreta hacia el primer OKR]
 2. [segunda acción de validación]
 3. [tercera acción de exploración]
+
+### Siguiente paso
+Cuando tengas tu montaña clara y tus OKRs definidos, usa `/kokoro-prune`
+para podar las ramas que no te acercan a la cima.
 ```
 
 ## Notas para Claude

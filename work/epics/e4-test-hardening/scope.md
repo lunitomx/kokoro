@@ -22,7 +22,7 @@ QR review.
 | S4.1 | Conftest Consolidation | S | Done | Migrate 10 test files from EXTENSION_DIR to conftest fixtures |
 | S4.2 | Anti-Vocabulary Gate | S | Done | Add prohibited word tests to all 10 skill test files |
 | S4.3 | Assertion Hardening | S | Done | Backport strong assertions to E1 tests, fix content gaps |
-| S4.4 | Output Testing Spike | S | Pending | Design + proof-of-concept for skill output smoke tests |
+| S4.4 | Output Testing Spike | S | Done | Design + proof-of-concept for skill output smoke tests |
 
 **Total:** 4 stories
 
@@ -127,7 +127,7 @@ Strictly sequential — all stories touch the same 10 test files.
 | S4.1 Conftest Consolidation | S | Done | S | 10 files migrated, 1.33x velocity |
 | S4.2 Anti-Vocabulary Gate | S | Done | S | 10 tests, 9 content fixes, 1.12x |
 | S4.3 Assertion Hardening | S | Done | S | 12 assertions hardened, 3 skill fixes, 1.33x |
-| S4.4 Output Testing Spike | S | Pending | | |
+| S4.4 Output Testing Spike | S | Done | S | 40 tests, 1 content fix, viable |
 
 ### Sequencing Risks
 
