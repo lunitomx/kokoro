@@ -1,6 +1,6 @@
 # Epic E2: Kokoro Phase 2 — Elegir la Semilla — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** DONE
 > **Created:** 2026-03-09
 
 ## Objective

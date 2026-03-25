@@ -1,6 +1,6 @@
 # Epic E1: Kokoro Phase 1 — Preparar el Suelo — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** DONE
 > **Branch:** `epic/e1/kokoro-phase1`
 > **Created:** 2026-03-02
 
