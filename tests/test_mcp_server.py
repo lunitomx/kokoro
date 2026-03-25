@@ -21,8 +21,8 @@ from kokoro.ontology.store import create_empty_state, save_state
 class TestSkillRegistry:
     """All 12 coaching skills must be registered."""
 
-    def test_has_12_skills(self) -> None:
-        assert len(SKILLS) == 12
+    def test_has_16_skills(self) -> None:
+        assert len(SKILLS) == 16
 
     def test_phase1_skills_present(self) -> None:
         phase1 = [

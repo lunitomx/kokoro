@@ -101,6 +101,22 @@ SKILLS: dict[str, tuple[str, str]] = {
         "kokoro-launch.md",
         "Lanzamiento: copy, landing, secuencia, playbook",
     ),
+    "kokoro_factory": (
+        "kokoro-factory.md",
+        "Customer Factory Blueprint: sistema de crecimiento predecible",
+    ),
+    "kokoro_funnel": (
+        "kokoro-funnel.md",
+        "Funnel Consciente: embudo alineado con valores",
+    ),
+    "kokoro_mafia": (
+        "kokoro-mafia.md",
+        "Oferta Mafia: propuesta irresistible basada en fuerzas",
+    ),
+    "kokoro_rhythm": (
+        "kokoro-rhythm.md",
+        "Ritmo Semanal: 90 minutos + scorecard",
+    ),
 }
 
 
