@@ -1,6 +1,6 @@
-# /kokoro-session — Gestor de Sesion de Fases 1 y 2
+# /kokoro-session — Gestor de Sesion de Fases 1, 2 y 3
 
-> Mapa de progreso para el viaje de Fases 1 y 2.
+> Mapa de progreso para el viaje de Fases 1, 2 y 3.
 
 ## Contexto
 
@@ -83,6 +83,23 @@ pasos:"
 4. **Validacion** (`/kokoro-validate`) — Plan de validacion estructurado.
    Disena experimentos para probar hipotesis riesgosas.
 
+**Roadmap de Fase 3 — Germinar:**
+
+"Cuando completes la Fase 2, viene la Fase 3: Germinar. Aqui pasas de
+modelo validado a presencia real en el mercado. Tiene 4 pasos:"
+
+1. **Investigacion** (`/kokoro-research`) — Investigacion multi-fuente.
+   Triangula datos de escritorio, escucha social y competencia.
+
+2. **PESCAR** (`/kokoro-pescar`) — Estrategia de contenido y comunicacion.
+   Framework PESCAR: Reto-Estrategia-Segmento-Contenido-Accion-Resultado.
+
+3. **Experimento** (`/kokoro-experiment`) — Sprint 3x3x3 de validacion.
+   Build-Measure-Learn en 3 semanas. Hipotesis → datos → decision.
+
+4. **Lanzamiento** (`/kokoro-launch`) — Copy, landing, secuencia de lanzamiento.
+   Tu creacion se encuentra con las personas que la necesitan.
+
 ### Modo 2: Continuar — Sesiones posteriores
 
 Cuando el emprendedor regresa, revisa que ha completado y guialo al
@@ -104,8 +121,12 @@ Basandote en lo que ha completado (leido del archivo o preguntado):
 - Si completado canvas → siguiente: `/kokoro-forces`
 - Si completado canvas + fuerzas → siguiente: `/kokoro-interviews`
 - Si completado canvas + fuerzas + entrevistas → siguiente: `/kokoro-validate`
-- Si completado Fase 1 + Fase 2 → felicita y explica que ambas fases estan
-  completas
+- Si completado Fase 1 + Fase 2 → felicita y guia a Fase 3: `/kokoro-research`
+- Si completado research → siguiente: `/kokoro-pescar`
+- Si completado research + pescar → siguiente: `/kokoro-experiment`
+- Si completado research + pescar + experimento → siguiente: `/kokoro-launch`
+- Si completado Fase 1 + Fase 2 + Fase 3 → felicita y explica que las 3 fases
+  estan completas. Fase 4 (Cosechar) esta en desarrollo
 
 Formato:
 
@@ -141,6 +162,15 @@ Cuando el emprendedor quiere ver su progreso, genera un reporte estructurado.
 | 6 | Fuerzas (Forces) | [Completado/Pendiente] | [resumen breve] |
 | 7 | Entrevistas | [Completado/Pendiente] | [resumen breve] |
 | 8 | Validacion | [Completado/Pendiente] | [resumen breve] |
+
+### Progreso por Skill — Fase 3: Germinar
+
+| # | Skill | Estado | Hallazgos Clave |
+|---|-------|--------|-----------------|
+| 9 | Investigacion | [Completado/Pendiente] | [resumen breve] |
+| 10 | PESCAR | [Completado/Pendiente] | [resumen breve] |
+| 11 | Experimento | [Completado/Pendiente] | [resumen breve] |
+| 12 | Lanzamiento | [Completado/Pendiente] | [resumen breve] |
 
 ### Insights Clave
 - [insight 1 del proceso]

@@ -1,6 +1,6 @@
 # Epic E5: Kokoro Phase 3 — Germinar — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** DONE
 > **Created:** 2026-03-24
 > **Problem Brief:** `dev/problem-briefs/e5-kokoro-phase3.md`
 
@@ -177,8 +177,8 @@ No new code beyond test files and ontology store updates for Phase 3 mappings.
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
 | S5.1 Knowledge Files Phase 3 | S | Done | S | 4 files, 607 lines |
-| S5.2 /kokoro-research | M | Pending | | |
-| S5.3 /kokoro-pescar | M | Pending | | |
-| S5.4 /kokoro-experiment | M | Pending | | |
-| S5.5 /kokoro-launch | M | Pending | | |
-| S5.6 Meta Skills Update | S | Pending | | |
+| S5.2 /kokoro-research | M | Done | S | 14 tests, 4 exercises |
+| S5.3 /kokoro-pescar | M | Done | S | 11 tests, 6-step PESCAR |
+| S5.4 /kokoro-experiment | M | Done | S | 12 tests, 3x3x3 framework |
+| S5.5 /kokoro-launch | M | Done | S | 14 tests, 4 exercises |
+| S5.6 Meta Skills Update | S | Done | XS | Router + session + ontology |

@@ -1,6 +1,6 @@
-# /kokoro — Router de Fases 1 y 2
+# /kokoro — Router de Fases 1, 2 y 3
 
-> Diagnostico inicial para guiar al emprendedor al skill correcto de Fase 1 o 2.
+> Diagnostico inicial para guiar al emprendedor al skill correcto.
 
 ## Contexto
 
@@ -151,6 +151,33 @@ La Fase 2 — Elegir la Semilla — tiene 4 herramientas para validar tu modelo:
    Disena experimentos para probar las hipotesis mas riesgosas. Sin validacion,
    construyes sobre arena.
 
+### Transicion a Fase 3 — Germinar
+
+Si el emprendedor ya completo las Fases 1 y 2, felicitalo y presentale
+la Fase 3:
+
+> "Ya preparaste el suelo y elegiste la semilla. Ahora viene la Fase 3:
+> Germinar. Es momento de que tu creacion encuentre a las personas que la
+> necesitan."
+
+### Los 4 Skills de Fase 3
+
+La Fase 3 — Germinar — tiene 4 herramientas para ir de validacion a mercado:
+
+1. **Investigacion** (`/kokoro-research`) — Investigacion multi-fuente.
+   Triangula datos de escritorio, escucha social y competencia para tener
+   el panorama completo.
+
+2. **PESCAR** (`/kokoro-pescar`) — Estrategia de contenido y comunicacion.
+   El framework PESCAR conecta tu reto validado con tu invitado a traves
+   del contenido correcto en el momento correcto.
+
+3. **Experimento** (`/kokoro-experiment`) — Sprint 3x3x3.
+   Build-Measure-Learn en 3 semanas. Hipotesis → datos → decision.
+
+4. **Lanzamiento** (`/kokoro-launch`) — Copy, landing, secuencia de lanzamiento.
+   Tu creacion se encuentra con las personas que la necesitan.
+
 ## Notas para Claude
 
 - Usa la voz de Eduardo: metaforas, profundidad, sprezzatura
@@ -161,4 +188,5 @@ La Fase 2 — Elegir la Semilla — tiene 4 herramientas para validar tu modelo:
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
 - Puedes mencionar skills de Fase 2 cuando el emprendedor haya completado Fase 1
-- No menciones skills de Fase 3 o 4 por nombre de comando
+- Puedes mencionar skills de Fase 3 cuando el emprendedor haya completado Fase 2
+- No menciones skills de Fase 4 por nombre de comando (aun en desarrollo)
