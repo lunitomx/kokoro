@@ -16,3 +16,4 @@ Items deferred from active work. Review during epic planning.
 | ~~Anti-pattern assertion hardening — require >= 2 of N anti-patterns present.~~ | ~~E2 retro (kaizen)~~ | ~~P2~~ | ~~Promoted to E4 S4.3~~ |
 | ~~Conftest fixture standardization~~ | ~~E2 retro (kaizen)~~ | ~~P3~~ | ~~Promoted to E4 S4.1~~ |
 | ~~Kokoro ontology + neurosymbolic memory~~ | ~~E2 retro + Emilio retro (SES-008)~~ | ~~P0~~ | ~~Promoted to E3 — IN PROGRESS~~ |
+| Kokoro como MCP server para Claude Desktop — permitir que cualquier estudiante/emprendedor se conecte a Kokoro desde Claude Desktop sin instalar paquetes. Exponer skills como MCP tools, ontologia como MCP resources. | SES-012 Luna request (2026-03-24) | P1 | After E3 complete — needs ontology layer stable |
