@@ -1,6 +1,6 @@
 # Epic E7: Kokoro MCP Server para Claude Desktop — Scope
 
-> **Status:** PLANNED
+> **Status:** DONE
 > **Created:** 2026-03-24
 > **Problem Brief:** `dev/problem-briefs/e7-kokoro-mcp-server.md`
 
@@ -165,12 +165,12 @@ S7.6 (integration tests, runs last)
 
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
-| S7.1 MCP Server Skeleton | M | Pending | | |
-| S7.2 Skill Tools | M | Pending | | |
-| S7.3 State Resources | S | Pending | | |
-| S7.4 Knowledge Resources | S | Pending | | |
-| S7.5 Distribution + Config | S | Pending | | |
-| S7.6 Integration Tests | S | Pending | | |
+| S7.1 MCP Server Skeleton | M | Done | S | FastMCP server, 14 tools |
+| S7.2 Skill Tools | M | Done | — | Merged with S7.1 |
+| S7.3 State Resources | S | Done | — | Merged with S7.1 |
+| S7.4 Knowledge Resources | S | Done | — | Merged with S7.1 |
+| S7.5 Distribution + Config | S | Done | XS | 3-step setup guide |
+| S7.6 Integration Tests | S | Done | S | 11 tests |
 
 ### Claude Desktop Config (end state)
 
