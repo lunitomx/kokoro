@@ -87,6 +87,10 @@ class TestSkillFilesHavePersistencia:
         "kokoro-pescar",
         "kokoro-experiment",
         "kokoro-launch",
+        "kokoro-factory",
+        "kokoro-funnel",
+        "kokoro-mafia",
+        "kokoro-rhythm",
     ]
 
     def test_all_skills_have_persistencia(
