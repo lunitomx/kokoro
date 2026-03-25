@@ -13,6 +13,13 @@ juego de azar. Marketing es inversion, no gasto.
 Lee el archivo de conocimiento `kokoro-phase1-finanzas.md` para profundizar
 en la metodologia del ejercicio.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo la
+poda, usa las lineas de negocio identificadas como punto de partida para
+la evaluacion financiera — no le pidas que las liste de nuevo.
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -161,3 +168,19 @@ tus OKRs alineados con estos numeros reales.
 - La sesion completa deberia tomar 30-45 minutos de conversacion
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `metrica`**: Metricas financieras por cada linea de negocio
+  - id: `MET-001`, `MET-002`, etc.
+  - source_skill: `kokoro-finance`
+  - content: resumen financiero de la linea
+  - metadata: `{"creacion": "CRE-001", "margen": "X%", "cpa": "$Y", "roi": "Nx"}`
+
+Crea edges `mide` entre cada metrica y su creacion correspondiente.
+
+Marca el skill como completado en la fase 1 con un resumen de una linea.

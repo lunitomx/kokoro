@@ -12,6 +12,13 @@ visión en OKRs (Objectives and Key Results) concretos y medibles.
 Lee el archivo de conocimiento `kokoro-phase1-vision.md` para profundizar
 en la metodología de cada ejercicio.
 
+### Contexto previo
+
+Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
+leelo para conocer el estado actual del emprendedor. Si ya completo el
+diagnostico (`kokoro-diagnose`), usa los hallazgos como contexto para
+informar la vision — las anclas y puntos ciegos deben alimentar los OKRs.
+
 ## Instrucciones para la sesión
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -160,5 +167,25 @@ para podar las ramas que no te acercan a la cima.
 - La sesión completa debería tomar 30-45 minutos de conversación
 - No uses emojis excesivos ni tono de "influencer"
 - Responde en el idioma del usuario manteniendo la esencia
+
+## Persistencia
+
+Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+
+Registra los hallazgos como nodos estructurados:
+
+- **Tipo `vision`**: La cima de la montana (vision a 3 anos)
+  - id: `VIS-001`
+  - source_skill: `kokoro-mountain`
+  - content: descripcion de la vision completa
+  - metadata: `{"horizonte": "3_anos"}`
+
+- **Tipo `okr`**: Cada objetivo con sus resultados clave
+  - id: `OKR-001`, `OKR-002`, etc.
+  - source_skill: `kokoro-mountain`
+  - content: objetivo + KRs
+  - metadata: `{"tipo": "anual", "krs": ["KR1", "KR2", "KR3"]}`
+
+Marca el skill como completado en la fase 1 con un resumen de una linea.
 
 Siguiente paso: `/kokoro-prune` para decidir qué líneas de negocio mantener y cuáles podar.
