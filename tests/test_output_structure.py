@@ -34,6 +34,7 @@ COACHING_SKILLS: list[str] = [
     "kokoro-mafia",
     "kokoro-rhythm",
     "kokoro-ads",
+    "kokoro-client",
 ]
 
 # All valid /kokoro-X command files (existing + planned Phase 3/4)
@@ -59,6 +60,7 @@ VALID_COMMANDS: set[str] = {
     "kokoro-mafia",
     "kokoro-rhythm",
     "kokoro-ads",
+    "kokoro-client",
 }
 
 # Commands that must exist as files today
@@ -82,6 +84,7 @@ EXISTING_COMMANDS: set[str] = {
     "kokoro-mafia",
     "kokoro-rhythm",
     "kokoro-ads",
+    "kokoro-client",
 }
 
 
