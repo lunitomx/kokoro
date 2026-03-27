@@ -36,6 +36,26 @@ Si no existe contexto.md ni repo del cliente, pregunta al usuario:
 Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
 leelo para conocer el estado actual del emprendedor y sus hallazgos previos.
 
+### Resolucion de cliente
+
+Antes de iniciar, intenta resolver el cliente desde el grafo:
+
+1. Si el usuario menciona un nombre de cliente, busca en `.kokoro/clients.json`
+   usando `find_by_name` (coincidencia parcial, case-insensitive)
+2. Si encuentra el cliente:
+   - Lee su `context_file` si existe (datos reales del proyecto)
+   - Lee sus `repos` para obtener datos actualizados (inventario, precios)
+   - Lee sus `segments` para entender los públicos
+   - Lee su `metadata` para datos clave
+   - Presenta un resumen: "Cliente: {name} | Grupo: {group} | Segmentos: {segments}"
+3. Si NO encuentra el cliente:
+   - Pregunta: "No encontré ese cliente en el grafo. ¿Quieres que lo creemos
+     ahora con `/kokoro-client`? ¿O prefieres continuar sin contexto guardado?"
+4. Si no hay `.kokoro/clients.json`:
+   - Continúa sin contexto de cliente (backward compatible)
+   - Al final de la sesión, sugiere: "Considera registrar este cliente con
+     `/kokoro-client` para que la próxima vez tenga todo el contexto listo."
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
