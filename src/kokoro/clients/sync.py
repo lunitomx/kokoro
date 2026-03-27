@@ -78,3 +78,45 @@ def sync_to_memory(
         created.append(ref_file)
 
     return created
+
+
+def update_memory_index(
+    memory_md: Path,
+    new_files: list[Path],
+) -> bool:
+    """Update MEMORY.md index with new reference file entries.
+
+    Adds entries under ## References section. Skips files already listed.
+    Returns True if any entries were added.
+    """
+    if not memory_md.is_file() or not new_files:
+        return False
+
+    content = memory_md.read_text(encoding="utf-8")
+    added = False
+
+    for ref_file in new_files:
+        filename = ref_file.name
+        if filename in content:
+            continue
+
+        # Extract title: reference_konecta_park.md -> Konecta Park
+        slug = filename.replace("reference_", "").replace(".md", "")
+        title = slug.replace("_", " ").title()
+
+        entry = f"- [{title}]({filename}) — auto-generated from client graph\n"
+
+        # Insert before ## Feedback or at end of ## References
+        if "## Feedback" in content:
+            content = content.replace("## Feedback", f"{entry}\n## Feedback")
+        elif "## References" in content:
+            content = content.replace("## References\n", f"## References\n{entry}")
+        else:
+            content += f"\n## References\n{entry}"
+
+        added = True
+
+    if added:
+        memory_md.write_text(content, encoding="utf-8")
+
+    return added
