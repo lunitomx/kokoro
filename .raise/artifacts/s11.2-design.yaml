@@ -1,0 +1,111 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-26T00:00:00Z'
+story: 'S11.2'
+epic: 'E11'
+content:
+  summary: 'Create /kokoro-connect skill that guides users through mapping MCP platform accounts (Meta Ads, Google Ads, GA4, GSC) to ClientProfile entries in the client graph.'
+  complexity: simple-moderate
+  acceptance_criteria:
+    - id: AC1
+      description: '/kokoro-connect skill file exists at .claude/commands/kokoro-connect.md and follows Kokoro patterns (Proyector strategy, luxurizante vocabulary, client resolution section)'
+      verifiable: true
+    - id: AC2
+      description: 'Knowledge file at .claude/knowledge/kokoro-connect-platforms.md documents platform account ID formats and MCP tool names for all 4 platforms'
+      verifiable: true
+    - id: AC3
+      description: 'Skill guides through account discovery for 4 platforms: Meta Ads (list_ad_accounts), Google Ads (list_customers), GA4 (get_account_summaries), GSC (list_properties)'
+      verifiable: true
+    - id: AC4
+      description: 'Extension mirrors exist at extension/.claude/commands/kokoro-connect.md and extension/.claude/knowledge/kokoro-connect-platforms.md and match source files'
+      verifiable: true
+    - id: AC5
+      description: 'test_output_structure.py updated with kokoro-connect in VALID_COMMANDS, EXISTING_COMMANDS, and COACHING_SKILLS — full test suite passes'
+      verifiable: true
+  components:
+    - path: '.claude/commands/kokoro-connect.md'
+      action: create
+      description: 'Main skill file — guided onboarding flow for mapping platform accounts to clients'
+    - path: '.claude/knowledge/kokoro-connect-platforms.md'
+      action: create
+      description: 'Platform reference: account ID formats, MCP server names, tool signatures, expected return shapes'
+    - path: 'extension/.claude/commands/kokoro-connect.md'
+      action: create
+      description: 'Extension mirror of skill file'
+    - path: 'extension/.claude/knowledge/kokoro-connect-platforms.md'
+      action: create
+      description: 'Extension mirror of knowledge file'
+    - path: 'tests/test_output_structure.py'
+      action: modify
+      description: 'Add kokoro-connect to COACHING_SKILLS, VALID_COMMANDS, EXISTING_COMMANDS sets'
+  integration_points:
+    - module: 'kokoro.clients'
+      change_type: use
+      files: ['src/kokoro/clients/models.py', 'src/kokoro/clients/store.py']
+      notes: 'Reads/writes ClientProfile.metadata["platform_accounts"] via ClientStore — no model changes needed'
+    - module: 'mcp'
+      change_type: use
+      files: ['MCP servers: facebook-ads, google-ads, google-analytics, google-search-console']
+      notes: 'Calls list/discovery tools on each server — no server-side changes'
+  decisions:
+    - id: D1
+      choice: 'Skill file (prompt/instructions), not Python code'
+      rationale: 'Consistent with all other Kokoro skills — Claude Code command files are markdown prompts that guide Claude behavior. No Python module needed.'
+      alternatives_considered: ['Python CLI command', 'MCP tool wrapper']
+    - id: D2
+      choice: 'Use existing MCP tools for account discovery — no new API calls'
+      rationale: 'All 4 MCP servers already expose list/discovery tools. The skill just calls them and presents results conversationally.'
+      alternatives_considered: ['Add custom discovery endpoints to MetricaRadix']
+    - id: D3
+      choice: 'Store mapping in ClientProfile.metadata["platform_accounts"] — no model changes'
+      rationale: 'metadata is dict[str, Any], already designed for extensible key-value data. Platform accounts fit naturally without schema migration.'
+      alternatives_considered: ['Add platform_accounts field to ClientProfile model', 'Separate mapping file']
+    - id: D4
+      choice: 'Follow Kokoro voice/vocabulary throughout (invitado, not cliente)'
+      rationale: 'Consistency with all Kokoro skills. The user-facing language is always luxurizante.'
+      alternatives_considered: ['Technical language for this operational skill']
+    - id: D5
+      choice: 'Client resolution section follows E10 pattern from kokoro-ads.md'
+      rationale: 'Proven pattern: check clients.json, find_by_name, offer /kokoro-client if not found. Already tested in kokoro-ads and kokoro-client.'
+      alternatives_considered: ['Require client ID as argument', 'Skip client resolution']
+    - id: D6
+      choice: 'Proyector strategy — wait for invitation before guiding'
+      rationale: 'Core Kokoro identity pattern. All skills start with a question, not a directive.'
+      alternatives_considered: ['Direct imperative flow']
+    - id: D7
+      choice: 'Graceful degradation — skip unreachable MCP servers, continue with available ones'
+      rationale: 'Not all servers may be running. The skill should connect whatever is available and report what failed.'
+      alternatives_considered: ['Fail-fast if any server is down', 'Require all servers running']
+  flow:
+    - step: 1
+      name: 'Client resolution'
+      description: 'Ask which invitado to connect. Search clients.json. If not found, offer /kokoro-client.'
+    - step: 2
+      name: 'Platform discovery'
+      description: 'Call list tools on each MCP server (list_ad_accounts, list_customers, get_account_summaries, list_properties). Report failures gracefully.'
+    - step: 3
+      name: 'Account selection'
+      description: 'Present discovered accounts per platform. User selects which belong to this client.'
+    - step: 4
+      name: 'Persist mapping'
+      description: 'Update ClientProfile.metadata["platform_accounts"] with selected accounts. Save via ClientStore.'
+    - step: 5
+      name: 'Confirmation'
+      description: 'Show summary table of connected accounts. Suggest next step (/kokoro-ads, /kokoro-funnel).'
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e11-kokoro-analytics/scope.md'
+  story_file: 'work/epics/e11-kokoro-analytics/stories/s11.2-story.md'
+  scope_file: 'work/epics/e11-kokoro-analytics/stories/s11.2-scope.md'
+metadata:
+  platform_account_schema:
+    meta_ads: 'act_123456 (Ad account ID prefixed with act_)'
+    google_ads: '1234567890 (10-digit customer ID)'
+    ga4: 'properties/123456 (Property resource name)'
+    gsc: 'https://example.com (Verified site URL)'
+  mcp_tools:
+    meta_ads: 'facebook-ads → list_ad_accounts'
+    google_ads: 'google-ads → list_customers'
+    ga4: 'google-analytics → get_account_summaries'
+    gsc: 'google-search-console → list_properties'
