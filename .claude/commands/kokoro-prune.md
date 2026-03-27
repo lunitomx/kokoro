@@ -20,6 +20,26 @@ leelo para conocer el estado actual del emprendedor. Si ya completo el
 diagnostico y la vision, usa esa informacion como contexto — los OKRs
 definen hacia donde crece el negocio, lo cual informa que ramas podar.
 
+### Resolucion de invitado
+
+Antes de iniciar, intenta resolver al invitado desde el grafo:
+
+1. Si el usuario menciona un nombre de invitado, busca en `.kokoro/clients.json`
+   usando `find_by_name` (coincidencia parcial, case-insensitive)
+2. Si encuentra al invitado:
+   - Lee su `context_file` si existe (datos reales del proyecto)
+   - Lee sus `repos` para obtener datos actualizados (inventario, tarifas)
+   - Lee sus `segments` para entender los públicos
+   - Lee su `metadata` para datos clave
+   - Presenta un resumen: "Invitado: {name} | Grupo: {group} | Segmentos: {segments}"
+3. Si NO encuentra al invitado:
+   - Pregunta: "No encontré ese invitado en el grafo. ¿Quieres que lo registremos
+     ahora con `/kokoro-client`? ¿O prefieres continuar sin contexto guardado?"
+4. Si no hay `.kokoro/clients.json`:
+   - Continúa sin contexto de invitado (backward compatible)
+   - Al final de la sesión, sugiere: "Considera registrar este invitado con
+     `/kokoro-client` para que la próxima vez tenga todo el contexto listo."
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
