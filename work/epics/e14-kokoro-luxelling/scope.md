@@ -244,3 +244,93 @@ S14.3 and S14.6 can run in parallel after S14.2.
    - Mitigation: Assessment es guia, no gate hard — el skill funciona igual, la guia cambia
 4. **PAT-L-013 coupling** — router references module skills by name
    - Mitigation: Accepted trade-off — luxury is a closed set, not extensible
+
+---
+
+## Implementation Plan
+
+### Sequencing Strategy: Quick-wins + Parallel tracks
+
+Two independent tracks run in parallel from the start. S14.1 (knowledge) and
+S14.2 (assessment) have zero file overlap. After each completes, their
+dependents fan out — also in parallel where possible.
+
+Rationale: Risk is low (proven patterns from E11 skills). Knowledge curation
+is the longest single task (reading + synthesizing 4,300 lines of source).
+Starting it first maximizes throughput.
+
+### Sequence
+
+| # | Story | Size | Strategy | Rationale | Enables |
+|:-:|-------|:----:|----------|-----------|---------|
+| 1a | S14.1 — Knowledge curation | S | Quick-win | Foundation for all module skills; longest single task | S14.4, S14.5, S14.7 |
+| 1b | S14.2 — /kokoro-luxury-assess | S | Quick-win | Foundation for router + Legacy; independent of knowledge | S14.3, S14.6 |
+| 2a | S14.4 — Module batch 1 (scarcity/quality/experience) | M | Dependency | Needs knowledge files from S14.1 | M2 |
+| 2b | S14.5 — Module batch 2 (communication/pricing/growth) | M | Dependency | Needs knowledge files from S14.1; parallel with S14.4 | M2 |
+| 2c | S14.3 — /kokoro-luxury router | S | Dependency | Needs assessment from S14.2 | M2 |
+| 3a | S14.6 — Legacy onboarding | S | Dependency | Needs assessment + router; real client validation | M3 |
+| 3b | S14.7 — Luxury layers | S | Dependency | Needs curated knowledge; augments base skills | M3 |
+
+### Parallel Opportunities
+
+**Wave 1 (no dependencies):**
+- S14.1 touches: `.claude/knowledge/luxelling/`, `conocimientoraiz/`
+- S14.2 touches: `.claude/commands/kokoro-luxury-assess.md`, `tests/`
+- Zero file overlap — safe to parallelize
+
+**Wave 2 (after Wave 1):**
+- S14.4 touches: `.claude/commands/kokoro-luxury-{scarcity,quality,experience}.md`
+- S14.5 touches: `.claude/commands/kokoro-luxury-{communication,pricing,growth}.md`
+- S14.3 touches: `.claude/commands/kokoro-luxury.md`
+- All touch `tests/test_output_structure.py` — resolve in merge order
+
+**Wave 3 (after Wave 2):**
+- S14.6 touches: `.kokoro/clients.json`, `clientes/invertikal/legacy/`
+- S14.7 touches: `.claude/knowledge/kokoro-luxury-layers.md`
+- Zero file overlap
+
+### Milestones
+
+- [ ] **M1: Knowledge + Assessment** (S14.1 + S14.2)
+  - 8 knowledge files in `.claude/knowledge/luxelling/`
+  - /kokoro-luxury-assess classifies a test client correctly
+  - Foundation for everything else
+
+- [ ] **M2: Core MVP** (S14.3 + S14.4 + S14.5)
+  - /kokoro-luxury routes to 6 module skills
+  - All module skills follow Kokoro patterns
+  - Full test suite passes
+  - **Demo:** Run /kokoro-luxury with a luxury-tier client and navigate all modules
+
+- [ ] **M3: Epic Complete** (S14.6 + S14.7)
+  - Legacy onboarded with profile + tier + Meta Ads
+  - Luxury layers documented for base skill augmentation
+  - Done criteria met → `/rai-epic-close`
+
+### Progress Tracking
+
+| Story | Status | Tests | Velocity |
+|-------|:------:|:-----:|:--------:|
+| S14.1 — Knowledge curation | pending | — | — |
+| S14.2 — /kokoro-luxury-assess | pending | — | — |
+| S14.3 — /kokoro-luxury router | pending | — | — |
+| S14.4 — Module batch 1 | pending | — | — |
+| S14.5 — Module batch 2 | pending | — | — |
+| S14.6 — Legacy onboarding | pending | — | — |
+| S14.7 — Luxury layers | pending | — | — |
+
+### Velocity Assumptions
+
+From calibration data: S-sized stories run at ~0.75x (45 min estimated, 60 min actual).
+Adjusting estimates:
+- S stories: ~60 min actual
+- M stories: ~120 min actual (2 sessions or 1 long session)
+
+### Sequencing Risks
+
+1. **Knowledge curation bottleneck** — S14.1 blocks 3 stories (S14.4, S14.5, S14.7)
+   - Mitigation: Start S14.1 first; it's content work, no code risk
+2. **test_output_structure.py merge conflicts** — Wave 2 stories all add entries
+   - Mitigation: Execute S14.4 → S14.5 → S14.3 sequentially within wave, or resolve in each commit
+3. **Legacy Meta Ads credentials** — may not be configured
+   - Mitigation: S14.6 documents what's needed; /kokoro-connect handles graceful degradation (AD from S11.2)
