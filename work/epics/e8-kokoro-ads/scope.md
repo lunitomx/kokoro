@@ -90,6 +90,42 @@ No ADRs necesarios — sigue el patron exacto de los 16 skills existentes:
 | Tests de estructura esperan markdown tables en output template — .txt no tiene tables | H/M | Adaptar test o crear output template hibrido (markdown wrapper + txt content) |
 | Skill no puede "leer" imagen directamente — depende de Claude Code multimodal | L/H | El skill instruye al modelo a pedir la imagen y describirla, no la procesa el skill |
 
+## Implementation Plan
+
+> Added by `/rai-epic-plan` — 2026-03-26
+
+### Story Sequence
+
+| Order | Story | Size | Dependencies | Milestone | Rationale |
+|:-----:|-------|:----:|--------------|-----------|-----------|
+| 1 | S8.1 — Skill kokoro-ads | M | None | M1 | Quick win: el skill ES el producto. Sin skill no hay nada que testear |
+| 2 | S8.2 — Tests y validacion | S | S8.1 | M2 | Valida estructura + caso real con Konecta Park brokers |
+
+**Secuencia:** Lineal, sin oportunidades de paralelismo (2 stories con dependencia directa).
+
+**Estrategia:** Quick win. S8.1 entrega valor inmediato — Eduardo puede usar `/kokoro-ads` desde que se complete. S8.2 asegura calidad y no-regresion.
+
+### Milestones
+
+| Milestone | Stories | Success Criteria |
+|-----------|---------|------------------|
+| **M1: Skill funcional** | S8.1 | `/kokoro-ads` genera entregables completos para 1 creativo. Output .txt copiable |
+| **M2: Epic complete** | S8.1 + S8.2 | Tests pasan. kokoro-ads en VALID_COMMANDS. Tests existentes no rotos. Retro done |
+
+### Progress Tracking
+
+| Story | Size | Status | Actual | Notes |
+|-------|:----:|:------:|:------:|-------|
+| S8.1 — Skill kokoro-ads | M | Pending | — | |
+| S8.2 — Tests y validacion | S | Pending | — | |
+
+### Sequencing Risks
+
+| Risk | L/I | Mitigation |
+|------|:---:|------------|
+| Output template hibrido (markdown wrapper + txt) puede confundir tests existentes | M/M | S8.2 actualiza COACHING_SKILLS y adapta assertions para el nuevo patron |
+| Skill demasiado largo por cubrir todos los entregables (copy + whatsapp + audiencia) | M/L | Estructura modular en el command file — secciones claras por entregable |
+
 ## Parking Lot
 
 - Integracion Meta API → futuro skill o MCP server
