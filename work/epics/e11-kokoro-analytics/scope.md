@@ -36,7 +36,7 @@ metadata = {
 
 ## Stories
 
-- [ ] S11.1 — MCP registration: registrar mcpfbads y mcpgoogleads en Claude Code (XS)
+- [x] S11.1 — MCP registration: registrar mcpfbads y mcpgoogleads en Claude Code (XS)
 - [ ] S11.2 — /kokoro-connect: onboarding guiado para mapear cuentas a clientes (S, dep: S11.1)
 - [ ] S11.3 — /kokoro-analytics: consultas de métricas en lenguaje natural (M, dep: S11.1)
 - [ ] S11.4 — Traducción de métricas: knowledge file técnico → negocio (S, dep: S11.3)
@@ -108,7 +108,7 @@ S11.2 y S11.3 pueden ejecutarse en paralelo después de S11.1:
 
 | Story | Status | Tests |
 |-------|:------:|:-----:|
-| S11.1 — MCP registration | pending | — |
+| S11.1 — MCP registration | complete | 561 |
 | S11.2 — /kokoro-connect | pending | — |
 | S11.3 — /kokoro-analytics | pending | — |
 | S11.4 — Traducción métricas | pending | — |
