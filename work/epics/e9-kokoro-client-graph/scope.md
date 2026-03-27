@@ -1,6 +1,6 @@
 # Epic E9: Kokoro Client Graph — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** COMPLETE
 > **Created:** 2026-03-26
 
 ## Objective
@@ -16,11 +16,11 @@ sesiones. Lo aprendido con un cliente puede informar el trabajo con otro.
 
 | ID | Story | Size | Status | Description |
 |----|-------|:----:|:------:|-------------|
-| S9.1 | Modelo de datos | S | Pending | ClientProfile, ClientRegistry (Pydantic models) |
-| S9.2 | Persistence layer | S | Pending | clients.json + load/save atomico |
-| S9.3 | Skill /kokoro-client | M | Pending | Crear, listar, ver, buscar clientes |
-| S9.4 | Integracion con skills | M | Pending | kokoro-ads y otros leen cliente automatico |
-| S9.5 | Sync con Rai memory | S | Pending | Generar reference_*.md desde el grafo |
+| S9.1 | Modelo de datos | S | Complete | ClientProfile, ClientRegistry (Pydantic models) |
+| S9.2 | Persistence layer | S | Complete | clients.json + load/save atomico |
+| S9.3 | Skill /kokoro-client | M | Complete | Crear, listar, ver, buscar clientes |
+| S9.4 | Integracion con skills | M | Complete | kokoro-ads y otros leen cliente automatico |
+| S9.5 | Sync con Rai memory | S | Complete | Generar reference_*.md desde el grafo |
 
 **Total:** 5 stories
 
@@ -49,19 +49,19 @@ sesiones. Lo aprendido con un cliente puede informar el trabajo con otro.
 ## Done Criteria
 
 **Per story:**
-- [ ] Type annotations (pyright strict)
-- [ ] Tests passing
-- [ ] Quality checks pass (ruff, pyright)
+- [x] Type annotations (pyright strict)
+- [x] Tests passing
+- [x] Quality checks pass (ruff, pyright)
 
 **Epic complete:**
-- [ ] All stories complete (S9.1-S9.5)
-- [ ] Al mencionar "Konecta Park", Kokoro recupera contexto completo
-- [ ] Grafo persistido en clients.json
-- [ ] /kokoro-client skill funcional
-- [ ] reference_*.md se genera del grafo
-- [ ] Tests existentes siguen pasando
-- [ ] Epic retrospective done
-- [ ] Merged to main
+- [x] All stories complete (S9.1-S9.5)
+- [x] Al mencionar "Konecta Park", Kokoro recupera contexto completo
+- [x] Grafo persistido en clients.json
+- [x] /kokoro-client skill funcional
+- [x] reference_*.md se genera del grafo
+- [x] Tests existentes siguen pasando
+- [x] Epic retrospective done
+- [x] Merged to main
 
 ## Dependencies
 
@@ -174,11 +174,11 @@ con S9.3/S9.4. Pero dado que es un solo developer, secuencial es mas simple.
 
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
-| S9.1 — Modelo de datos | S | Pending | — | |
-| S9.2 — Persistence layer | S | Pending | — | |
-| S9.3 — Skill /kokoro-client | M | Pending | — | |
-| S9.4 — Integracion con skills | M | Pending | — | |
-| S9.5 — Sync con Rai memory | S | Pending | — | |
+| S9.1 — Modelo de datos | S | Complete | S | |
+| S9.2 — Persistence layer | S | Complete | S | |
+| S9.3 — Skill /kokoro-client | M | Complete | M | |
+| S9.4 — Integracion con skills | M | Complete | M | |
+| S9.5 — Sync con Rai memory | S | Complete | S | |
 
 ### Sequencing Risks
 
