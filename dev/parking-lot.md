@@ -22,3 +22,5 @@ Items deferred from active work. Review during epic planning.
 | ~~Campaign analytics skill — kokoro-ads-analytics~~ | ~~E8 parking lot~~ | ~~P2~~ | ~~Promoted to E11 — PLANNED~~ |
 | ~~Client resolution in remaining 16 skills~~ | ~~E9 retro~~ | ~~P1~~ | ~~Promoted to E10 — PLANNED~~ |
 | ~~MEMORY.md auto-update~~ | ~~E9 retro~~ | ~~P1~~ | ~~Promoted to E10 — PLANNED~~ |
+| Konecta Park campaign diagnostic — getting spam msgs (albañilería) instead of brokers/buyers. Two campaigns: "Whatsapp Konecta" ($333/day, 6 ads, 816K-960K audience) + "Brokers" (1 ad, 1.6M-1.9M audience). Targeting includes industrial maintenance/safety fields that attract blue collar. Need MCP data to diagnose properly | SES-021 Luna request (2026-03-26) | P1 | Promoted to E14 — after E11 (needs MCP access) |
+| Backport vocabulario fix en kokoro-ads.md — client resolution section uses "cliente" instead of "invitado" | SES-019 retro | P2 | Next cleanup pass |
