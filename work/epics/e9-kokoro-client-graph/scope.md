@@ -137,6 +137,56 @@ No ADR formal — la decision es clara y sigue el patron existente.
 | Skills no encuentran cliente si el nombre no matchea exacto | M/M | Fuzzy match simple: lowercase + contains |
 | Sync con reference_*.md puede sobreescribir ediciones manuales | M/L | Generar solo si no existe o con flag --force |
 
+## Implementation Plan
+
+> Added by `/rai-epic-plan` — 2026-03-26
+
+### Story Sequence
+
+| Order | Story | Size | Dependencies | Milestone | Rationale |
+|:-----:|-------|:----:|--------------|-----------|-----------|
+| 1 | S9.1 — Modelo de datos | S | None | M1 | Foundation: sin modelos no hay nada |
+| 2 | S9.2 — Persistence layer | S | S9.1 | M1 | Walking skeleton: modelos + persistence = grafo funcional |
+| 3 | S9.3 — Skill /kokoro-client | M | S9.2 | M2 | Core MVP: Eduardo puede gestionar clientes |
+| 4 | S9.4 — Integracion con skills | M | S9.3 | M2 | Valor real: skills leen cliente automatico |
+| 5 | S9.5 — Sync con Rai memory | S | S9.2 | M3 | Cierre: reference_*.md se genera del grafo |
+
+### Milestones
+
+| Milestone | Stories | Success Criteria |
+|-----------|---------|------------------|
+| **M1: Walking Skeleton** | S9.1 + S9.2 | ClientProfile persiste en clients.json, load/save funciona |
+| **M2: Core MVP** | + S9.3 + S9.4 | /kokoro-client crea clientes, /kokoro-ads lee contexto del cliente |
+| **M3: Epic Complete** | + S9.5 | reference_*.md se genera del grafo, retro done |
+
+### Parallel Work Streams
+
+```
+Time →
+S9.1 ─► S9.2 ─► S9.3 ─► S9.4
+              └──────► S9.5 (parallel with S9.3/S9.4)
+```
+
+S9.5 solo depende de S9.2 (persistence), asi que puede correr en paralelo
+con S9.3/S9.4. Pero dado que es un solo developer, secuencial es mas simple.
+
+### Progress Tracking
+
+| Story | Size | Status | Actual | Notes |
+|-------|:----:|:------:|:------:|-------|
+| S9.1 — Modelo de datos | S | Pending | — | |
+| S9.2 — Persistence layer | S | Pending | — | |
+| S9.3 — Skill /kokoro-client | M | Pending | — | |
+| S9.4 — Integracion con skills | M | Pending | — | |
+| S9.5 — Sync con Rai memory | S | Pending | — | |
+
+### Sequencing Risks
+
+| Risk | L/I | Mitigation |
+|------|:---:|------------|
+| S9.4 requiere modificar skills existentes (kokoro-ads) que acaban de crearse | M/M | Cambio minimo: agregar lectura de cliente al inicio del skill |
+| S9.5 puede conflictuar con reference_*.md editados manualmente | L/L | Solo genera si no existe, flag --force para sobreescribir |
+
 ## Parking Lot
 
 - Cross-client ML patterns → futuro (Eduardo hace las conexiones con juicio)
