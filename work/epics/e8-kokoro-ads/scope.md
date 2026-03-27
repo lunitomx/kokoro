@@ -1,6 +1,6 @@
 # Epic E8: Kokoro Ads — Scope
 
-> **Status:** IN PROGRESS
+> **Status:** COMPLETE
 > **Created:** 2026-03-26
 
 ## Objective
@@ -16,8 +16,8 @@ cada sesion. Los entregables salen listos para copiar/pegar en Meta Ads Manager.
 
 | ID | Story | Size | Status | Description |
 |----|-------|:----:|:------:|-------------|
-| S8.1 | Skill kokoro-ads | M | Pending | Command file + knowledge file + extension sync |
-| S8.2 | Tests y validacion | S | Pending | Tests de estructura + validacion con caso real |
+| S8.1 | Skill kokoro-ads | M | Complete | Command file + knowledge file + extension sync |
+| S8.2 | Tests y validacion | S | Complete | Tests de estructura + validacion con caso real |
 
 **Total:** 2 stories
 
@@ -47,18 +47,18 @@ cada sesion. Los entregables salen listos para copiar/pegar en Meta Ads Manager.
 ## Done Criteria
 
 **Per story:**
-- [ ] Code with proper structure
-- [ ] Tests passing
-- [ ] Quality checks pass (ruff, pyright)
+- [x] Code with proper structure
+- [x] Tests passing
+- [x] Quality checks pass (ruff, pyright)
 
 **Epic complete:**
-- [ ] All stories complete (S8.1-S8.2)
-- [ ] /kokoro-ads genera entregables completos para 1 creativo
-- [ ] Output .txt copiable directo a Meta Ads Manager sin problemas de formato
-- [ ] Tests existentes siguen pasando (no romper skills existentes)
-- [ ] kokoro-ads registrado en VALID_COMMANDS y EXISTING_COMMANDS
-- [ ] Epic retrospective done
-- [ ] Merged to main
+- [x] All stories complete (S8.1-S8.2)
+- [x] /kokoro-ads genera entregables completos para 1 creativo
+- [x] Output .txt copiable directo a Meta Ads Manager sin problemas de formato
+- [x] Tests existentes siguen pasando (no romper skills existentes)
+- [x] kokoro-ads registrado en VALID_COMMANDS y EXISTING_COMMANDS
+- [x] Epic retrospective done
+- [x] Merged to main
 
 ## Dependencies
 
@@ -116,8 +116,8 @@ No ADRs necesarios — sigue el patron exacto de los 16 skills existentes:
 
 | Story | Size | Status | Actual | Notes |
 |-------|:----:|:------:|:------:|-------|
-| S8.1 — Skill kokoro-ads | M | Pending | — | |
-| S8.2 — Tests y validacion | S | Pending | — | |
+| S8.1 — Skill kokoro-ads | M | Complete | M | |
+| S8.2 — Tests y validacion | S | Complete | S | |
 
 ### Sequencing Risks
 
