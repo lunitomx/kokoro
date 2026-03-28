@@ -1,7 +1,7 @@
 ---
 epic_id: "E18"
 title: "Kokoro Video Editor — De video crudo a contenido publicable"
-status: "designed"
+status: "planned"
 ---
 
 # Scope: E18 — Kokoro Video Editor
@@ -217,3 +217,53 @@ Sus hallazgos pueden influir en la implementacion de S18.3+.
 3. **ffmpeg complejidad** — Mitigation: comandos simples, un paso a la vez, no pipelines complejos
 4. **Tiempos de procesamiento largos** — Mitigation: Phase 1 procesa shorts (30-60s), no video completo
 5. **Sincronizacion de captions** — Mitigation: kokoro-listen ya produce timestamps precisos con Whisper
+
+## Implementation Plan
+
+### Sequencing Strategy
+
+Risk-first + walking skeleton: resolver incertidumbre (OpenShorts) en paralelo
+con el corazon del pipeline (cuts), llegar a shorts publicables lo antes posible.
+
+```
+Stream A:  S18.1 (evaluar OpenShorts) ─────────────┐
+                                                     ├─→ hallazgos informan S18.3+
+Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ──→ S18.5 (render) ──→ S18.6 (e2e)
+```
+
+### Story Sequence
+
+| # | Story | Size | Strategy | Rationale | Status |
+|---|-------|------|----------|-----------|--------|
+| 1a | S18.1 — Evaluar OpenShorts | S | Risk-first | Resolver incertidumbre antes de implementar | pending |
+| 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | pending |
+| 2 | S18.3 — /kokoro-shorts | M | Dependency-driven | Necesita S18.2 + hallazgos S18.1. Completa Phase 1 | pending |
+| 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | pending |
+| 4 | S18.5 — /kokoro-render | M | Dependency-driven | Video final con intro/outro | pending |
+| 5 | S18.6 — Test e2e | S | Integration | Pipeline completo con video real | pending |
+
+### Milestones
+
+#### M1: Shorts Publicables (Phase 1) — S18.1 + S18.2 + S18.3
+- Eduardo va de video crudo a shorts cortados y listos para publicar
+- **Criterio:** dado un video de prueba, produce al menos 3 shorts de 30-60s
+- **Demo:** Eduardo ve lista de cortes sugeridos, aprueba, y recibe archivos de video
+
+#### M2: Contenido Pulido (Phase 2) — S18.4 + S18.5
+- Shorts con captions estilizados + video final con intro/outro
+- **Criterio:** short con subtitulos sincronizados renderizado correctamente
+- **Demo:** short con captions + video final con branding de Eduardo
+
+#### M3: Epic Complete — S18.6
+- Pipeline probado end-to-end con video real de Eduardo
+- **Criterio:** done criteria del scope cumplidos al 100%
+
+### Sequencing Risks
+
+1. **S18.1 invalida approach de S18.3** — S18.1 es rapida (S), termina antes de que S18.3 inicie
+2. **Captions word-level vs phrase-level** — Decision diferida a S18.4 design
+3. **Video de prueba necesario desde S18.2** — Necesitamos un video de Eduardo antes de empezar
+
+### Next
+
+First stories: S18.1 (evaluar OpenShorts) + S18.2 (/kokoro-cuts) en paralelo.
