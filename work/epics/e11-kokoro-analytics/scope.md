@@ -1,7 +1,7 @@
 ---
 epic_id: "E11"
 title: "Kokoro Analytics — MCP multi-cuenta"
-status: "designed"
+status: "complete"
 ---
 
 # Scope: E11 — Kokoro Analytics
@@ -39,8 +39,8 @@ metadata = {
 - [x] S11.1 — MCP registration: registrar mcpfbads y mcpgoogleads en Claude Code (XS)
 - [x] S11.2 — /kokoro-connect: onboarding guiado para mapear cuentas a clientes (S, dep: S11.1) ✓
 - [x] S11.3 — /kokoro-analytics: consultas de métricas en lenguaje natural (M, dep: S11.1) ✓
-- [ ] S11.4 — Traducción de métricas: knowledge file técnico → negocio (S, dep: S11.3)
-- [ ] S11.5 — Scorecard cross-platform: vista unificada por cliente (S, dep: S11.3)
+- [x] S11.4 — Traducción de métricas: knowledge file técnico → negocio (S, dep: S11.3)
+- [x] S11.5 — Scorecard cross-platform: vista unificada por cliente (S, dep: S11.3)
 
 ## Scope Boundaries
 
