@@ -1,7 +1,7 @@
 ---
 epic_id: "E15"
 title: "Kokoro Session Lifecycle"
-status: "designed"
+status: "complete"
 ---
 
 # Scope: E15 — Kokoro Session Lifecycle
