@@ -1,7 +1,7 @@
 ---
 epic_id: "E14"
 title: "Kokoro Luxelling — Conocimiento de lujo condicional"
-status: "designed"
+status: "in-progress"
 ---
 
 # Scope: E14 — Kokoro Luxelling
@@ -83,13 +83,13 @@ Follows the same pattern as kokoro-connect-platforms.md (reference, not code).
 
 ## Stories
 
-- [ ] S14.1 — Knowledge curation: create structured .claude/knowledge/luxelling/ files from source material (S)
-- [ ] S14.2 — /kokoro-luxury-assess: positioning assessment skill + persist tier in client profile (S)
-- [ ] S14.3 — /kokoro-luxury router: module navigation with tier gate (S, dep: S14.2)
-- [ ] S14.4 — Module skills batch 1: scarcity + quality + experience (M, dep: S14.1)
-- [ ] S14.5 — Module skills batch 2: communication + pricing + growth (M, dep: S14.1)
+- [x] S14.1 — Knowledge curation: create structured .claude/knowledge/luxelling/ files from source material (S)
+- [x] S14.2 — /kokoro-luxury-assess: positioning assessment skill + persist tier in client profile (S)
+- [x] S14.3 — /kokoro-luxury router: module navigation with tier gate (S, dep: S14.2)
+- [x] S14.4 — Module skills batch 1: scarcity + quality + experience (M, dep: S14.1)
+- [x] S14.5 — Module skills batch 2: communication + pricing + growth (M, dep: S14.1)
 - [ ] S14.6 — Legacy onboarding: client profile + luxury tier + /kokoro-connect (S, dep: S14.2)
-- [ ] S14.7 — Luxury layers: knowledge file for base skill augmentation (S, dep: S14.1)
+- [x] S14.7 — Luxury layers: knowledge file for base skill augmentation (S, dep: S14.1)
 
 ## Story Details
 
