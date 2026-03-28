@@ -38,9 +38,10 @@ COACHING_SKILLS: list[str] = [
     "kokoro-audit",
     "kokoro-connect",
     "kokoro-analytics",
+    "kokoro-scorecard",
 ]
 
-# All valid /kokoro-X command files (existing + planned Phase 3/4)
+# All valid /kokoro-X command files (existing + planned)
 VALID_COMMANDS: set[str] = {
     "kokoro",
     "kokoro-diagnose",
@@ -52,12 +53,10 @@ VALID_COMMANDS: set[str] = {
     "kokoro-interviews",
     "kokoro-validate",
     "kokoro-session",
-    # Phase 3 (planned — referenced in existing skills)
-    "kokoro-experiment",
     "kokoro-research",
     "kokoro-pescar",
+    "kokoro-experiment",
     "kokoro-launch",
-    # Phase 4 (planned)
     "kokoro-factory",
     "kokoro-funnel",
     "kokoro-mafia",
@@ -67,6 +66,25 @@ VALID_COMMANDS: set[str] = {
     "kokoro-audit",
     "kokoro-connect",
     "kokoro-analytics",
+    "kokoro-scorecard",
+    "kokoro-intel",
+    "kokoro-listen",
+    "kokoro-creative",
+    "kokoro-open",
+    "kokoro-close",
+    "kokoro-publish",
+    "kokoro-calendar",
+    "kokoro-luxury",
+    "kokoro-luxury-assess",
+    "kokoro-luxury-communication",
+    "kokoro-luxury-experience",
+    "kokoro-luxury-growth",
+    "kokoro-luxury-pricing",
+    "kokoro-luxury-quality",
+    "kokoro-luxury-scarcity",
+    # Planned (E18 — Video Editor)
+    "kokoro-cuts",
+    "kokoro-shorts",
 }
 
 # Commands that must exist as files today
@@ -94,6 +112,22 @@ EXISTING_COMMANDS: set[str] = {
     "kokoro-audit",
     "kokoro-connect",
     "kokoro-analytics",
+    "kokoro-scorecard",
+    "kokoro-intel",
+    "kokoro-listen",
+    "kokoro-creative",
+    "kokoro-open",
+    "kokoro-close",
+    "kokoro-publish",
+    "kokoro-calendar",
+    "kokoro-luxury",
+    "kokoro-luxury-assess",
+    "kokoro-luxury-communication",
+    "kokoro-luxury-experience",
+    "kokoro-luxury-growth",
+    "kokoro-luxury-pricing",
+    "kokoro-luxury-quality",
+    "kokoro-luxury-scarcity",
 }
 
 
