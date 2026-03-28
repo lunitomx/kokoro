@@ -1,0 +1,71 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-28T00:00:00Z'
+story: 'S18.3'
+epic: 'E18'
+content:
+  summary: '/kokoro-shorts — Claude Code skill that reads a kokoro-cuts JSON, resolves sentence boundaries to video timestamps via Whisper verbose_json re-transcription, and extracts each segment with ffmpeg (fade in/out, optional 9:16 reformat).'
+  complexity: moderate
+  acceptance_criteria:
+    - id: AC1
+      description: 'Reads cuts JSON and extracts video segments with ffmpeg'
+      verifiable: true
+    - id: AC2
+      description: 'Each segment has correct start/end based on Whisper timestamp resolution (within 2s tolerance)'
+      verifiable: true
+    - id: AC3
+      description: 'Fade in (0.5s) and fade out (0.5s) applied to each segment'
+      verifiable: true
+    - id: AC4
+      description: 'Output files named sequentially ({basename}-short-01.mp4, etc.) with summary JSON'
+      verifiable: true
+    - id: AC5
+      description: 'Optional 9:16 vertical reformat when requested (center crop to 1080x1920)'
+      verifiable: true
+    - id: AC6
+      description: 'Partial failure handling — one bad cut does not block others; errors reported in summary JSON'
+      verifiable: true
+  integration_points:
+    - module: 'kokoro-cuts'
+      change_type: read
+      files: ['cuts JSON files in /tmp/kokoro-cuts/ or clientes/*/transcripciones/']
+    - module: 'kokoro-listen'
+      change_type: read
+      files: ['audio files in /tmp/kokoro-listen/ (reuse downloaded audio)']
+    - module: 'whisper-api'
+      change_type: new
+      files: ['Whisper API call with response_format=verbose_json for timestamp resolution']
+    - module: 'ffmpeg'
+      change_type: new
+      files: ['ffmpeg commands for segment extraction, fades, and vertical reformat']
+    - module: 'test_output_structure'
+      change_type: modify
+      files: ['tests/test_output_structure.py — add kokoro-shorts to COACHING_SKILLS, EXISTING_COMMANDS']
+  decisions:
+    - id: D1
+      choice: 'Re-transcribe with Whisper verbose_json for timestamp resolution'
+      rationale: 'Whisper segments align with speech boundaries. Same model produces text that matches the original transcript. Cost is ~$0.02 for a 4-minute video. The audio is already downloaded by kokoro-listen. No manual timestamps needed, no external alignment tools.'
+      alternatives_considered: ['Manual timestamp entry (defeats automation purpose)', 'Speech-to-text alignment tools like gentle/aeneas (overengineered)', 'Ask Eduardo for approximate timestamps (partial automation only)']
+    - id: D2
+      choice: 'Two-pass ffmpeg: stream copy for cut, re-encode for fades'
+      rationale: 'Stream copy (-c copy) is instant and lossless for extracting the segment. Re-encoding only the 30-60s segment for fade effects is fast (<5s). Single-pass re-encode of the full video would be unnecessarily slow.'
+      alternatives_considered: ['Single-pass re-encode from source (slow for long videos)', 'Stream copy only without fades (loses AC3)']
+    - id: D3
+      choice: 'Summary JSON with per-short success/error status'
+      rationale: 'Enables partial failure handling (AC6). Eduardo sees which shorts succeeded and which failed with reasons. Downstream skills (/kokoro-overlay) can filter by status field.'
+      alternatives_considered: ['Fail-all on any error', 'Log file instead of structured JSON']
+  components:
+    - action: create
+      path: '.claude/commands/kokoro-shorts.md'
+      description: 'Skill definition — prompt instructions for timestamp resolution, ffmpeg extraction, and output organization'
+    - action: create
+      path: '.claude/knowledge/kokoro-shorts-ffmpeg.md'
+      description: 'Knowledge file with ffmpeg command reference for cutting, fades, vertical reformat, and encoding settings'
+    - action: modify
+      path: 'tests/test_output_structure.py'
+      description: 'Add kokoro-shorts to COACHING_SKILLS and EXISTING_COMMANDS'
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e18-kokoro-video-editor/scope.md'
+  prior_art: 'S18.1 OpenShorts evaluation (INSPIRATION-ONLY) — reference algorithms for SmoothedCameraman and subtitle generation; S18.2 /kokoro-cuts design — cuts JSON schema with sentence boundaries'
