@@ -318,15 +318,45 @@ que no representara tu marca."
 
 ## Persistencia
 
-Al terminar la sesion, actualiza `.kokoro/state.json` del proyecto.
+### Session Log (si hay invitado resuelto)
 
-Registra los hallazgos como nodos estructurados:
+Si se resolvio un invitado del grafo al inicio del skill, registrar la
+sesion en su session_log al terminar. Consultar `kokoro-session-log.md`
+para el schema completo.
 
-- **Tipo `creative`**: Cada set de creativos generado
-  - id: `CRTV-{NN}`
-  - source_skill: `kokoro-creative`
-  - content: resumen de la campana y publicos
-  - metadata: `{"publico": "...", "tamanos": 3, "archivos": [...], "modelo": "nano-banana-pro-preview"}`
+```python
+from pathlib import Path
+from datetime import datetime, timezone
+from kokoro.clients.store import load_registry, save_registry
+
+project = Path(".")
+registry = load_registry(project)
+client = registry.find_by_id("{client_id}")
+
+if "session_log" not in client.metadata:
+    client.metadata["session_log"] = []
+
+entry = {
+    "date": datetime.now(tz=timezone.utc).strftime("%Y-%m-%d"),
+    "type": "creative",
+    "skill": "/kokoro-creative",
+    "client_id": client.id,
+    "summary": "{N} imagenes generadas para {campana} — {N} publicos x {N} tamanos",
+    "hallazgos": ["{insights del publico o del diseno}"],
+    "artifacts": ["{paths relativos de imagenes y JSON specs}"],
+    "next_action": "{siguiente paso logico}"
+}
+
+client.metadata["session_log"].insert(0, entry)
+if len(client.metadata["session_log"]) > 20:
+    client.metadata["session_log"] = client.metadata["session_log"][:20]
+
+client.updated = datetime.now(tz=timezone.utc)
+registry.updated = client.updated
+save_registry(project, registry)
+```
+
+Si no hay invitado resuelto (backward compatible), omitir este paso.
 
 ## Notas para Claude
 

@@ -260,14 +260,42 @@ Usa `/kokoro-funnel` para disenar el embudo completo de la campana.
 
 ## Persistencia
 
-Al terminar la sesion, actualiza el archivo `.kokoro/state.json` del proyecto.
+### Session Log (si hay invitado resuelto)
 
-Registra los hallazgos como nodos estructurados:
+Si se resolvio un invitado del grafo al inicio del skill, registrar la
+sesion en su session_log al terminar. Consultar `kokoro-session-log.md`
+para el schema completo.
 
-- **Tipo `creativo`**: Cada creativo procesado
-  - id: `ADS-{NN}`
-  - source_skill: `kokoro-ads`
-  - content: resumen del creativo y publico identificado
-  - metadata: `{"publico": "...", "archivo": "creativo-{NN}-{slug}.txt", "titulos": 5, "textos": 5, "whatsapp": true, "advantage_plus": true}`
+```python
+from pathlib import Path
+from datetime import datetime, timezone
+from kokoro.clients.store import load_registry, save_registry
 
-Marca el skill como utilizado con un resumen de una linea.
+project = Path(".")
+registry = load_registry(project)
+client = registry.find_by_id("{client_id}")
+
+if "session_log" not in client.metadata:
+    client.metadata["session_log"] = []
+
+entry = {
+    "date": datetime.now(tz=timezone.utc).strftime("%Y-%m-%d"),
+    "type": "ads",
+    "skill": "/kokoro-ads",
+    "client_id": client.id,
+    "summary": "{N} creativos procesados para {descripcion de la campana}",
+    "hallazgos": ["{insights del publico descubiertos}"],
+    "artifacts": ["{paths relativos de archivos .txt generados}"],
+    "next_action": "{siguiente paso logico}"
+}
+
+client.metadata["session_log"].insert(0, entry)
+if len(client.metadata["session_log"]) > 20:
+    client.metadata["session_log"] = client.metadata["session_log"][:20]
+
+client.updated = datetime.now(tz=timezone.utc)
+registry.updated = client.updated
+save_registry(project, registry)
+```
+
+Si no hay invitado resuelto (backward compatible), omitir este paso.
