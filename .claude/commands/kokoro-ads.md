@@ -36,13 +36,13 @@ Si no existe contexto.md ni repo del cliente, pregunta al usuario:
 Si existe el archivo `.kokoro/state.json` en el directorio del proyecto,
 leelo para conocer el estado actual del emprendedor y sus hallazgos previos.
 
-### Resolucion de cliente
+### Resolucion de invitado
 
-Antes de iniciar, intenta resolver el cliente desde el grafo:
+Antes de iniciar, intenta resolver el invitado desde el grafo:
 
-1. Si el usuario menciona un nombre de cliente, busca en `.kokoro/clients.json`
+1. Si el usuario menciona un nombre de invitado, busca en `.kokoro/clients.json`
    usando `find_by_name` (coincidencia parcial, case-insensitive)
-2. Si encuentra el cliente:
+2. Si encuentra al invitado:
    - Lee su `context_file` si existe (datos reales del proyecto)
    - Lee sus `repos` para obtener datos actualizados (inventario, precios)
    - Lee sus `segments` para entender los públicos
