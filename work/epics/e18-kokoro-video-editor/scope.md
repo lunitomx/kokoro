@@ -248,22 +248,39 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 - Eduardo va de video crudo a shorts cortados y listos para publicar
 - **Criterio:** dado un video de prueba, produce al menos 3 shorts de 30-60s
 - **Demo:** Eduardo ve lista de cortes sugeridos, aprueba, y recibe archivos de video
+- **Status:** DONE (2026-03-28). Pipeline probado con video real. 3 shorts extraidos.
+- **Hallazgo critico:** Los shorts salen en horizontal — NO son publicables en
+  Reels/Shorts/TikTok sin reformat vertical (9:16). El reformat esta implementado
+  en /kokoro-shorts como opcion pero no es el default. Debe ser default o al menos
+  ofrecido activamente despues de cada extraccion.
 
 #### M2: Contenido Pulido (Phase 2) — S18.4 + S18.5
 - Shorts con captions estilizados + video final con intro/outro
 - **Criterio:** short con subtitulos sincronizados renderizado correctamente
 - **Demo:** short con captions + video final con branding de Eduardo
+- **Nota:** S18.4 (overlay/captions) es el paso mas valioso de Phase 2.
+  Los captions hacen que los shorts funcionen en modo silencio (80%+ de
+  usuarios ven sin audio). Considerar hacer reformat vertical parte de S18.4.
 
 #### M3: Epic Complete — S18.6
 - Pipeline probado end-to-end con video real de Eduardo
 - **Criterio:** done criteria del scope cumplidos al 100%
+- **Nota:** El e2e DEBE producir shorts verticales con captions, no horizontales sin texto.
 
 ### Sequencing Risks
 
-1. **S18.1 invalida approach de S18.3** — S18.1 es rapida (S), termina antes de que S18.3 inicie
-2. **Captions word-level vs phrase-level** — Decision diferida a S18.4 design
-3. **Video de prueba necesario desde S18.2** — Necesitamos un video de Eduardo antes de empezar
+1. ~~S18.1 invalida approach de S18.3~~ — RESOLVED: verdict INSPIRATION-ONLY
+2. **Captions word-level vs phrase-level** — Decision diferida a S18.4 design.
+   Whisper verbose_json ya da segmentos, pero word-level requiere otro response_format.
+3. ~~Video de prueba necesario desde S18.2~~ — RESOLVED: video de Eduardo usado
+4. **Vertical reformat debe ser default** — Los shorts horizontales no son publicables
+   en ninguna plataforma de formato corto. S18.4 o un patch a S18.3 debe resolver esto.
 
-### Next
+### Progress Log (2026-03-28)
 
-First stories: S18.1 (evaluar OpenShorts) + S18.2 (/kokoro-cuts) en paralelo.
+- S18.1 DONE: OpenShorts evaluado, verdict INSPIRATION-ONLY
+- S18.2 DONE: /kokoro-cuts live, probado con video real (3 cortes identificados)
+- S18.3 DONE: /kokoro-shorts live, probado con video real (3 shorts extraidos con fades)
+- Pipeline completo funcional: /kokoro-listen → /kokoro-cuts → /kokoro-shorts
+- Costo total del pipeline test: ~$0.04 USD (2x Whisper transcription)
+- **Next:** S18.4 /kokoro-overlay — captions + vertical reformat
