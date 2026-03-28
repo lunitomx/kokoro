@@ -76,7 +76,7 @@ bloquear el uso del pipeline.
 
 ## Stories
 
-- [ ] S18.1 — Evaluar OpenShorts: clonar, probar, documentar capacidades vs gaps (S)
+- [x] S18.1 — Evaluar OpenShorts: clonar, probar, documentar capacidades vs gaps (S) ✓
 - [ ] S18.2 — /kokoro-cuts: identificar mejores momentos del transcript para shorts 30-60s (M)
 - [ ] S18.3 — /kokoro-shorts: extraer segmentos de video con ffmpeg segun cortes (M)
 - [ ] S18.4 — /kokoro-overlay: generar overlays de texto/captions desde transcript con ffmpeg (M)
@@ -202,7 +202,7 @@ Sus hallazgos pueden influir en la implementacion de S18.3+.
 
 ## Done Criteria
 
-- [ ] OpenShorts evaluado con decision documentada (integrar/fork/inspiracion)
+- [x] OpenShorts evaluado con decision documentada (integrar/fork/inspiracion)
 - [ ] /kokoro-cuts produce lista de cortes rankeados desde un transcript
 - [ ] /kokoro-shorts extrae segmentos de video correctamente con ffmpeg
 - [ ] /kokoro-overlay genera captions sincronizados sobre video
@@ -235,7 +235,7 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 
 | # | Story | Size | Strategy | Rationale | Status |
 |---|-------|------|----------|-----------|--------|
-| 1a | S18.1 — Evaluar OpenShorts | S | Risk-first | Resolver incertidumbre antes de implementar | pending |
+| 1a | S18.1 — Evaluar OpenShorts | S | Risk-first | Resolver incertidumbre antes de implementar | done |
 | 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | done |
 | 2 | S18.3 — /kokoro-shorts | M | Dependency-driven | Necesita S18.2 + hallazgos S18.1. Completa Phase 1 | pending |
 | 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | pending |
