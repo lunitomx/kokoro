@@ -1,7 +1,7 @@
 ---
 epic_id: "E16"
 title: "Kokoro Content Intelligence"
-status: "designed"
+status: "complete"
 ---
 
 # Scope: E16 — Kokoro Content Intelligence
@@ -69,10 +69,10 @@ despues. No mezclar investigacion con produccion en la misma epica.
 
 ## Stories
 
-- [ ] S16.1 — /kokoro-listen: descargar y transcribir video/audio de cualquier URL (S)
-- [ ] S16.2 — /kokoro-intel: buscar top N en YouTube, descargar, transcribir, analizar patrones (M)
-- [ ] S16.3 — Analisis de oportunidades: detectar huecos, angulos no cubiertos, debilidades (S)
-- [ ] S16.4 — Calendario de contenido: generar plan semanal de videos horizontales + shorts (S)
+- [x] S16.1 — /kokoro-listen: descargar y transcribir video/audio de cualquier URL (S)
+- [x] S16.2 — /kokoro-intel: buscar top N en YouTube, descargar, transcribir, analizar patrones (M)
+- [x] S16.3 — Analisis de oportunidades: detectar huecos, angulos no cubiertos, debilidades (S)
+- [x] S16.4 — Calendario de contenido: generar plan semanal de videos horizontales + shorts (S)
 
 ## Story Details
 
