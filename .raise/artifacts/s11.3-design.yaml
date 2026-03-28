@@ -1,0 +1,122 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-27T00:00:00Z'
+story: 'S11.3'
+epic: 'E11'
+content:
+  summary: 'Create /kokoro-analytics skill that lets Eduardo query any connected client''s metrics in natural language, dispatching to MCP servers (Meta Ads, Google Ads, GA4, GSC) and presenting results in Kokoro voice.'
+  complexity: moderate-complex
+  acceptance_criteria:
+    - id: AC1
+      description: '/kokoro-analytics skill file exists at .claude/commands/kokoro-analytics.md and follows Kokoro patterns (Proyector strategy, luxurizante vocabulary, client resolution section)'
+      verifiable: true
+    - id: AC2
+      description: 'Knowledge file at .claude/knowledge/kokoro-analytics-metrics.md documents MCP tool mapping for all 4 platforms, basic metric glossary, and date range interpretation guide'
+      verifiable: true
+    - id: AC3
+      description: 'Skill resolves client name from query, reads platform_accounts from metadata, and dispatches correct MCP tools per platform (meta_ads -> facebook-ads, google_ads -> google-ads, ga4 -> google-analytics, gsc -> google-search-console)'
+      verifiable: true
+    - id: AC4
+      description: 'Cross-platform overview queries all connected platforms and presents a unified summary organized by platform'
+      verifiable: true
+    - id: AC5
+      description: 'Missing platform_accounts triggers suggestion to run /kokoro-connect first'
+      verifiable: true
+  integration_points:
+    - module: 'kokoro.clients'
+      change_type: use
+      files: ['src/kokoro/clients/models.py', 'src/kokoro/clients/store.py']
+      notes: 'Reads ClientProfile.metadata["platform_accounts"] via ClientStore — no model changes'
+    - module: 'mcp.facebook-ads'
+      change_type: use
+      files: []
+      notes: 'Calls get_account_insights_summary, get_campaign_performance, get_campaigns'
+    - module: 'mcp.google-ads'
+      change_type: use
+      files: []
+      notes: 'Calls get_customer_insights_summary, get_campaign_performance, get_campaigns'
+    - module: 'mcp.google-analytics'
+      change_type: use
+      files: []
+      notes: 'Calls run_report for sessions, users, traffic sources'
+    - module: 'mcp.google-search-console'
+      change_type: use
+      files: []
+      notes: 'Calls get_performance_overview, get_search_analytics'
+  components:
+    - path: '.claude/commands/kokoro-analytics.md'
+      action: create
+      description: 'Main skill file — query routing, MCP dispatch, Kokoro voice presentation'
+    - path: '.claude/knowledge/kokoro-analytics-metrics.md'
+      action: create
+      description: 'MCP tool reference, metric translation glossary, date range guide'
+    - path: 'extension/.claude/commands/kokoro-analytics.md'
+      action: create
+      description: 'Extension mirror of skill file'
+    - path: 'extension/.claude/knowledge/kokoro-analytics-metrics.md'
+      action: create
+      description: 'Extension mirror of knowledge file'
+    - path: 'tests/test_output_structure.py'
+      action: modify
+      description: 'Add kokoro-analytics to COACHING_SKILLS, VALID_COMMANDS, EXISTING_COMMANDS'
+  decisions:
+    - id: D1
+      choice: 'Skill file (prompt/instructions), not Python code'
+      rationale: 'Query routing is Claude interpreting natural language — no deterministic code needed. Consistent with all Kokoro skills.'
+      alternatives_considered: ['Python CLI wrapper', 'MCP aggregation layer']
+    - id: D2
+      choice: 'Separate knowledge file for MCP tool reference + metric glossary'
+      rationale: 'Avoids bloating skill prompt. Allows reuse by S11.4 (metric translation expansion).'
+      alternatives_considered: ['Inline in skill file', 'Python module']
+    - id: D3
+      choice: 'Default date range = last 7 days when none specified'
+      rationale: 'Most useful window for quick check. Balances breadth vs speed.'
+      alternatives_considered: ['Last 30 days', 'Today only', 'Ask the user']
+    - id: D4
+      choice: 'Basic metric translation now, deep glossary deferred to S11.4'
+      rationale: 'Delivers immediate value with CTR/CPC/CPM/ROAS basics. S11.4 expands with full contextual glossary.'
+      alternatives_considered: ['Full glossary now', 'No translation until S11.4']
+    - id: D5
+      choice: 'Client resolution follows established E10 pattern (find_by_name from clients.json)'
+      rationale: 'Proven pattern from kokoro-ads and kokoro-connect. Consistent UX.'
+      alternatives_considered: ['Require client ID', 'Active session only']
+  flow:
+    - step: 1
+      name: 'Client resolution'
+      description: 'Extract client name from query. Search clients.json via find_by_name. If not found, suggest /kokoro-client.'
+    - step: 2
+      name: 'Platform account lookup'
+      description: 'Read metadata["platform_accounts"]. If empty, suggest /kokoro-connect. Otherwise, identify which platforms to query.'
+    - step: 3
+      name: 'Query intent extraction'
+      description: 'Determine: platform(s), date range, depth (overview vs detailed), specific campaign if mentioned.'
+    - step: 4
+      name: 'MCP dispatch'
+      description: 'Call appropriate MCP tools with account IDs and date parameters. Handle unreachable servers gracefully.'
+    - step: 5
+      name: 'Presentation'
+      description: 'Format results in Kokoro voice: luxurizante vocabulary, metric translation, organized by platform. Suggest next actions.'
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e11-kokoro-analytics/scope.md'
+  story_file: 'work/epics/e11-kokoro-analytics/stories/s11.3-story.md'
+  scope_file: 'work/epics/e11-kokoro-analytics/stories/s11.3-scope.md'
+metadata:
+  mcp_tools_by_platform:
+    meta_ads:
+      overview: 'facebook-ads -> get_account_insights_summary'
+      detail: 'facebook-ads -> get_campaign_performance'
+      list: 'facebook-ads -> get_campaigns'
+    google_ads:
+      overview: 'google-ads -> get_customer_insights_summary'
+      detail: 'google-ads -> get_campaign_performance'
+      list: 'google-ads -> get_campaigns'
+    ga4:
+      overview: 'google-analytics -> run_report'
+      detail: 'google-analytics -> run_report (custom dimensions)'
+    gsc:
+      overview: 'google-search-console -> get_performance_overview'
+      detail: 'google-search-console -> get_search_analytics'
+  default_date_range: 'last_7_days'
+  metric_glossary_scope: 'basic (CTR, CPC, CPM, ROAS, impressions, clicks, bounce_rate)'
