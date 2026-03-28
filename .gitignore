@@ -32,6 +32,10 @@ Thumbs.db
 htmlcov/
 .mypy_cache/
 
+# Secrets
+.env
+.env.*
+
 # RaiSE local state
 .raise/
 

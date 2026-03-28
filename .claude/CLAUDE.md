@@ -165,6 +165,19 @@ Oferta Mafia, ritmo semanal de 90 minutos.
 - `/kokoro-mafia` — Crear Oferta Mafia
 - `/kokoro-rhythm` — Ritmo semanal + scorecard
 
+### Herramientas Transversales
+
+Aplican en cualquier fase del proceso:
+
+- `/kokoro-client` — Gestionar invitados (grafo de relaciones)
+- `/kokoro-connect` — Conectar plataformas al invitado (Meta Ads, GA4, etc.)
+- `/kokoro-ads` — Campañas de Meta Ads (copy + targeting)
+- `/kokoro-creative` — Generador de creativos con IA (imagenes via Gemini API)
+- `/kokoro-audit` — Auditoría de sitio web
+- `/kokoro-session` — Gestor de sesión
+
+`/kokoro-creative` + `/kokoro-ads` = ciclo completo de campaña (imagen + copy).
+
 Cuando un usuario llegue sin contexto, usa `/kokoro` para diagnosticar en qué
 fase se encuentra y redirigirlo al skill correcto.
 
