@@ -101,6 +101,68 @@ Traducciones del lenguaje tecnico al lenguaje del emprendedor (voz Kokoro).
 | **Search Impressions** | Veces que el sitio aparecio en resultados de busqueda | "{N} veces aparecio en los resultados de Google" |
 | **Average Position** | Posicion promedio en resultados de busqueda | "Posicion promedio en busqueda: {X}" |
 
+### Meta Ads — Metricas Completas
+
+| Metrica | Significado | Traduccion Kokoro | Bueno | Malo |
+|---------|-------------|-------------------|:-----:|:----:|
+| **Reach** | Personas unicas que vieron el anuncio | "{N} personas unicas alcanzadas" | >1000/dia | <100/dia |
+| **Frequency** | Veces promedio que cada persona vio el anuncio | "Cada persona vio la creacion {X} veces en promedio" | 1.5-3 | >5 (fatiga) |
+| **Spend** | Monto total invertido | "Inversion total: ${X}" | Dentro del presupuesto | >120% presupuesto |
+| **Cost per Result** | Costo por cada accion objetivo | "Cada resultado costo ${X}" | <CPC promedio industria | >3x promedio |
+| **Result Rate** | Porcentaje de impresiones que generan resultado | "{X}% de las impresiones generaron resultado" | >2% | <0.5% |
+| **Video Views** | Reproducciones de video (3+ segundos) | "{N} personas vieron el video" | >50% de reach | <10% |
+| **ThruPlay** | Reproducciones completas o 15+ segundos | "{N} personas vieron el video completo" | >30% de views | <10% |
+| **Link Clicks** | Clics al enlace destino | "{N} personas visitaron el destino" | CTR >1% | CTR <0.5% |
+| **Landing Page Views** | Personas que cargaron la pagina destino | "{N} personas llegaron a la pagina" | >80% de link clicks | <50% |
+| **Messaging Conversations** | Conversaciones iniciadas por WhatsApp/Messenger | "{N} conversaciones iniciadas" | Depende campana | 0 en 48h |
+
+### Google Ads — Metricas Completas
+
+| Metrica | Significado | Traduccion Kokoro | Bueno | Malo |
+|---------|-------------|-------------------|:-----:|:----:|
+| **Quality Score** | Calidad del anuncio segun Google (1-10) | "Google califica la relevancia de tu anuncio en {X}/10" | >7 | <5 |
+| **Search Impression Share** | % del mercado que capturas | "De todas las busquedas posibles, apareces en {X}%" | >60% | <20% |
+| **Conversion Rate** | % de clics que convierten | "De cada 100 visitas, {X} tomaron accion" | >3% | <1% |
+| **Cost per Conversion** | Costo por cada conversion | "Cada conversion costo ${X}" | <valor del lead | >3x valor |
+| **Search Terms** | Terminos reales que activaron anuncios | "Terminos que la gente busco para encontrarte" | Relevantes | Irrelevantes >30% |
+| **Avg CPC** | Costo promedio por clic | "Cada clic costo ${X} en promedio" | <$15 MXN | >$50 MXN |
+| **Conv. Value/Cost** | Valor generado por peso invertido | "Por cada peso invertido, generaste ${X} en valor" | >3 | <1 |
+
+### GA4 — Metricas Completas
+
+| Metrica | Significado | Traduccion Kokoro | Bueno | Malo |
+|---------|-------------|-------------------|:-----:|:----:|
+| **Active Users** | Usuarios activos en el periodo | "{N} personas visitaron el sitio" | Crecimiento mes a mes | Caida >20% |
+| **New Users** | Visitantes nuevos | "{N} personas visitaron por primera vez" | >50% de total | <20% (no atrae nuevos) |
+| **Engagement Rate** | % de sesiones con interaccion significativa | "{X}% de los visitantes interactuaron activamente" | >60% | <40% |
+| **Events** | Acciones rastreadas en el sitio | "{N} acciones registradas" | Depende config | 0 (mal configurado) |
+| **Pages per Session** | Paginas vistas por visita | "Cada visitante vio {X} paginas en promedio" | >2 | <1.5 |
+| **Channel Grouping** | De donde vienen los visitantes | "{X}% llegan por {canal}" | Diversificado | >80% un solo canal |
+| **Conversions** | Objetivos completados | "{N} objetivos completados en el sitio" | Crecimiento | Caida >30% |
+
+### Search Console — Metricas Completas
+
+| Metrica | Significado | Traduccion Kokoro | Bueno | Malo |
+|---------|-------------|-------------------|:-----:|:----:|
+| **Total Impressions** | Apariciones en resultados de busqueda | "Apareciste {N} veces en Google" | Crecimiento | Caida >20% |
+| **Total Clicks** | Clics desde resultados de busqueda | "{N} personas eligieron tu sitio en Google" | CTR >3% | CTR <1% |
+| **Average CTR** | % de impresiones con clic | "De cada 100 apariciones, {X} personas hicieron clic" | >3% | <1% |
+| **Average Position** | Posicion promedio en resultados | "Posicion promedio: {X}" | <10 (pagina 1) | >20 (pagina 3+) |
+| **Top Queries** | Busquedas que muestran tu sitio | "Las personas te encuentran buscando: {queries}" | Relevantes al negocio | Irrelevantes |
+| **Top Pages** | Paginas con mas trafico organico | "Tus paginas mas visitadas: {pages}" | Paginas clave del negocio | Solo home |
+| **Mobile Usability** | Problemas de uso en movil | "{N} paginas con problemas en movil" | 0 | >5 |
+| **Index Coverage** | Paginas indexadas vs errores | "{N} paginas indexadas, {M} con errores" | 0 errores | >10% errores |
+
+## Metricas Desconocidas — Guia
+
+Si una metrica NO aparece en este glosario:
+
+1. **Nombra la metrica** tal cual aparece en la respuesta del MCP
+2. **Describe su valor** en terminos simples: "El sistema reporta {metrica} = {valor}"
+3. **No inventes traducciones** — es mejor ser preciso que creativo
+4. **Sugiere investigar**: "Esta metrica ({nombre}) merece atencion. ¿Quieres que la investiguemos?"
+5. **Registra** para expansion futura del glosario
+
 ## Patrones de Fecha
 
 Interpretacion de lenguaje natural a parametros MCP.
