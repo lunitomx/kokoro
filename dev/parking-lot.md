@@ -27,4 +27,5 @@ Items deferred from active work. Review during epic planning.
 | ~~MCP write operations — pausar/activar campañas, modificar presupuesto~~ | ~~SES-024~~ | ~~P3~~ | ~~Absorbed into E17 (solo creativos, NUNCA budget)~~ |
 | OpenShorts (github.com/mutonby/openshorts) — editor automático de shorts | SES-027 Luna request (2026-03-27) | P2 | Evaluate during E16 implementation |
 | Kokoro video editor — pipeline completo: video crudo → transcribir → cortes → gráficos → video final | SES-027 Luna request (2026-03-27) | P2 | After E16 core validated — fase 2 de contenido |
+| E17 S17.1+S17.2 — MCP write tools for Facebook Ads (verify permissions + add write tools to MetricaRadix) | E17 scope (2026-03-28) | P2 | When ready for write testing — /kokoro-publish skill already created, needs backend |
 | ~~AnswerThePublic como complemento de /kokoro-intel~~ | ~~SES-027~~ | ~~P2~~ | ~~Integrated as optional input in E16 S16.4~~ |

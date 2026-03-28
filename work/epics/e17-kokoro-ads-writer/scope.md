@@ -53,10 +53,10 @@ y pedir reautorizacion si falta `ads_management`.
 
 ## Stories
 
-- [ ] S17.1 — Verificar y obtener permisos de escritura en Facebook API (S)
-- [ ] S17.2 — Tools de escritura en MCP facebook-ads: create_ad_creative, update_ad_text (M)
-- [ ] S17.3 — /kokoro-publish: skill que toma output de kokoro-ads/creative y lo sube a Meta (S)
-- [ ] S17.4 — Gate de confirmacion: preview + doble confirmacion antes de publicar (S)
+- [ ] S17.1 — Verificar y obtener permisos de escritura en Facebook API (S) — PARKING LOT
+- [ ] S17.2 — Tools de escritura en MCP facebook-ads: create_ad_creative, update_ad_text (M) — PARKING LOT
+- [x] S17.3 — /kokoro-publish: skill que toma output de kokoro-ads/creative y lo sube a Meta (S)
+- [x] S17.4 — Gate de confirmacion: preview + doble confirmacion antes de publicar (S)
 
 ## Story Details
 
