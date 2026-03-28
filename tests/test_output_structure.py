@@ -87,6 +87,7 @@ VALID_COMMANDS: set[str] = {
     # Planned (E18 — Video Editor)
     "kokoro-cuts",
     "kokoro-shorts",
+    "kokoro-overlay",
 }
 
 # Commands that must exist as files today
