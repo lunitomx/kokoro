@@ -236,7 +236,7 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 | # | Story | Size | Strategy | Rationale | Status |
 |---|-------|------|----------|-----------|--------|
 | 1a | S18.1 — Evaluar OpenShorts | S | Risk-first | Resolver incertidumbre antes de implementar | pending |
-| 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | pending |
+| 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | done |
 | 2 | S18.3 — /kokoro-shorts | M | Dependency-driven | Necesita S18.2 + hallazgos S18.1. Completa Phase 1 | pending |
 | 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | pending |
 | 4 | S18.5 — /kokoro-render | M | Dependency-driven | Video final con intro/outro | pending |
