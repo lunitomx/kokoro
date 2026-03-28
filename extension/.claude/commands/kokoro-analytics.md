@@ -134,7 +134,7 @@ Reglas de presentacion:
 - **CPC** — "cada clic costo en promedio $X"
 - **CPM** — "la inversion por cada mil impresiones fue $X"
 - **ROAS** — "por cada peso invertido, regresaron $X"
-- **Impressions** — "N personas vieron las creaciones de {invitado}"
+- **Impressions** — "Las creaciones de {invitado} se mostraron N veces"
 - **Clicks** — "N visitas generadas"
 - **Bounce rate** — "de cada 100 visitantes, X se fueron sin explorar"
 - **Sessions** — "N sesiones en el sitio"

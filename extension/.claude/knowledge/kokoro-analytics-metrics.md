@@ -92,7 +92,7 @@ Traducciones del lenguaje tecnico al lenguaje del emprendedor (voz Kokoro).
 | **CPC** (Cost Per Click) | Costo promedio de cada clic | "Cada clic costo en promedio ${X}" |
 | **CPM** (Cost Per Mille) | Costo por cada 1,000 impresiones | "La inversion por cada mil impresiones fue ${X}" |
 | **ROAS** (Return on Ad Spend) | Retorno por cada peso invertido en publicidad | "Por cada peso invertido, regresaron ${X}" |
-| **Impressions** | Veces que la creacion fue mostrada | "{N} personas vieron las creaciones de {invitado}" |
+| **Impressions** | Veces que la creacion fue mostrada | "Las creaciones de {invitado} se mostraron {N} veces" |
 | **Clicks** | Numero de clics en la creacion | "{N} visitas generadas a traves de {plataforma}" |
 | **Bounce Rate** | Porcentaje que se fue sin interactuar | "De cada 100 visitantes, {X} se fueron sin explorar" |
 | **Sessions** | Visitas al sitio (puede incluir multiples paginas) | "{N} sesiones en el sitio" |
