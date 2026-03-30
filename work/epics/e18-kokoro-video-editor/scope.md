@@ -80,7 +80,7 @@ bloquear el uso del pipeline.
 - [ ] S18.2 — /kokoro-cuts: identificar mejores momentos del transcript para shorts 30-60s (M)
 - [x] S18.3 — /kokoro-shorts: extraer segmentos de video con ffmpeg segun cortes (M) ✓
 - [x] S18.4 — /kokoro-overlay: generar overlays de texto/captions desde transcript con ffmpeg (M) ✓
-- [ ] S18.5 — /kokoro-render: ensamblar video final con overlays + intro/outro (M)
+- [x] S18.5 — /kokoro-render: ensamblar video final con overlays + intro/outro (M) ✓
 - [ ] S18.6 — Test de integracion end-to-end con video real (S)
 
 ## Story Details
@@ -206,7 +206,7 @@ Sus hallazgos pueden influir en la implementacion de S18.3+.
 - [ ] /kokoro-cuts produce lista de cortes rankeados desde un transcript
 - [x] /kokoro-shorts extrae segmentos de video correctamente con ffmpeg
 - [x] /kokoro-overlay genera captions sincronizados sobre video
-- [ ] /kokoro-render produce video final con intro/outro
+- [x] /kokoro-render produce video final con intro/outro
 - [ ] Pipeline end-to-end probado con video real de Eduardo
 - [ ] Todos los tests pasan
 
@@ -239,7 +239,7 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 | 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | done |
 | 2 | S18.3 — /kokoro-shorts | M | Dependency-driven | Necesita S18.2 + hallazgos S18.1. Completa Phase 1 | done |
 | 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | done |
-| 4 | S18.5 — /kokoro-render | M | Dependency-driven | Video final con intro/outro | pending |
+| 4 | S18.5 — /kokoro-render | M | Dependency-driven | Video final con intro/outro | done |
 | 5 | S18.6 — Test e2e | S | Integration | Pipeline completo con video real | pending |
 
 ### Milestones
@@ -284,4 +284,5 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 - Pipeline completo funcional: /kokoro-listen → /kokoro-cuts → /kokoro-shorts
 - Costo total del pipeline test: ~$0.04 USD (2x Whisper transcription)
 - S18.4 DONE: /kokoro-overlay live — captions + vertical reformat with ffmpeg drawtext
-- **Next:** S18.5 /kokoro-render — video final con intro/outro
+- S18.5 DONE: /kokoro-render live — concat intro+main+outro, two-pass loudnorm -16 LUFS
+- **Next:** S18.6 — Test de integracion end-to-end con video real
