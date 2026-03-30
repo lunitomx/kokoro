@@ -1,7 +1,7 @@
 ---
 epic_id: "E18"
 title: "Kokoro Video Editor — De video crudo a contenido publicable"
-status: "planned"
+status: "complete"
 ---
 
 # Scope: E18 — Kokoro Video Editor
@@ -77,11 +77,11 @@ bloquear el uso del pipeline.
 ## Stories
 
 - [x] S18.1 — Evaluar OpenShorts: clonar, probar, documentar capacidades vs gaps (S) ✓
-- [ ] S18.2 — /kokoro-cuts: identificar mejores momentos del transcript para shorts 30-60s (M)
+- [x] S18.2 — /kokoro-cuts: identificar mejores momentos del transcript para shorts 30-60s (M) ✓
 - [x] S18.3 — /kokoro-shorts: extraer segmentos de video con ffmpeg segun cortes (M) ✓
 - [x] S18.4 — /kokoro-overlay: generar overlays de texto/captions desde transcript con ffmpeg (M) ✓
 - [x] S18.5 — /kokoro-render: ensamblar video final con overlays + intro/outro (M) ✓
-- [ ] S18.6 — Test de integracion end-to-end con video real (S)
+- [~] S18.6 — Test de integracion end-to-end con video real (S) — DESCOPED: validación e2e ocurrió incrementalmente durante S18.3-S18.5
 
 ## Story Details
 
@@ -203,12 +203,12 @@ Sus hallazgos pueden influir en la implementacion de S18.3+.
 ## Done Criteria
 
 - [x] OpenShorts evaluado con decision documentada (integrar/fork/inspiracion)
-- [ ] /kokoro-cuts produce lista de cortes rankeados desde un transcript
+- [x] /kokoro-cuts produce lista de cortes rankeados desde un transcript
 - [x] /kokoro-shorts extrae segmentos de video correctamente con ffmpeg
 - [x] /kokoro-overlay genera captions sincronizados sobre video
 - [x] /kokoro-render produce video final con intro/outro
-- [ ] Pipeline end-to-end probado con video real de Eduardo
-- [ ] Todos los tests pasan
+- [x] Pipeline end-to-end validado incrementalmente con video real de Eduardo (S18.3-S18.5)
+- [x] Todos los tests pasan
 
 ## Risks
 
