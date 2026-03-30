@@ -161,10 +161,9 @@ Guardado en: `{json_path}`
 
 ### Siguiente paso
 
-1. `/kokoro-overlay` para agregar captions al short
+1. `/kokoro-overlay` para agregar captions + formato vertical 9:16 al short
 2. `/kokoro-creative` para generar thumbnails
 3. Publica directamente si el short se ve bien sin captions
-4. Si necesitas formato vertical (9:16), pidelo y re-proceso con crop+scale
 ```
 
 #### Formato JSON (guardar como archivo)

@@ -88,6 +88,7 @@ VALID_COMMANDS: set[str] = {
     "kokoro-cuts",
     "kokoro-shorts",
     "kokoro-overlay",
+    "kokoro-render",
 }
 
 # Commands that must exist as files today
