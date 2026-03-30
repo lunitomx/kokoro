@@ -79,7 +79,7 @@ bloquear el uso del pipeline.
 - [x] S18.1 — Evaluar OpenShorts: clonar, probar, documentar capacidades vs gaps (S) ✓
 - [ ] S18.2 — /kokoro-cuts: identificar mejores momentos del transcript para shorts 30-60s (M)
 - [x] S18.3 — /kokoro-shorts: extraer segmentos de video con ffmpeg segun cortes (M) ✓
-- [ ] S18.4 — /kokoro-overlay: generar overlays de texto/captions desde transcript con ffmpeg (M)
+- [x] S18.4 — /kokoro-overlay: generar overlays de texto/captions desde transcript con ffmpeg (M) ✓
 - [ ] S18.5 — /kokoro-render: ensamblar video final con overlays + intro/outro (M)
 - [ ] S18.6 — Test de integracion end-to-end con video real (S)
 
@@ -205,7 +205,7 @@ Sus hallazgos pueden influir en la implementacion de S18.3+.
 - [x] OpenShorts evaluado con decision documentada (integrar/fork/inspiracion)
 - [ ] /kokoro-cuts produce lista de cortes rankeados desde un transcript
 - [x] /kokoro-shorts extrae segmentos de video correctamente con ffmpeg
-- [ ] /kokoro-overlay genera captions sincronizados sobre video
+- [x] /kokoro-overlay genera captions sincronizados sobre video
 - [ ] /kokoro-render produce video final con intro/outro
 - [ ] Pipeline end-to-end probado con video real de Eduardo
 - [ ] Todos los tests pasan
@@ -238,7 +238,7 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 | 1a | S18.1 — Evaluar OpenShorts | S | Risk-first | Resolver incertidumbre antes de implementar | done |
 | 1b | S18.2 — /kokoro-cuts | M | Walking skeleton | Corazon del pipeline, paralelo con S18.1 | done |
 | 2 | S18.3 — /kokoro-shorts | M | Dependency-driven | Necesita S18.2 + hallazgos S18.1. Completa Phase 1 | done |
-| 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | pending |
+| 3 | S18.4 — /kokoro-overlay | M | Incremental value | Captions sobre shorts. Inicia Phase 2 | done |
 | 4 | S18.5 — /kokoro-render | M | Dependency-driven | Video final con intro/outro | pending |
 | 5 | S18.6 — Test e2e | S | Integration | Pipeline completo con video real | pending |
 
@@ -283,4 +283,5 @@ Stream B:  S18.2 (cuts) ──→ S18.3 (shorts) ──→ S18.4 (overlay) ─�
 - S18.3 DONE: /kokoro-shorts live, probado con video real (3 shorts extraidos con fades)
 - Pipeline completo funcional: /kokoro-listen → /kokoro-cuts → /kokoro-shorts
 - Costo total del pipeline test: ~$0.04 USD (2x Whisper transcription)
-- **Next:** S18.4 /kokoro-overlay — captions + vertical reformat
+- S18.4 DONE: /kokoro-overlay live — captions + vertical reformat with ffmpeg drawtext
+- **Next:** S18.5 /kokoro-render — video final con intro/outro
