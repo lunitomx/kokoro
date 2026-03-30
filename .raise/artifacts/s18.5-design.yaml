@@ -1,0 +1,72 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-03-29T00:00:00Z'
+story: 'S18.5'
+epic: 'E18'
+content:
+  summary: '/kokoro-render — Claude Code skill that takes a captioned video, discovers intro/outro templates via convention paths, normalizes audio with two-pass loudnorm (-16 LUFS), and concatenates segments via ffmpeg concat filter into a final broadcast-ready MP4.'
+  complexity: moderate
+  acceptance_criteria:
+    - id: AC1
+      description: 'Concat intro + main + outro in correct order (or subset with --no-intro/--no-outro)'
+      verifiable: true
+    - id: AC2
+      description: 'Audio normalized to -16 LUFS via two-pass loudnorm'
+      verifiable: true
+    - id: AC3
+      description: 'Output is valid MP4 H.264 + AAC playable on all platforms'
+      verifiable: true
+    - id: AC4
+      description: 'Template discovery from convention paths works'
+      verifiable: true
+    - id: AC5
+      description: 'Output saved as {basename}-final.mp4 with summary JSON'
+      verifiable: true
+  integration_points:
+    - module: 'kokoro-overlay'
+      change_type: read
+      files: ['captioned video output from /kokoro-overlay in /tmp/kokoro-shorts/']
+    - module: 'ffmpeg-loudnorm'
+      change_type: new
+      files: ['two-pass loudnorm: measure pass + apply pass with linear=true']
+    - module: 'ffmpeg-concat'
+      change_type: new
+      files: ['concat filter with re-encode for intro + main + outro assembly']
+    - module: 'template-discovery'
+      change_type: new
+      files: ['convention-based search: clientes/{invitado}/assets/, assets/templates/']
+    - module: 'test_output_structure'
+      change_type: modify
+      files: ['tests/test_output_structure.py — add kokoro-render to EXISTING_COMMANDS']
+  decisions:
+    - id: D1
+      choice: 'Concat filter with re-encode (not demuxer)'
+      rationale: 'Intro/outro templates may not match main video codec/resolution. Concat filter handles mismatched inputs gracefully. For shorts (30-60s), re-encode time is negligible. Demuxer requires strict format matching that is fragile.'
+      alternatives_considered: ['concat demuxer (faster but requires matching formats)', 'melt/MLT framework (overkill for simple concatenation)']
+    - id: D2
+      choice: 'Two-pass loudnorm (-16 LUFS)'
+      rationale: 'Two-pass measures actual loudness first, then normalizes accurately. For shorts (30-60s), extra pass adds <2 seconds. Single-pass can overshoot or undershoot on speech content.'
+      alternatives_considered: ['single-pass loudnorm (faster but less accurate)', 'dynaudnorm (not broadcast-standard)', 'no normalization (inconsistent levels)']
+    - id: D3
+      choice: 'Convention-based template discovery'
+      rationale: 'Look for intro/outro at well-known paths (per-invitado then project default). Skip gracefully if not found. Override via explicit path argument. No config file needed.'
+      alternatives_considered: ['config file with template paths (over-engineering)', 'require templates as mandatory arguments (poor DX)']
+    - id: D4
+      choice: 'No separate knowledge file'
+      rationale: 'Based on AR finding from S18.4 (duplication between skill and knowledge files). Concat + loudnorm commands are simpler than overlay drawtext chains — fits in one file.'
+      alternatives_considered: ['separate knowledge file (adds duplication per S18.4 finding)', 'shared ffmpeg knowledge file across skills (premature abstraction)']
+  components:
+    - action: create
+      path: '.claude/commands/kokoro-render.md'
+      description: 'Skill definition — prompt instructions for template discovery, loudnorm two-pass, concat filter assembly, and output organization'
+    - action: modify
+      path: 'tests/test_output_structure.py'
+      description: 'Add kokoro-render to EXISTING_COMMANDS'
+    - action: modify
+      path: 'work/epics/e18-kokoro-video-editor/scope.md'
+      description: 'Update progress if needed'
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e18-kokoro-video-editor/scope.md'
+  prior_art: 'S18.4 /kokoro-overlay — provides captioned input videos; S18.4 AR finding on knowledge file duplication'
