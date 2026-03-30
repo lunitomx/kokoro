@@ -135,6 +135,7 @@ EXISTING_COMMANDS: set[str] = {
     "kokoro-cuts",
     "kokoro-shorts",
     "kokoro-overlay",
+    "kokoro-render",
 }
 
 
