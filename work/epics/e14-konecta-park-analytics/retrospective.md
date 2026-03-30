@@ -1,39 +1,43 @@
 # Epic Retrospective: E14 — Konecta Park Analytics
 
-**Completed:** 2026-03-30
-**Resolution:** Paused — client work pending data maturation
-**Stories:** 1 delivered (S14b.1), 3 pending
+**Updated:** 2026-03-30
+**Resolution:** Near-complete — S14b.2+S14b.3 done via reporte MetricaRadix, S14b.4 pendiente validación
+**Stories:** 3 delivered (S14b.1-S14b.3), 1 pending (S14b.4 — post-cambio)
 
 ---
 
 ## Summary
 
-E14 aimed to diagnose Konecta Park's Meta Ads campaigns (spam messages from construction workers instead of brokers/investors). S14b.1 registered Konecta Park as a client with Meta Ads account mapped. Tracking events were configured on 2026-03-28. The diagnostic (S14b.2-S14b.4) requires post-configuration data to be meaningful — revisiting too early would produce inconclusive results.
+E14 aimed to diagnose why Konecta Park's Meta Ads campaigns attracted spam instead of brokers/investors. The diagnosis was executed via a comprehensive MetricaRadix weekly report (27-30 Mar 2026) that crossed data from Meta Business API, GA4, Microsoft Clarity, and Pipedrive — revealing that the root cause was NOT targeting keywords ("albañilería") as originally suspected, but Audience Network delivering 96.6% junk traffic (bots + zero-engagement sessions). Corrective actions were applied immediately.
 
-## Resolution: Paused
+## Key Findings
 
-- **S14b.1 done:** Client registered, account `act_860134896091761` mapped, context documented
-- **S14b.2-S14b.4 deferred:** Diagnostic, recommendations, and validation require ~1 week of data post-tracking configuration (2026-03-28). Target revisit: ~2026-04-04
-- Infrastructure is ready (E11 `/kokoro-analytics` + `/kokoro-connect` functional)
-- When Eduardo is ready to revisit, run `/kokoro-analytics` with Konecta Park context
+1. **Audience Network was the primary problem** — 96.6% of Meta traffic to the website had zero engagement (Clarity recordings). 42% were flagged as bots.
+2. **Pixel was inflating conversions** — 9 CompleteRegistration reported by pixel, but only 2 confirmed in Pipedrive. 7 were view-through (saw ad, arrived at /gracias by another path). Real CPR: $379, not $84.
+3. **Brokers campaign is healthy** — $16.37 per WA conversation, 39 conversations, healthy depth funnel (55% depth 2, 15% depth 5).
+4. **125 hidden conversions** — GA4 tracked 125 click_to_chat on the website from Meta traffic, not counted as Meta conversions. 99 on March 28 were from Audience Network (now excluded).
+5. **UTM bug in Brokers form** — Leads arrive to Pipedrive without UTMs, breaking attribution.
+
+## Actions Taken
+
+- Audience Network excluded from CompleteRegistration campaign (March 30)
+- "Avance de Obra" creative reactivated with traffic filtered through profiling form
+- Pixel fix E15 in progress: move firing to Pipedrive API callback (eliminates view-through ghost conversions)
 
 ## What Went Well
 
-- Client registration (S14b.1) was clean — reusable for any future Konecta engagement
-- Identified the root issue early: targeting includes industrial maintenance/safety fields attracting blue collar
+- Cross-platform analysis (Meta + GA4 + Clarity + Pipedrive) revealed truth that single-platform data hid
+- Original hypothesis ("targeting includes albañilería fields") was wrong — the real cause was placement, not audience
+- The reporte format (HTML with charts, funnels, creative cards) makes findings actionable for the client
 
 ## What Could Be Improved
 
-- Should have set a calendar reminder for the follow-up instead of a vague "revisit ~abril"
-
-## Key Findings (from S14b.1)
-
-- Two campaigns: "Whatsapp Konecta" ($333/day, 6 ads) + "Brokers" (1 ad)
-- Audience overlap: 816K-960K vs 1.6M-1.9M
-- Problem: industrial maintenance/safety interests in targeting attract non-target audience
+- Diagnosis was done manually via MetricaRadix reporte, not via /kokoro-analytics as E14 originally planned
+- The infrastructure (/kokoro-analytics + MCP) exists but the manual cross-platform analysis was more thorough for this case
 
 ## Next Steps
 
-- Revisit after 2026-04-04 with `/kokoro-analytics` to pull fresh data
-- Diagnose with demographic breakdown + creative performance via MCP
-- Recommend exclusions and refined targeting
+- **S14b.4 validation:** Compare next week's data (post Audience Network exclusion) ~2026-04-07
+- Verify click_to_chat volume drops (99 on March 28 were Audience Network)
+- Monitor if real CPR improves with cleaner traffic
+- Fix UTMs in Brokers form for proper Pipedrive attribution
