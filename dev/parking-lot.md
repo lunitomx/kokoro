@@ -25,7 +25,7 @@ Items deferred from active work. Review during epic planning.
 | Konecta Park campaign diagnostic — getting spam msgs (albañilería) instead of brokers/buyers. Two campaigns: "Whatsapp Konecta" ($333/day, 6 ads, 816K-960K audience) + "Brokers" (1 ad, 1.6M-1.9M audience). Targeting includes industrial maintenance/safety fields that attract blue collar. Need MCP data to diagnose properly | SES-021 Luna request (2026-03-26) | P1 | Promoted to E14 — after E11 (needs MCP access) |
 | ~~Backport vocabulario fix en kokoro-ads.md~~ | ~~SES-019 retro~~ | ~~P2~~ | ~~DONE — fixed inline SES-027~~ |
 | ~~MCP write operations — pausar/activar campañas, modificar presupuesto~~ | ~~SES-024~~ | ~~P3~~ | ~~Absorbed into E17 (solo creativos, NUNCA budget)~~ |
-| OpenShorts (github.com/mutonby/openshorts) — editor automático de shorts | SES-027 Luna request (2026-03-27) | P2 | Evaluate during E16 implementation |
-| Kokoro video editor — pipeline completo: video crudo → transcribir → cortes → gráficos → video final | SES-027 Luna request (2026-03-27) | P2 | After E16 core validated — fase 2 de contenido |
+| ~~OpenShorts (github.com/mutonby/openshorts) — editor automático de shorts~~ | ~~SES-027 Luna request (2026-03-27)~~ | ~~P2~~ | ~~Evaluated in E18 S18.1 — verdict INSPIRATION-ONLY~~ |
+| ~~Kokoro video editor — pipeline completo: video crudo → transcribir → cortes → gráficos → video final~~ | ~~SES-027 Luna request (2026-03-27)~~ | ~~P2~~ | ~~Delivered in E18 — COMPLETE~~ |
 | E17 S17.1+S17.2 — MCP write tools for Facebook Ads (verify permissions + add write tools to MetricaRadix) | E17 scope (2026-03-28) | P2 | When ready for write testing — /kokoro-publish skill already created, needs backend |
 | ~~AnswerThePublic como complemento de /kokoro-intel~~ | ~~SES-027~~ | ~~P2~~ | ~~Integrated as optional input in E16 S16.4~~ |

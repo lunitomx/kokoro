@@ -1,7 +1,7 @@
 ---
 epic_id: "E14"
 title: "Konecta Park — Diagnóstico y optimización de campañas"
-status: "in-progress"
+status: "paused"
 depends_on: "E11"
 updated: "2026-03-27"
 ---

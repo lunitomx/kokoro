@@ -1,7 +1,7 @@
 ---
 epic_id: "E17"
 title: "Kokoro Ads Writer — Subir creativos a Meta Ads"
-status: "designed"
+status: "partial-complete"
 ---
 
 # Scope: E17 — Kokoro Ads Writer

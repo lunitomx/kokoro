@@ -1,7 +1,7 @@
 ---
 epic_id: "E12"
 title: "Kokoro Video Analysis"
-status: "partially-covered"
+status: "superseded"
 updated: "2026-03-27"
 ---
 
