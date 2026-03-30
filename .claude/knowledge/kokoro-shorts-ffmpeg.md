@@ -318,6 +318,6 @@ ffmpeg -y -i "{input}" \
 /kokoro-listen  → descarga video + transcripcion
 /kokoro-cuts    → identifica cortes (JSON con start/end sentences)
 /kokoro-shorts  → extrae segmentos con timestamps precisos ← ESTE SKILL
-/kokoro-overlay → agrega captions/subtitulos (futuro)
+/kokoro-overlay → agrega captions sincronizados
 /kokoro-creative → genera thumbnails
 ```
