@@ -68,11 +68,11 @@ Mostrar resumen:
 
 #### Paso 2: Descubrir templates
 
-Buscar intro/outro en orden de prioridad:
+Buscar intro/outro en orden de prioridad (explicito gana sobre convencion):
 
-1. Si hay invitado resuelto: `clientes/{grupo}/assets/intro.mp4` / `outro.mp4`
-2. Default del proyecto: `assets/templates/intro.mp4` / `outro.mp4`
-3. Si el usuario paso `--intro` / `--outro`, usar esas rutas
+1. Si el usuario paso `--intro` / `--outro`, usar esas rutas (override explicito)
+2. Si hay invitado resuelto: `clientes/{grupo}/assets/intro.mp4` / `outro.mp4`
+3. Default del proyecto: `assets/templates/intro.mp4` / `outro.mp4`
 
 Si `--no-intro` o `--no-outro`, saltar la busqueda para ese segmento.
 
@@ -131,6 +131,16 @@ ffmpeg -y -i "{intro}" -i "{normalized_main}" -i "{outro}" \
 **Parcial (main + outro, sin intro):**
 ```bash
 ffmpeg -y -i "{normalized_main}" -i "{outro}" \
+  -filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[outv][outa]" \
+  -map "[outv]" -map "[outa]" \
+  -c:v libx264 -preset fast -crf 23 \
+  -c:a aac -b:a 128k \
+  "{output}"
+```
+
+**Parcial (intro + main, sin outro):**
+```bash
+ffmpeg -y -i "{intro}" -i "{normalized_main}" \
   -filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[outv][outa]" \
   -map "[outv]" -map "[outa]" \
   -c:v libx264 -preset fast -crf 23 \
