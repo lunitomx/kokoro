@@ -35,6 +35,14 @@ htmlcov/
 # Secrets
 .env
 .env.*
+client_secret_*.json
+
+# Client data (private, never publish)
+clientes/
+*.pdf
+
+# Claude Code local project config
+.claude/projects/
 
 # RaiSE local state
 .raise/
