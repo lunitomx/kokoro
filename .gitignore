@@ -36,10 +36,16 @@ htmlcov/
 .env
 .env.*
 client_secret_*.json
+*.token
+token.json
+credentials.json
 
 # Client data (private, never publish)
 clientes/
 *.pdf
+
+# Kokoro client graph (contains personal data)
+.kokoro/
 
 # Claude Code local project config
 .claude/projects/
