@@ -130,6 +130,7 @@ Skills que aplican en cualquier fase del proceso.
 |-------|----------|
 | `/kokoro-ads` | Campanas de Meta Ads (copy + targeting + estructura) |
 | `/kokoro-creative` | Generador de creativos con IA (imagenes via Gemini) |
+| `/kokoro-creative-review` | Analisis de creativos bajo Meta AI (GEM, Andromeda, Lattice) |
 | `/kokoro-publish` | Publicar creativos en Meta Ads |
 | `/kokoro-character` | Generador de personajes hiper-realistas |
 | `/kokoro-calendar` | Calendario de contenido semanal |
@@ -155,11 +156,11 @@ Skills que aplican en cualquier fase del proceso.
 | `/kokoro-overlay` | Agregar captions y reformatear a vertical |
 | `/kokoro-render` | Ensamblar video final con normalizacion de audio |
 
-### Modulo Luxelling (posicionamiento de lujo)
+### Modulo Lux by Kokoro (posicionamiento de lujo)
 
 | Skill | Que hace |
 |-------|----------|
-| `/kokoro-luxury` | Router de modulos Luxelling |
+| `/kokoro-luxury` | Router de modulos Lux by Kokoro |
 | `/kokoro-luxury-assess` | Evaluacion de posicionamiento (triangulo FSE) |
 | `/kokoro-luxury-scarcity` | Escasez estrategica |
 | `/kokoro-luxury-quality` | Calidad extrema + poder simbolico |
