@@ -26,3 +26,4 @@
 | E28 | MCP reconectar con cuentas de email | Backlog | TBD | P1 |
 | E29 | Kokoro Onboard — Primera consulta profunda | Done | 1 story | P0 |
 | E30 | Lux by Kokoro — Rename from Luxelling | In Progress | 3 stories | P0 |
+| E31 | Kokoro Creative Review — Analisis bajo Meta AI | In Progress | 3 stories | P1 |
