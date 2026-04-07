@@ -1,12 +1,12 @@
 # /kokoro-luxury-growth — Crecer sin Perder el Brillo
 
-> Modulo Luxelling: Escala y Rentabilidad
+> Modulo Lux by Kokoro: Escala y Rentabilidad
 > "El crecimiento del lujo no es horizontal — es vertical ascendente."
 
 ## Contexto
 
 Guia al invitado en estrategias de crecimiento que escalen sin diluir
-los atributos que hacen valiosa su marca. Lee `luxelling-growth.md`.
+los atributos que hacen valiosa su marca. Lee `lux-growth.md`.
 
 ### Resolucion de invitado
 

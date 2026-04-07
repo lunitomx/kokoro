@@ -1,12 +1,12 @@
 # /kokoro-luxury-quality — Calidad Extrema y Poder Simbolico
 
-> Modulo Luxelling: Superpoder #2 + Arquitectura Simbolica
+> Modulo Lux by Kokoro: Superpoder #2 + Arquitectura Simbolica
 > "El lujo no fabrica — cultiva simbolos, protege significados."
 
 ## Contexto
 
 Guia al invitado en la construccion de calidad extrema y poder simbolico.
-Lee `luxelling-quality-symbolism.md`.
+Lee `lux-quality-symbolism.md`.
 
 ### Resolucion de invitado
 

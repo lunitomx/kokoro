@@ -1,13 +1,13 @@
 # /kokoro-luxury-communication — Comunicacion que Eleva
 
-> Modulo Luxelling: Construccion de Marca
+> Modulo Lux by Kokoro: Construccion de Marca
 > "El lujo no grita: susurra. No explica: seduce. No vende: enamora."
 
 ## Contexto
 
 Guia al invitado en la elevacion de su comunicacion usando codigos
 visuales, estrategia de color, artificacion y vocabulario luxurizante.
-Lee `luxelling-communication.md`.
+Lee `lux-communication.md`.
 
 ### Resolucion de invitado
 

@@ -1,4 +1,4 @@
-# /kokoro-luxury-assess — Evaluacion de Posicionamiento Luxelling
+# /kokoro-luxury-assess — Evaluacion de Posicionamiento Lux by Kokoro
 
 > Herramienta transversal: Triangulo Funcional-Simbolico-Emocional
 > Aplica antes de cualquier skill de lujo en Kokoro
@@ -10,11 +10,11 @@
 
 Este skill guia al emprendedor a traves de una evaluacion de posicionamiento
 usando el Triangulo F-S-E (Funcional-Simbolico-Emocional) del framework
-Luxelling. Cinco preguntas conversacionales determinan si la creacion del
+Lux by Kokoro. Cinco preguntas conversacionales determinan si la creacion del
 invitado opera en territorio de lujo, premium, o estandar.
 
-Lee el archivo de conocimiento `luxelling-assessment.md` en
-`.claude/knowledge/luxelling/` para consultar el framework completo:
+Lee el archivo de conocimiento `lux-assessment.md` en
+`.claude/knowledge/lux/` para consultar el framework completo:
 el Triangulo F-S-E, el mapa de posicionamiento, las 5 preguntas de
 evaluacion, y los criterios de clasificacion.
 
@@ -154,9 +154,9 @@ Suma los puntos y clasifica:
 
 | Puntuacion | Tier | Mensaje |
 |:----------:|------|---------|
-| **4-5** | **Luxury** | "Tu creacion opera en territorio de lujo. El valor que ofreces trasciende la funcion — vive en el significado, la emocion, la exclusividad. Los skills de Luxelling estan disenados para ti." |
-| **2-3** | **Premium** | "Tu creacion habita el territorio premium — superior al promedio, con elementos que rozan el lujo. Hay principios de Luxelling que pueden elevar tu posicionamiento selectivamente." |
-| **0-1** | **Standard** | "Tu creacion esta en territorio de mercado general o premium temprano. No es un juicio — es un punto de partida. La metodologia base de Kokoro es exactamente lo que necesitas ahora. Cuando tu posicionamiento evolucione, Luxelling estara aqui." |
+| **4-5** | **Luxury** | "Tu creacion opera en territorio de lujo. El valor que ofreces trasciende la funcion — vive en el significado, la emocion, la exclusividad. Los skills de Lux by Kokoro estan disenados para ti." |
+| **2-3** | **Premium** | "Tu creacion habita el territorio premium — superior al promedio, con elementos que rozan el lujo. Hay principios de Lux by Kokoro que pueden elevar tu posicionamiento selectivamente." |
+| **0-1** | **Standard** | "Tu creacion esta en territorio de mercado general o premium temprano. No es un juicio — es un punto de partida. La metodologia base de Kokoro es exactamente lo que necesitas ahora. Cuando tu posicionamiento evolucione, Lux by Kokoro estara aqui." |
 
 Presenta el resultado con profundidad. No solo el tier — explica QUE
 revelo cada respuesta y COMO se conectan. Usa el Triangulo F-S-E del
@@ -231,9 +231,9 @@ y donde hay oportunidad de evolucion.}
 
 {Recomendaciones basadas en el tier:}
 - **Luxury (4-5):** Usa `/kokoro-luxury` para explorar los modulos de
-  Luxelling aplicados a tu creacion.
+  Lux by Kokoro aplicados a tu creacion.
 - **Premium (2-3):** Los skills base de Kokoro son tu fundamento. Algunos
-  principios de Luxelling pueden elevar selectivamente — explora con
+  principios de Lux by Kokoro pueden elevar selectivamente — explora con
   `/kokoro-luxury` cuando estes listo.
 - **Standard (0-1):** Enfocate en la metodologia Kokoro: `/kokoro-diagnose`
   para claridad, `/kokoro-canvas` para modelo de negocio, `/kokoro-pescar`
@@ -253,7 +253,7 @@ y donde hay oportunidad de evolucion.}
 - La evaluacion es brujula, no barrera — nunca hagas sentir al invitado
   que "fallo" si su resultado es standard o premium
 - Si el invitado ya tiene positioning_tier, ofrece reevaluar pero no fuerces
-- Lee `luxelling-assessment.md` para enriquecer la interpretacion con el
+- Lee `lux-assessment.md` para enriquecer la interpretacion con el
   framework completo del Triangulo F-S-E
 
 ## Persistencia
@@ -281,7 +281,7 @@ entry = {
     "type": "assessment",
     "skill": "/kokoro-luxury-assess",
     "client_id": client.id,
-    "summary": "Evaluacion Luxelling: {tier} ({score}/5)",
+    "summary": "Evaluacion Lux by Kokoro: {tier} ({score}/5)",
     "hallazgos": ["{insights del posicionamiento descubiertos}"],
     "artifacts": [],
     "next_action": "{siguiente paso basado en el tier}"

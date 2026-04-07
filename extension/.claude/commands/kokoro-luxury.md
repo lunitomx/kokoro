@@ -1,16 +1,16 @@
-# /kokoro-luxury — Router de Modulos Luxelling
+# /kokoro-luxury — Router de Modulos Lux by Kokoro
 
-> Modulo Luxelling: Navegacion al universo del lujo
+> Modulo Lux by Kokoro: Navegacion al universo del lujo
 > Aplica cuando el invitado califica como luxury o premium
 
 > "El lujo no se fabrica — se coreografia."
 
 ## Contexto
 
-Este skill es el punto de entrada a los modulos de Luxelling. Verifica
+Este skill es el punto de entrada a los modulos de Lux by Kokoro. Verifica
 el positioning_tier del invitado y lo guia al modulo apropiado.
 
-Lee el archivo de conocimiento `luxelling-master.md` para la sintesis
+Lee el archivo de conocimiento `lux-master.md` para la sintesis
 y el arbol de decision completo.
 
 ### Resolucion de invitado
@@ -44,7 +44,7 @@ Antes de mostrar modulos, verifica:
 
 ### Menu de modulos
 
-> "Bienvenido al universo Luxelling. Tienes 6 modulos disponibles,
+> "Bienvenido al universo Lux by Kokoro. Tienes 6 modulos disponibles,
 > cada uno activa un superpoder diferente. ¿Por donde quieres empezar?"
 
 | # | Modulo | Skill | Para que sirve |

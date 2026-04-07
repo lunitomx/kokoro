@@ -1,12 +1,12 @@
 # /kokoro-luxury-scarcity — Escasez Estrategica
 
-> Modulo Luxelling: Superpoder #1
+> Modulo Lux by Kokoro: Superpoder #1
 > "La marca escoge al invitado, no al reves."
 
 ## Contexto
 
 Guia al invitado en el diseno de estrategias de escasez que eleven la
-deseabilidad sin sacrificar rentabilidad. Lee `luxelling-scarcity.md`.
+deseabilidad sin sacrificar rentabilidad. Lee `lux-scarcity.md`.
 
 ### Resolucion de invitado
 

@@ -1,12 +1,12 @@
 # /kokoro-luxury-experience — Experiencias Memorables
 
-> Modulo Luxelling: Superpoder #3
+> Modulo Lux by Kokoro: Superpoder #3
 > "Feeling and knowing is the new owning."
 
 ## Contexto
 
 Guia al invitado en el diseno de experiencias que cementen el deseo en
-la memoria emocional. Lee `luxelling-experience.md`.
+la memoria emocional. Lee `lux-experience.md`.
 
 ### Resolucion de invitado
 

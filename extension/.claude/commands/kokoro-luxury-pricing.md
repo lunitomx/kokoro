@@ -1,12 +1,12 @@
 # /kokoro-luxury-pricing — Estrategia de Precios en Lujo
 
-> Modulo Luxelling: Escala y Rentabilidad
+> Modulo Lux by Kokoro: Escala y Rentabilidad
 > "No es tanto cuanto cuesta, sino como explico por que vale la pena."
 
 ## Contexto
 
 Guia al invitado en la definicion de una estrategia de precios coherente
-con posicionamiento de lujo. Lee `luxelling-pricing.md`.
+con posicionamiento de lujo. Lee `lux-pricing.md`.
 
 ### Resolucion de invitado
 
