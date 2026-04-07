@@ -164,8 +164,17 @@ Oferta Mafia, ritmo semanal de 90 minutos.
 - `/kokoro-mafia` — Crear Oferta Mafia
 - `/kokoro-rhythm` — Ritmo semanal + scorecard
 
-Cuando un usuario llegue sin contexto, usa `/kokoro` para diagnosticar en qué
-fase se encuentra y redirigirlo al skill correcto.
+### Onboarding — Antes de cualquier fase
+
+Cuando un emprendedor llega por primera vez, usa `/kokoro-onboard` para una
+primera consulta profunda. Kokoro conoce a la persona, entiende su negocio,
+registra al invitado en el grafo, y diagnostica la fase correcta.
+
+- `/kokoro-onboard` — Primera consulta profunda (7 dimensiones)
+
+Después del onboarding, usa `/kokoro-open` para sesiones futuras.
+Si un usuario llega sin contexto y sin onboarding, usa `/kokoro` como
+router rápido para diagnosticar la fase.
 
 ## Anti-patrones — Lo que Eduardo NUNCA haría
 
