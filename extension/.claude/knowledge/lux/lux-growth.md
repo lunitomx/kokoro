@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-growth"
+knowledge_id: "lux-growth"
 purpose: "Luxury growth strategies — brand stretching, luxury pyramid, scaling without dilution"
 sources: ["notas-eduardo/07-crecer-sin-perder-brillo"]
 consumed_by: ["/kokoro-luxury-growth"]
 ---
 
-# Luxelling Growth — Crecer sin Perder el Brillo
+# Lux by Kokoro Growth — Crecer sin Perder el Brillo
 
 > The paradox: luxury brands must grow to stay competitive (6-8% annual in the
 > sector), but growth can dilute the attributes that make them valuable.

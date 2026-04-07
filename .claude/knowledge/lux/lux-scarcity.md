@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-scarcity"
+knowledge_id: "lux-scarcity"
 purpose: "Strategic scarcity frameworks — demand gap, selective distribution, editions"
 sources: ["notas-eduardo/03-superpoderes-del-lujo"]
 consumed_by: ["/kokoro-luxury-scarcity"]
 ---
 
-# Luxelling Scarcity — Escasez Estrategica
+# Lux by Kokoro Scarcity — Escasez Estrategica
 
 > Scarcity is the first superpower of luxury. It creates desire through controlled
 > limitation — the brand chooses the invitado, not the other way around.

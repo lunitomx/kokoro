@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-assessment"
+knowledge_id: "lux-assessment"
 purpose: "Positioning assessment framework — classify invitados as luxury, premium, or standard"
 sources: ["notas-eduardo/01-el-lujo-y-su-proposito", "notas-eduardo/02-mass-market-premium-lujo"]
 consumed_by: ["/kokoro-luxury-assess"]
 ---
 
-# Luxelling Assessment — Positioning Framework
+# Lux by Kokoro Assessment — Positioning Framework
 
 > Classify an invitado's business into luxury, premium, or standard positioning
 > using the Triangulo Funcional-Simbolico-Emocional (F-S-E) framework.

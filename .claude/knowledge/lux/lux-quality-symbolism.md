@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-quality-symbolism"
+knowledge_id: "lux-quality-symbolism"
 purpose: "Extreme quality standards and symbolic architecture — the invisible infrastructure of luxury"
 sources: ["notas-eduardo/03-superpoderes-del-lujo", "notas-eduardo/04-creando-poder-simbolico"]
 consumed_by: ["/kokoro-luxury-quality"]
 ---
 
-# Luxelling Quality and Symbolism
+# Lux by Kokoro Quality and Symbolism
 
 > Quality justifies the desire that scarcity creates. Symbolic power makes the
 > quality transcend function and become meaning. Together, they are the structural

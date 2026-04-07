@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-pricing"
+knowledge_id: "lux-pricing"
 purpose: "Luxury pricing strategy — Veblen effect, value-based pricing, communication of price"
 sources: ["notas-eduardo/08-estrategia-de-precios"]
 consumed_by: ["/kokoro-luxury-pricing"]
 ---
 
-# Luxelling Pricing — Estrategia de Precios en Lujo
+# Lux by Kokoro Pricing — Estrategia de Precios en Lujo
 
 > In luxury, pricing is philosophy, not mathematics. The price creates the
 > brand, not the other way around.

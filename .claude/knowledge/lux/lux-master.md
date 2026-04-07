@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-master"
+knowledge_id: "lux-master"
 purpose: "Unified luxury framework synthesis — cross-module master reference for router skill"
-sources: ["notas-eduardo/LUXELLING_Arquitectura_Completa_del_Lujo"]
+sources: ["notas-eduardo/Arquitectura_Completa_del_Lujo"]
 consumed_by: ["/kokoro-luxury"]
 ---
 
-# Luxelling Master — Arquitectura Integral del Lujo
+# Lux by Kokoro Master — Arquitectura Integral del Lujo
 
 > A unified framework for understanding, building, and scaling luxury brands
 > with coherence, purpose, and strategic power.
@@ -23,7 +23,7 @@ prices and generates genuine loyalty.
 ## The 5 Parts of the Architecture
 
 ### Part 1: El Mapa Fundamental
-**Module:** `luxelling-assessment.md`
+**Module:** `lux-assessment.md`
 
 The three universes of value: Mass Market, Premium, Luxury. The fundamental
 decision is architectural — it defines your entire operations model.
@@ -34,7 +34,7 @@ decision is architectural — it defines your entire operations model.
 - No successful hybrids exist — coherence requires absolute clarity
 
 ### Part 2: Diferenciacion y Construccion de Valor
-**Modules:** `luxelling-assessment.md` + `luxelling-quality-symbolism.md`
+**Modules:** `lux-assessment.md` + `lux-quality-symbolism.md`
 
 Premium vs Luxury is the critical distinction. Plus: the 8 Pillars of Symbolic
 Architecture — the invisible foundation of every luxury brand.
@@ -50,7 +50,7 @@ Architecture — the invisible foundation of every luxury brand.
 8. Shopper Journey — Symbolic initiation path
 
 ### Part 3: Los Superpoderes del Lujo
-**Modules:** `luxelling-scarcity.md` + `luxelling-quality-symbolism.md` + `luxelling-experience.md`
+**Modules:** `lux-scarcity.md` + `lux-quality-symbolism.md` + `lux-experience.md`
 
 Three superpowers that create desire:
 
@@ -66,7 +66,7 @@ Deseabilidad = 1 / (Puertas x Visibilidad Comun)
 ```
 
 ### Part 4: Construccion de la Marca
-**Module:** `luxelling-communication.md`
+**Module:** `lux-communication.md`
 
 Communication that elevates — visual codes, artification, vocabulary strategy.
 
@@ -82,7 +82,7 @@ Known by many + Accessible by few + Admired by all = Luxury
 ```
 
 ### Part 5: Escala y Rentabilidad
-**Modules:** `luxelling-pricing.md` + `luxelling-growth.md`
+**Modules:** `lux-pricing.md` + `lux-growth.md`
 
 Pricing as philosophy and growth without dilution.
 

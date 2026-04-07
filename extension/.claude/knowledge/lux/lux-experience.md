@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-experience"
+knowledge_id: "lux-experience"
 purpose: "Memorable experience design — multisensory, tribe-building, campfire framework"
 sources: ["notas-eduardo/03-superpoderes-del-lujo"]
 consumed_by: ["/kokoro-luxury-experience"]
 ---
 
-# Luxelling Experience — Experiencias Memorables
+# Lux by Kokoro Experience — Experiencias Memorables
 
 > The third superpower of luxury: experiences that cement desire in emotional
 > memory. Feeling and knowing is the new owning.

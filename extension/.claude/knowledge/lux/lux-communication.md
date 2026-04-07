@@ -1,11 +1,11 @@
 ---
-knowledge_id: "luxelling-communication"
+knowledge_id: "lux-communication"
 purpose: "Luxury communication codes — visual language, color strategy, artification, vocabulary"
 sources: ["notas-eduardo/05-comunicacion-que-eleva"]
 consumed_by: ["/kokoro-luxury-communication"]
 ---
 
-# Luxelling Communication — Comunicacion que Eleva
+# Lux by Kokoro Communication — Comunicacion que Eleva
 
 > Luxury communication is performative: it doesn't just inform, it transforms
 > the viewer's perception by positioning them within an exclusive symbolic universe.
