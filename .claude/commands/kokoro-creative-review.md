@@ -166,7 +166,7 @@ Segun el resultado, sugiere:
 
 Guarda el analisis en:
 ```
-clientes/{grupo}/campanas/meta-ads/review-{fecha}-{descripcion}.md
+invitados/{grupo}/campanas/meta-ads/review-{fecha}-{descripcion}.md
 ```
 
 ## Anti-patrones
@@ -176,6 +176,6 @@ clientes/{grupo}/campanas/meta-ads/review-{fecha}-{descripcion}.md
 - No prometer resultados exactos — la prediccion es heuristica informada,
   no certeza
 - No ignorar el contexto del invitado — un creativo de lujo se evalua
-  diferente que uno de producto accesible
+  diferente que uno de creacion accesible
 - No usar "producto", "precio", "cliente" — vocabulario luxurizante siempre
 - No dar listas de tips — guiar con la tecnica espejo-pivotar-ofrecer
