@@ -79,7 +79,7 @@ reutilizable por otros skills como /kokoro-launch).
 | # | ID | Name | Size | Depends On | Rationale | Status |
 |---|-----|------|------|------------|-----------|--------|
 | 1 | S32.1 | Knowledge: Lean Landing Page | S | — | Fundacion. Sin knowledge file el skill no tiene contra que evaluar. Ademas, es reutilizable por /kokoro-launch. | complete |
-| 2 | S32.2 | Skill: /kokoro-landing | M | S32.1 | Core delivery. Consume el knowledge file. Patron ya establecido en E31. | pending |
+| 2 | S32.2 | Skill: /kokoro-landing | M | S32.1 | Core delivery. Consume el knowledge file. Patron ya establecido en E31. | complete |
 | 3 | S32.3 | Tests + verificacion | S | S32.2 | Validacion. Verifica vocabulario, estructura de output, e integracion con /kokoro-audit. | pending |
 
 ### Critical Path
