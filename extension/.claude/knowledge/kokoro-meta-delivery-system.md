@@ -197,7 +197,7 @@ claridad sobre por que los numeros se ven como se ven.
 | **Sequence Learning** | Sin historia temporal. No puede predecir journeys. | Comenzando a mapear secuencias (vista → visita → conversion). | Historia temporal suficiente. Predice el siguiente paso del journey. |
 
 **Implicacion practica:** Si restringes placements en Fase 1, le quitas
-datos a Lattice. Si cambias el creativo en Fase 2, reincias el mapeo de
+datos a Lattice. Si cambias el creativo en Fase 2, reinicias el mapeo de
 Andromeda. Si ignoras la frecuencia en Fase 3, Sequence Learning muestra
 el mismo ad a la misma persona hasta que lo ignora.
 
