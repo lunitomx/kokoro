@@ -1,7 +1,7 @@
 ---
 epic_id: "E32"
 title: "Kokoro Landing — Auditoria estrategica de landing pages"
-status: "Planned"
+status: "Complete"
 ---
 
 # Scope: E32 — Kokoro Landing
@@ -54,12 +54,12 @@ de copy y adherencia a los 5 principios fundamentales.
 
 ## Done Criteria
 
-- [ ] `/kokoro-landing` disponible como skill en ambos mirrors
-- [ ] Knowledge file con metodologia completa instalado
-- [ ] Skill produce analisis estructurado de landing pages reales
-- [ ] Scorecard cubre los 5 principios con diagnostico accionable
-- [ ] Voz Eduardo presente en rewrites y sugerencias
-- [ ] Tests pasan
+- [x] `/kokoro-landing` disponible como skill en ambos mirrors
+- [x] Knowledge file con metodologia completa instalado
+- [x] Skill produce analisis estructurado de landing pages reales
+- [x] Scorecard cubre los 5 principios con diagnostico accionable
+- [x] Voz Eduardo presente en rewrites y sugerencias
+- [x] Tests pasan
 
 ---
 
@@ -80,7 +80,7 @@ reutilizable por otros skills como /kokoro-launch).
 |---|-----|------|------|------------|-----------|--------|
 | 1 | S32.1 | Knowledge: Lean Landing Page | S | — | Fundacion. Sin knowledge file el skill no tiene contra que evaluar. Ademas, es reutilizable por /kokoro-launch. | complete |
 | 2 | S32.2 | Skill: /kokoro-landing | M | S32.1 | Core delivery. Consume el knowledge file. Patron ya establecido en E31. | complete |
-| 3 | S32.3 | Tests + verificacion | S | S32.2 | Validacion. Verifica vocabulario, estructura de output, e integracion con /kokoro-audit. | pending |
+| 3 | S32.3 | Tests + verificacion | S | S32.2 | Validacion. Verifica vocabulario, estructura de output, e integracion con /kokoro-audit. | complete |
 
 ### Critical Path
 
