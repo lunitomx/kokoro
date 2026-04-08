@@ -1,0 +1,42 @@
+artifact_type: story-design
+version: 1
+skill: rai-story-design
+created: '2026-04-07T00:00:00Z'
+story: 'S32.1'
+epic: 'E32'
+content:
+  summary: 'Extract and structure Eduardo''s Lean Landing Page methodology (5 principles, 9 blocks, anti-patterns, metrics) from PDF + transcript into a knowledge file that other Kokoro skills can reference.'
+  complexity: simple
+  acceptance_criteria:
+    - id: AC1
+      description: 'Knowledge file contains all 5 principles with definition, verifiable criteria, and scoring (present/partial/absent) per principle'
+      verifiable: true
+    - id: AC2
+      description: 'Knowledge file contains all 9 blocks with objective, golden rule, evaluation criteria, anti-pattern, and example per block'
+      verifiable: true
+    - id: AC3
+      description: 'Anti-patterns section documents what a Lean Landing Page is NOT plus common mistakes'
+      verifiable: true
+    - id: AC4
+      description: 'Reference metrics table includes all 4 benchmarks (conversion 25%, ICP 90%, show-up 80%, time 7d)'
+      verifiable: true
+    - id: AC5
+      description: 'File exists in both mirrors (extension/.claude/knowledge/ and .claude/knowledge/) and copies are identical'
+      verifiable: true
+  integration_points: []
+  decisions:
+    - id: D1
+      choice: 'PDF as primary source (structured), transcript as secondary (nuance/examples)'
+      rationale: 'The PDF is a curated v2.0 document — already structured, reviewed, and organized. The transcript is rich in context but unstructured. Extracting structure from the PDF and color from the transcript produces the highest-quality knowledge file with the least risk of misinterpretation.'
+      alternatives_considered: ['Transcript-first (too unstructured)', 'PDF-only (loses teaching nuance)', 'Merge both equally (creates conflict when they diverge)']
+  components:
+    - action: create
+      path: 'extension/.claude/knowledge/kokoro-lean-landing.md'
+      description: 'Primary knowledge file — Lean Landing Page methodology'
+    - action: create
+      path: '.claude/knowledge/kokoro-lean-landing.md'
+      description: 'Mirror copy (identical to primary)'
+refs:
+  backlog_item: ''
+  epic_scope: 'work/epics/e32-kokoro-landing/scope.md'
+  prior_art: 'PDF "Guia Lean Landing Page 2026 v2.0" + class transcript session 56'
