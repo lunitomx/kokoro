@@ -1,7 +1,7 @@
 ---
 epic_id: "E32"
 title: "Kokoro Landing — Auditoria estrategica de landing pages bajo Lean Landing Page"
-status: "Scoped"
+status: "Designed"
 ---
 
 # Brief: E32 — Kokoro Landing
