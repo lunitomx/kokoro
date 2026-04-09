@@ -215,6 +215,39 @@ AUDIENCIA ADVANTAGE+
 {descripcion de audiencia para Meta AI targeting}
 ```
 
+## Thresholds de Decision — Cuando Apagar o Pausar un Ad
+
+Para el contexto completo del sistema de delivery de Meta (fases, mecanica
+de Andromeda/GEM/Lattice, resets de learning phase, budget minimos), ver
+`kokoro-meta-delivery-system.md`.
+
+Esta seccion es una referencia rapida de decision para el skill `/kokoro-ads`.
+
+### Tabla de Decision
+
+| Situacion | Threshold | Accion |
+|-----------|-----------|--------|
+| Ad en exploracion (<500 impresiones, <3 dias) | Cualquier metrica | ESPERAR — datos insuficientes |
+| Ad en learning temprano (<500 imp, 3-5 dias) | <1x CPA invertido | ESPERAR — sin signal |
+| Ad en learning (500-2000 imp, 5-7 dias, 0 conv) | 1-2x CPA | REVISAR copy/targeting, no apagar |
+| Ad en learning (500-2000 imp, 5-7 dias, 0 conv) | 2-3x CPA | SOFT PAUSE — revisar antes de reactivar |
+| Ad con signal suficiente (>2000 imp, >5 dias, 0 conv) | >3x CPA | HARD KILL — no convierte |
+| Ad con conversiones, <5 dias | Cualquier CPA | ESPERAR — hay signal positiva |
+| Ad en optimizacion (>7 dias, conversiones) | CPA >30% arriba del target | OPTIMIZAR — ajustar, no apagar |
+
+### Regla de Oro
+
+> **NUNCA recomendar apagar un ad que no ha salido de learning phase.**
+> Si las impresiones son <500 o el tiempo activo es <5 dias, la accion
+> default es ESPERAR. El sistema de delivery de Meta necesita volumen
+> minimo para optimizar. Apagar antes de tiempo es desperdiciar la
+> inversion en datos que nunca llegaron a madurar.
+
+### Referencia cruzada
+
+Para el sistema completo de delivery (fases, resets, budget minimos),
+ver `kokoro-meta-delivery-system.md`.
+
 ## Anti-patrones
 
 ### Formato
