@@ -56,6 +56,42 @@ Antes de iniciar, intenta resolver el invitado desde el grafo:
    - Al final de la sesión, sugiere: "Considera registrar este cliente con
      `/kokoro-client` para que la próxima vez tenga todo el contexto listo."
 
+### Gate de Learning Phase — Antes de recomendar on/off
+
+Cuando analices datos de rendimiento de ads (desde MCP de Facebook Ads,
+reportes del invitado, o cualquier fuente), ANTES de recomendar apagar
+o pausar un ad, verifica:
+
+Lee `kokoro-meta-delivery-system.md` y `kokoro-ads-meta.md` (seccion
+Thresholds de Decision) para los criterios completos.
+
+**Verificacion rapida:**
+
+1. **Impresiones** — El ad tiene <500 impresiones? → NO recomendar apagar.
+   El sistema esta en exploracion.
+2. **Tiempo activo** — El ad lleva <5 dias? → NO recomendar apagar.
+   No hay signal suficiente.
+3. **Inversion vs CPA target** — Se ha invertido <3x el CPA target sin
+   conversiones? → Esperar o revisar, no apagar.
+4. **Conversiones** — El ad tiene >0 conversiones? → NUNCA apagar. Optimizar.
+
+**Si el ad NO pasa los 4 checks, la recomendacion es ESPERAR:**
+
+> "Este ad tiene [X] impresiones y [Y] de inversion en [Z] dias.
+> El sistema de delivery de Meta necesita mas datos para optimizar.
+> Recomiendo esperar a que acumule signal suficiente (minimo 500
+> impresiones o 5 dias activo) antes de evaluar su rendimiento."
+
+**Si el ad SI pasa los checks** (>500 imp, >5 dias, >3x CPA, 0 conv):
+
+> "Este ad ha tenido oportunidad suficiente de optimizar y no esta
+> generando conversaciones. Recomiendo pausarlo y redirigir la inversion
+> hacia los creativos que si estan convirtiendo."
+
+Referencia: lunitomx/kokoro#1 — caso donde se recomendo apagar un ad
+en exploracion (283 impresiones, $79 MXN). La recomendacion correcta
+era esperar.
+
 ## Instrucciones para la sesion
 
 ### Antes de comenzar — Estrategia del Proyector
@@ -257,6 +293,9 @@ Usa `/kokoro-funnel` para disenar el embudo completo de la campana.
 - No uses "10 tips para...", "hacks", "growth hacking", "monetizar", "escalar rapido"
 - Los archivos .txt no deben contener markdown — Meta Ads Manager renderiza
   asteriscos y hashes como texto literal
+- CRITICO: Antes de recomendar apagar un ad, verificar fase de delivery
+  (ver gate de Learning Phase). Nunca recomendar apagar con <500
+  impresiones o <5 dias activo (correccion lunitomx/kokoro#1)
 
 ## Persistencia
 
