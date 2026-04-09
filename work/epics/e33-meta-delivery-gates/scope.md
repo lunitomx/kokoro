@@ -56,9 +56,9 @@ ads, y agregar gate de learning phase al skill /kokoro-ads.
 
 - [x] Knowledge file con delivery system completo instalado
 - [x] kokoro-ads-meta.md tiene seccion de thresholds
-- [ ] /kokoro-ads tiene gate de learning phase antes de recomendar on/off
-- [ ] El escenario del issue #1 no se repite (ad con 283 impresiones NO se recomienda apagar)
-- [ ] Verificacion completa
+- [x] /kokoro-ads tiene gate de learning phase antes de recomendar on/off
+- [x] El escenario del issue #1 no se repite (ad con 283 impresiones NO se recomienda apagar)
+- [x] Verificacion completa
 
 ---
 
@@ -75,7 +75,7 @@ establece los thresholds que el gate aplica.
 |---|-----|------|------|------------|-----------|--------|
 | 1 | S33.1 | Knowledge: Meta Delivery System | M | — | Fundacion. Sin knowledge file no hay thresholds que referenciar. | complete |
 | 2 | S33.2 | Update: kokoro-ads-meta.md | S | S33.1 | Agrega thresholds al knowledge existente. | complete |
-| 3 | S33.3 | Gate: /kokoro-ads learning check | S | S33.2 | Core fix. Agrega el gate que previene el bug. | pending |
+| 3 | S33.3 | Gate: /kokoro-ads learning check | S | S33.2 | Core fix. Agrega el gate que previene el bug. | complete |
 
 ### Critical Path
 
@@ -96,6 +96,6 @@ S33.1 (knowledge) → S33.2 (update) → S33.3 (gate)
   y confirmar que la respuesta es "esperar".
 
 #### M3: Epic Complete (after S33.3)
-- [ ] /kokoro-ads tiene gate funcional
+- [x] /kokoro-ads tiene gate funcional
 - **Demo:** Simular el escenario del issue y confirmar que Kokoro recomienda
   esperar en vez de apagar.
