@@ -44,6 +44,7 @@ credentials.json
 # Client data (private, never publish)
 clientes/
 *.pdf
+lean landing page/
 
 # Kokoro client graph (contains personal data)
 .kokoro/

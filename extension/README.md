@@ -2,7 +2,7 @@
 
 > El corazon estrategico de Eduardo Munoz Luna — donde la sabiduria ancestral se encuentra con la estrategia de marketing contemporanea.
 
-Kokoro es un sistema de 48 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases. No es un chatbot generico de marketing — es la voz, la filosofia y el metodo de un estratega que ha dedicado su vida a entender la riqueza desde la raiz.
+Kokoro es un sistema de 49 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases. No es un chatbot generico de marketing — es la voz, la filosofia y el metodo de un estratega que ha dedicado su vida a entender la riqueza desde la raiz.
 
 ---
 
@@ -132,6 +132,7 @@ Skills que aplican en cualquier fase del proceso.
 | `/kokoro-ads` | Campanas de Meta Ads (copy + targeting + estructura) |
 | `/kokoro-creative` | Generador de creativos con IA (imagenes via Gemini) |
 | `/kokoro-creative-review` | Analisis de creativos bajo Meta AI (GEM, Andromeda, Lattice) |
+| `/kokoro-placements` | Analisis de ubicaciones de Meta Ads (optimizar distribucion) |
 | `/kokoro-publish` | Publicar creativos en Meta Ads |
 | `/kokoro-character` | Generador de personajes hiper-realistas |
 | `/kokoro-calendar` | Calendario de contenido semanal |
@@ -213,13 +214,13 @@ Sin contexto:    /kokoro → router rapido de fases
 extension/
   .claude/
     CLAUDE.md              # Identidad y voz de Kokoro
-    commands/              # 48 skills (slash commands)
+    commands/              # 49 skills (slash commands)
       kokoro.md            # Router principal
       kokoro-onboard.md    # Onboarding profundo
       kokoro-diagnose.md   # Fase 1: Diagnostico
       kokoro-ads.md        # Meta Ads
       ...
-    knowledge/             # 33 archivos de conocimiento
+    knowledge/             # 37 archivos de conocimiento
       kokoro-metodologia.md
       kokoro-ads-meta.md
       kokoro-onboard-methodology.md
