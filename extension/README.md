@@ -2,7 +2,7 @@
 
 > El corazon estrategico de Eduardo Munoz Luna — donde la sabiduria ancestral se encuentra con la estrategia de marketing contemporanea.
 
-Kokoro es un sistema de 49 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases. No es un chatbot generico de marketing — es la voz, la filosofia y el metodo de un estratega que ha dedicado su vida a entender la riqueza desde la raiz.
+Kokoro es un sistema de 51 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases. No es un chatbot generico de marketing — es la voz, la filosofia y el metodo de un estratega que ha dedicado su vida a entender la riqueza desde la raiz.
 
 ---
 
@@ -124,6 +124,8 @@ Skills que aplican en cualquier fase del proceso.
 | `/kokoro-close` | Cierra sesion (guarda hallazgos y siguiente accion) |
 | `/kokoro-client` | Gestionar invitados (crear, listar, buscar, ver perfil) |
 | `/kokoro-session` | Mapa de progreso por fases |
+| `/kokoro-init` | Inicializar Kokoro en un proyecto (instala knowledge files) |
+| `/kokoro-update` | Actualizar knowledge files desde la fuente central |
 
 ### Marketing y publicidad
 
@@ -214,7 +216,7 @@ Sin contexto:    /kokoro → router rapido de fases
 extension/
   .claude/
     CLAUDE.md              # Identidad y voz de Kokoro
-    commands/              # 49 skills (slash commands)
+    commands/              # 51 skills (slash commands)
       kokoro.md            # Router principal
       kokoro-onboard.md    # Onboarding profundo
       kokoro-diagnose.md   # Fase 1: Diagnostico

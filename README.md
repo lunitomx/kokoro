@@ -2,7 +2,7 @@
 
 > El corazon estrategico de Eduardo Munoz Luna.
 
-Sistema de 49 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases: Preparar el Suelo, Elegir la Semilla, Germinar y Cosechar.
+Sistema de 51 skills para [Claude Code](https://claude.ai/claude-code) que guia emprendedores a traves de un proceso estrategico de 4 fases: Preparar el Suelo, Elegir la Semilla, Germinar y Cosechar.
 
 ## Inicio rapido
 
@@ -18,7 +18,7 @@ Escribe `/kokoro-onboard` para tu primera sesion.
 
 Ver [extension/README.md](extension/README.md) para documentacion completa:
 - Instalacion y configuracion
-- Lista de los 49 skills con descripcion y uso
+- Lista de los 51 skills con descripcion y uso
 - Las 4 Fases de la metodologia
 - Como interactuar con Kokoro
 - Estructura del proyecto
@@ -29,7 +29,7 @@ Ver [extension/README.md](extension/README.md) para documentacion completa:
 extension/          # Carpeta distribuible — clona y usa
   .claude/
     CLAUDE.md       # Identidad de Kokoro
-    commands/       # 49 skills
+    commands/       # 51 skills
     knowledge/      # 37 archivos de conocimiento
 ```
 
