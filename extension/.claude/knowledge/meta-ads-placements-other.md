@@ -11,8 +11,84 @@
 > Aumenta la visibilidad de tu negocio en las búsquedas que realizan las
 > personas.
 
-*(Pendiente de documentación visual — agregar screenshots cuando estén
-disponibles)*
+### 1. `facebook_search_results`
+
+**Nombre en Ads Manager:** Resultados de búsqueda de Facebook
+**Categoría:** Resultados de búsqueda
+**Formato recomendado:** Imagen o video cuadrado (1:1)
+**Incluye:** Búsqueda general + búsqueda de Marketplace
+
+**Descripción visual del preview:**
+
+El anuncio aparece dentro de los resultados de búsqueda de Facebook cuando
+alguien busca algo específico. El usuario ya escribió una query — tiene
+intención.
+
+Estructura de arriba hacia abajo:
+
+1. **Barra de búsqueda** — Flecha de regreso (←) + campo de búsqueda con la
+   query del usuario (ej: "pie recipes"). Búsqueda activa
+2. **Tabs de filtro** — All | Posts | People | Reels | Groups. Filtros
+   horizontales para refinar. El anuncio aparece en la tab "All"
+3. **Resultado orgánico arriba** — Se ve el inicio de un resultado orgánico
+   antes del anuncio. El anuncio se intercala entre resultados reales
+4. **Encabezado del anuncio** — Foto de perfil circular del anunciante + nombre
+   de la página + etiqueta "Sponsored"
+5. **Creativo principal** — Imagen en formato cuadrado (1:1). Ocupa el ancho
+   completo en ratio cuadrado
+
+**Contexto de experiencia:** El usuario tiene INTENCIÓN DE BÚSQUEDA activa —
+escribió una query. Es uno de los pocos placements en Meta donde hay intent
+explícito, similar a Google Search Ads. El anuncio debe ser relevante a lo
+que la persona buscó. Incluye tanto la búsqueda general como Marketplace.
+
+**Diferencias clave vs Facebook Feed:** Hay búsqueda activa — el usuario no
+está en scroll pasivo. Formato cuadrado (1:1) recomendado en lugar de vertical
+(4:5). Es el placement de Meta más cercano a Google Search Ads en términos de
+intención.
+
+---
+
+### 2. `instagram_search_results`
+
+**Nombre en Ads Manager:** Resultados de búsqueda de Instagram
+**Categoría:** Resultados de búsqueda
+**Formato recomendado:** Imagen o video cuadrado (1:1). Videos hasta 15 min.
+El preview individual muestra formato vertical (9:16) tipo Reels, pero la
+recomendación oficial de la categoría es cuadrado (1:1).
+**Incluye:** Solo el feed de resultados de búsqueda
+
+**Descripción visual del preview:**
+
+El anuncio aparece en pantalla completa dentro del feed vertical de resultados
+de búsqueda de Instagram. Visualmente similar a Reels — vertical, inmersivo,
+con barra lateral.
+
+Estructura visible:
+
+1. **Header de búsqueda** — Flecha de regreso (←) + campo de búsqueda con
+   "[Search term]" en la parte superior
+2. **Creativo principal** — Imagen/video que ocupa el 100% de la pantalla
+   (9:16). Pantalla completa como Reels
+3. **Barra lateral derecha** — Columna vertical de íconos:
+   - Corazón (like)
+   - Comentario
+   - Compartir (paper plane)
+   - Menú (⋯)
+   Misma disposición que Instagram Reels
+4. **Información del anunciante** — Zona inferior izquierda: handle +
+   etiqueta "Sponsored"
+5. **CTA "Learn more"** — Botón con flecha (>) en la zona inferior
+
+**Contexto de experiencia:** El usuario buscó algo en Instagram y está
+navegando los resultados en formato vertical fullscreen (como Reels pero
+filtrado por la query). Hay intención de búsqueda activa. El formato 9:16
+vertical lo hace más inmersivo que Facebook Search Results (formato Feed).
+
+**Diferencias clave vs Facebook Search Results:** Formato vertical fullscreen
+(9:16) vs cuadrado (1:1) en Facebook. Experiencia tipo Reels (scroll vertical,
+barra lateral de engagement) vs experiencia tipo Feed. Mucho más inmersivo.
+Solo incluye el feed de resultados, no Marketplace.
 
 ---
 
@@ -166,7 +242,8 @@ mejor placement para awareness/branding puro y el peor para conversión directa.
 
 | # | Categoría | Placement | Formato | Contexto | Intención |
 |---|-----------|-----------|---------|----------|-----------|
-| 1 | Resultados de búsqueda | *(pendiente)* | *(pendiente)* | Búsquedas en Meta | Alta (búsqueda activa) |
+| 1 | Resultados de búsqueda | Facebook Search Results | Cuadrado (1:1) | Búsqueda FB + Marketplace | Alta (búsqueda activa) |
+| Resultados de búsqueda | Instagram Search Results | 9:16 / 1:1 | Búsqueda IG (feed vertical) | Alta (búsqueda activa) |
 | 2 | Mensajes de marketing | WhatsApp Marketing | Imagen + texto chat | Chat privado WhatsApp | Variable (opt-in previo) |
 | 3 | Apps y sitios web | Audience Network Nativo/Banner/Intersticial | 9:16 / variable | Apps y webs externas | Baja (interrupción) |
 | 4 | Apps y sitios web | Audience Network Rewarded Video | 9:16 video | Gaming / apps con premios | Baja (quiere el premio) |
